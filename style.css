@@ -21,6 +21,8 @@ nav { margin-top: 26px; }
 .menu-button.active { color: white; background: var(--navy-light); box-shadow: inset 3px 0 var(--yellow); }
 .menu-number { color: #92a0b5; font-size: .8rem; }
 .menu-button.active .menu-number { color: var(--yellow); }
+.parent-menu .chevron { margin-left:auto; transition:transform .2s; }.parent-menu.open .chevron { transform:rotate(180deg); }
+.submenu { margin:3px 0 9px 19px; padding-left:12px; border-left:1px solid rgba(255,255,255,.17); }.submenu-button { width:100%; padding:9px 10px; display:flex; gap:9px; border:0; border-radius:6px; color:#aeb9ca; background:transparent; font:inherit; font-size:.83rem; text-align:left; cursor:pointer; }.submenu-button span { color:#72829a; font-size:.72rem; }.submenu-button:hover,.submenu-button.active { color:white; background:rgba(255,255,255,.07); }.submenu-button.active span { color:var(--yellow); }
 .sidebar-note { margin: auto 8px 0; color: #91a0b6; font-size: .78rem; line-height: 1.6; }
 .teacher-login { margin-top:auto; padding:11px 13px; border:1px solid rgba(255,255,255,.25); border-radius:8px; color:#dce4f1; background:transparent; font:inherit; font-weight:700; cursor:pointer; }
 .teacher-login:hover { color:white; border-color:var(--yellow); }
@@ -44,6 +46,7 @@ nav { margin-top: 26px; }
   .sidebar > .brand, .sidebar-note, .nav-label { display: none; }
   nav { margin: 0; overflow-x: auto; }
   #moduleMenu { display: flex; gap: 6px; }
+  #moduleMenu>div { display:flex; }.submenu { position:fixed; z-index:4; top:56px; left:0; right:0; margin:0; padding:8px 12px; display:flex; overflow-x:auto; border:0; background:#22314e; }.submenu[hidden] { display:none; }.submenu-button { width:auto; flex:0 0 auto; }.parent-menu .chevron { display:none; }
   .sidebar { display:flex; align-items:center; gap:8px; overflow-x:auto; }
   .sidebar nav { flex:1; min-width:0; }
   .teacher-login { margin:0; flex:0 0 auto; padding:10px 12px; }
