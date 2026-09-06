@@ -21,29 +21,12 @@ JavaScript 단원별 문제 풀이 사이트입니다. 루트의 왼쪽 메뉴�
 
 ```javascript
 const modules = [
-  { id: "variable", title: "변수", path: "variable/" },
-  { id: "operator", title: "연산자", path: "operator/" }
+  { id: 'variable', title: '변수', path: 'variable/' },
+  { id: 'operator', title: '연산자', path: 'operator/' },
 ];
 ```
 
 `id`와 `path`는 영문으로 작성하고, `path`는 실제 폴더 이름과 같게 작성합니다.
-
-## 교사용 모드
-
-왼쪽 메뉴 아래의 `교사용 모드` 버튼을 누르고 비밀번호를 입력합니다.
-
-- 기본 비밀번호: `js2026`
-- 현재 문제 정답 보기 및 복사
-- 이전·다음 문제 자유 이동
-- 같은 브라우저 탭에서는 새로고침해도 교사용 모드 유지
-
-비밀번호를 변경하려면 루트의 `app.js`에서 다음 값을 수정합니다.
-
-```javascript
-const TEACHER_PASSWORD = "원하는 비밀번호";
-```
-
-이 기능은 수업 편의를 위한 간단한 구분 기능입니다. 정적 사이트의 JavaScript는 방문자가 확인할 수 있으므로 수행평가 정답을 안전하게 숨기는 용도로 사용하면 안 됩니다.
 
 ## 현재 구조
 
