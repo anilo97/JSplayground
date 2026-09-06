@@ -5,57 +5,392 @@
   --text-light: #d8dfeb;
 }
 
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body { margin: 0; font-family: Pretendard, "Noto Sans KR", system-ui, sans-serif; }
-.layout { min-height: 100%; display: grid; grid-template-columns: 240px minmax(0, 1fr); }
-.sidebar { min-height: 100vh; padding: 28px 18px; color: white; background: var(--navy); display: flex; flex-direction: column; }
-.brand { display: flex; align-items: center; gap: 12px; padding: 0 8px 28px; color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.12); }
-.brand-mark { width: 40px; height: 40px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 8px; color: #28210c; background: var(--yellow); font-weight: 900; }
-.brand strong, .brand small { display: block; }
-.brand small { margin-top: 3px; color: #9eabc0; font-size: .75rem; }
-nav { margin-top: 26px; }
-.nav-label { margin: 0 10px 10px; color: #8998af; font-size: .75rem; font-weight: 800; letter-spacing: .08em; }
-.menu-button { width: 100%; margin: 4px 0; padding: 13px 14px; display: flex; align-items: center; gap: 11px; border: 0; border-radius: 8px; color: var(--text-light); background: transparent; font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
-.menu-button:hover { background: rgba(255,255,255,.07); }
-.menu-button.active { color: white; background: var(--navy-light); box-shadow: inset 3px 0 var(--yellow); }
-.menu-number { color: #92a0b5; font-size: .8rem; }
-.menu-button.active .menu-number { color: var(--yellow); }
-.parent-menu .chevron { margin-left:auto; transition:transform .2s; }.parent-menu.open .chevron { transform:rotate(180deg); }
-.submenu { margin:3px 0 9px 19px; padding-left:12px; border-left:1px solid rgba(255,255,255,.17); }.submenu-button { width:100%; padding:9px 10px; display:flex; gap:9px; border:0; border-radius:6px; color:#aeb9ca; background:transparent; font:inherit; font-size:.83rem; text-align:left; cursor:pointer; }.submenu-button span { color:#72829a; font-size:.72rem; }.submenu-button:hover,.submenu-button.active { color:white; background:rgba(255,255,255,.07); }.submenu-button.active span { color:var(--yellow); }
-.sidebar-note { margin: auto 8px 0; color: #91a0b6; font-size: .78rem; line-height: 1.6; }
-.teacher-login { margin-top:auto; padding:11px 13px; border:1px solid rgba(255,255,255,.25); border-radius:8px; color:#dce4f1; background:transparent; font:inherit; font-weight:700; cursor:pointer; }
-.teacher-login:hover { color:white; border-color:var(--yellow); }
-.teacher-status { margin-top:auto; padding:12px; border-radius:8px; color:#27210d; background:var(--yellow); font-size:.78rem; font-weight:800; }
-.teacher-status button { float:right; border:0; border-bottom:1px solid #514310; padding:0; background:none; font:inherit; font-size:.75rem; cursor:pointer; }
-.student-badge { margin:18px 5px 0; padding:12px 13px; display:flex; align-items:center; justify-content:space-between; border:1px solid rgba(255,255,255,.14); border-radius:8px; color:#aeb9ca; font-size:.78rem; }.student-badge strong { color:white; font-size:1rem; letter-spacing:.06em; }
-.sidebar-note { margin-top:14px; }
-.content { min-width: 0; height: 100vh; background: #f4f7fb; }
-#practiceFrame { width: 100%; height: 100%; display: block; border: 0; }
-.mobile-header { display: none; }
-.teacher-dialog { width:min(400px,calc(100% - 32px)); padding:0; border:0; border-radius:12px; color:#17223b; box-shadow:0 22px 70px rgba(0,0,0,.3); }
-.teacher-dialog::backdrop { background:rgba(10,17,31,.58); }
-.teacher-dialog form { padding:25px; }
-.dialog-heading { display:flex; align-items:center; justify-content:space-between; }.dialog-heading h2 { margin:0; font-size:1.3rem; }.dialog-close { border:0; background:none; color:#69758a; font-size:1.7rem; cursor:pointer; }
-.teacher-dialog p { color:#667085; }.teacher-dialog label { display:block; margin:20px 0 7px; font-size:.86rem; font-weight:800; }.teacher-dialog input { width:100%; padding:12px; border:1px solid #cbd4e2; border-radius:7px; font:inherit; }.dialog-submit { width:100%; margin-top:16px; padding:12px; border:0; border-radius:7px; color:#27210d; background:var(--yellow); font:inherit; font-weight:900; cursor:pointer; }.teacher-dialog .login-feedback { min-height:20px; margin:7px 0 0; color:#c93434; font-size:.82rem; }
-.student-dialog form { padding-top:30px; }.student-dialog input { font-size:1.2rem; letter-spacing:.1em; text-align:center; }.student-dialog::backdrop { background:#111a2c; }
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Pretendard, 'Noto Sans KR', system-ui, sans-serif;
+}
+.layout {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+}
+.sidebar {
+  min-height: 100vh;
+  padding: 28px 18px;
+  color: white;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 28px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #28210c;
+  background: var(--yellow);
+  font-weight: 900;
+}
+.brand strong,
+.brand small {
+  display: block;
+}
+.brand small {
+  margin-top: 3px;
+  color: #9eabc0;
+  font-size: 0.75rem;
+}
+nav {
+  margin-top: 26px;
+}
+.nav-label {
+  margin: 0 10px 10px;
+  color: #8998af;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+.menu-button {
+  width: 100%;
+  margin: 4px 0;
+  padding: 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border: 0;
+  border-radius: 8px;
+  color: var(--text-light);
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+.menu-button:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+.menu-button.active {
+  color: white;
+  background: var(--navy-light);
+  box-shadow: inset 3px 0 var(--yellow);
+}
+.menu-number {
+  color: #92a0b5;
+  font-size: 0.8rem;
+}
+.menu-button.active .menu-number {
+  color: var(--yellow);
+}
+.parent-menu .chevron {
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+.parent-menu.open .chevron {
+  transform: rotate(180deg);
+}
+.submenu {
+  margin: 3px 0 9px 19px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.17);
+}
+.submenu-button {
+  width: 100%;
+  padding: 9px 10px;
+  display: flex;
+  gap: 9px;
+  border: 0;
+  border-radius: 6px;
+  color: #aeb9ca;
+  background: transparent;
+  font: inherit;
+  font-size: 0.83rem;
+  text-align: left;
+  cursor: pointer;
+}
+.submenu-button span {
+  color: #72829a;
+  font-size: 0.72rem;
+}
+.submenu-button:hover,
+.submenu-button.active {
+  color: white;
+  background: rgba(255, 255, 255, 0.07);
+}
+.submenu-button.active span {
+  color: var(--yellow);
+}
+.sidebar-note {
+  margin: auto 8px 0;
+  color: #91a0b6;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+.teacher-login {
+  display: none;
+  margin-top: auto;
+  padding: 11px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  color: #dce4f1;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.teacher-login:hover {
+  color: white;
+  border-color: var(--yellow);
+}
+.teacher-status {
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 8px;
+  color: #27210d;
+  background: var(--yellow);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+.teacher-status button {
+  float: right;
+  border: 0;
+  border-bottom: 1px solid #514310;
+  padding: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.student-badge {
+  margin: 18px 5px 0;
+  padding: 12px 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  color: #aeb9ca;
+  font-size: 0.78rem;
+}
+.student-badge strong {
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+}
+.sidebar-note {
+  margin-top: 14px;
+}
+.content {
+  min-width: 0;
+  height: 100vh;
+  background: #f4f7fb;
+}
+#practiceFrame {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+.mobile-header {
+  display: none;
+}
+.teacher-dialog {
+  width: min(400px, calc(100% - 32px));
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  color: #17223b;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.3);
+}
+.teacher-dialog::backdrop {
+  background: rgba(10, 17, 31, 0.58);
+}
+.teacher-dialog form {
+  padding: 25px;
+}
+.dialog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dialog-heading h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+.dialog-close {
+  border: 0;
+  background: none;
+  color: #69758a;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.teacher-dialog p {
+  color: #667085;
+}
+.teacher-dialog label {
+  display: block;
+  margin: 20px 0 7px;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+.teacher-dialog input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd4e2;
+  border-radius: 7px;
+  font: inherit;
+}
+.dialog-submit {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border: 0;
+  border-radius: 7px;
+  color: #27210d;
+  background: var(--yellow);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+.teacher-dialog .login-feedback {
+  min-height: 20px;
+  margin: 7px 0 0;
+  color: #c93434;
+  font-size: 0.82rem;
+}
+.student-dialog form {
+  padding-top: 30px;
+}
+.student-dialog input {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+.student-dialog::backdrop {
+  background: #111a2c;
+}
 
 @media (max-width: 760px) {
-  .layout { display: block; }
-  .sidebar { min-height: auto; padding: 10px 12px; display: block; }
-  .sidebar > .brand, .sidebar-note, .nav-label { display: none; }
-  nav { margin: 0; overflow-x: auto; }
-  #moduleMenu { display: flex; gap: 6px; }
-  #moduleMenu>div { display:flex; }.submenu { position:fixed; z-index:4; top:56px; left:0; right:0; margin:0; padding:8px 12px; display:flex; overflow-x:auto; border:0; background:#22314e; }.submenu[hidden] { display:none; }.submenu-button { width:auto; flex:0 0 auto; }.parent-menu .chevron { display:none; }
-  .sidebar { display:flex; align-items:center; gap:8px; overflow-x:auto; }
-  .sidebar nav { flex:1; min-width:0; }
-  .teacher-login { margin:0; flex:0 0 auto; padding:10px 12px; }
-  .teacher-status { margin:0; flex:0 0 auto; padding:10px; }
-  .student-badge { margin:0; flex:0 0 auto; gap:7px; padding:9px 10px; }.student-badge span { display:none; }
-  .menu-button { width: auto; flex: 0 0 auto; margin: 0; padding: 10px 13px; }
-  .menu-button.active { box-shadow: inset 0 -3px var(--yellow); }
-  .content { height: calc(100vh - 56px); }
-  .mobile-header { height: 54px; padding: 0 16px; display: flex; align-items: center; gap: 10px; color: white; background: var(--navy); }
-  .mobile-header .brand-mark { width: 32px; height: 32px; font-size: .8rem; }
-  #practiceFrame { height: calc(100% - 54px); }
+  .layout {
+    display: block;
+  }
+  .sidebar {
+    min-height: auto;
+    padding: 10px 12px;
+    display: block;
+  }
+  .sidebar > .brand,
+  .sidebar-note,
+  .nav-label {
+    display: none;
+  }
+  nav {
+    margin: 0;
+    overflow-x: auto;
+  }
+  #moduleMenu {
+    display: flex;
+    gap: 6px;
+  }
+  #moduleMenu > div {
+    display: flex;
+  }
+  .submenu {
+    position: fixed;
+    z-index: 4;
+    top: 56px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 8px 12px;
+    display: flex;
+    overflow-x: auto;
+    border: 0;
+    background: #22314e;
+  }
+  .submenu[hidden] {
+    display: none;
+  }
+  .submenu-button {
+    width: auto;
+    flex: 0 0 auto;
+  }
+  .parent-menu .chevron {
+    display: none;
+  }
+  .sidebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+  }
+  .sidebar nav {
+    flex: 1;
+    min-width: 0;
+  }
+  .teacher-login {
+    margin: 0;
+    flex: 0 0 auto;
+    padding: 10px 12px;
+  }
+  .teacher-status {
+    margin: 0;
+    flex: 0 0 auto;
+    padding: 10px;
+  }
+  .student-badge {
+    margin: 0;
+    flex: 0 0 auto;
+    gap: 7px;
+    padding: 9px 10px;
+  }
+  .student-badge span {
+    display: none;
+  }
+  .menu-button {
+    width: auto;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 10px 13px;
+  }
+  .menu-button.active {
+    box-shadow: inset 0 -3px var(--yellow);
+  }
+  .content {
+    height: calc(100vh - 56px);
+  }
+  .mobile-header {
+    height: 54px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    background: var(--navy);
+  }
+  .mobile-header .brand-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+  #practiceFrame {
+    height: calc(100% - 54px);
+  }
 }

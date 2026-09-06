@@ -63,19 +63,30 @@
       </form>
     </dialog>
 
-    <!-- <dialog id="teacherDialog" class="teacher-dialog">
-    <form method="dialog" id="teacherForm">
-      <div class="dialog-heading">
-        <h2>교사용 모드</h2>
-        <button id="dialogCloseButton" class="dialog-close" type="button" aria-label="닫기">×</button>
-      </div>
-      <p>교사용 비밀번호를 입력하세요.</p>
-      <label for="teacherPassword">비밀번호</label>
-      <input id="teacherPassword" type="password" autocomplete="current-password">
-      <p id="loginFeedback" class="login-feedback" role="status"></p>
-      <button class="dialog-submit" type="submit">확인</button>
-    </form>
-  </dialog> -->
+    <dialog id="teacherDialog" class="teacher-dialog">
+      <form method="dialog" id="teacherForm">
+        <div class="dialog-heading">
+          <h2>교사용 모드</h2>
+          <button
+            id="dialogCloseButton"
+            class="dialog-close"
+            type="button"
+            aria-label="닫기"
+          >
+            ×
+          </button>
+        </div>
+        <p>교사용 비밀번호를 입력하세요.</p>
+        <label for="teacherPassword">비밀번호</label>
+        <input
+          id="teacherPassword"
+          type="password"
+          autocomplete="current-password"
+        />
+        <p id="loginFeedback" class="login-feedback" role="status"></p>
+        <button class="dialog-submit" type="submit">확인</button>
+      </form>
+    </dialog>
     <script src="app.js"></script>
   </body>
 </html>
