@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JavaScript 단원별 문제 풀이 사이트">
+  <title>JS Playground</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="./" aria-label="JS Playground 홈">
+        <span class="brand-mark">JS</span>
+        <span><strong>JS Playground</strong><small>문제 풀이</small></span>
+      </a>
+
+      <nav aria-label="단원 선택">
+        <p class="nav-label">학습 단원</p>
+        <div id="moduleMenu"></div>
+      </nav>
+
+      <button id="teacherLoginButton" class="teacher-login" type="button">교사용 모드</button>
+      <div id="teacherStatus" class="teacher-status" hidden>
+        <span>교사용 모드 사용 중</span>
+        <button id="teacherLogoutButton" type="button">종료</button>
+      </div>
+      <p class="sidebar-note">문제를 맞혀야 다음 문제로 넘어갈 수 있습니다.</p>
+    </aside>
+
+    <main class="content">
+      <div class="mobile-header">
+        <span class="brand-mark">JS</span>
+        <strong>JS Playground</strong>
+      </div>
+      <iframe id="practiceFrame" title="문제 풀이 영역"></iframe>
+    </main>
+  </div>
+
+  <dialog id="teacherDialog" class="teacher-dialog">
+    <form method="dialog" id="teacherForm">
+      <div class="dialog-heading">
+        <h2>교사용 모드</h2>
+        <button id="dialogCloseButton" class="dialog-close" type="button" aria-label="닫기">×</button>
+      </div>
+      <p>교사용 비밀번호를 입력하세요.</p>
+      <label for="teacherPassword">비밀번호</label>
+      <input id="teacherPassword" type="password" autocomplete="current-password">
+      <p id="loginFeedback" class="login-feedback" role="status"></p>
+      <button class="dialog-submit" type="submit">확인</button>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
