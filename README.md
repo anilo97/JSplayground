@@ -2,6 +2,8 @@
 
 JavaScript 단원별 문제 풀이 사이트입니다. 루트의 왼쪽 메뉴는 계속 유지되고, 선택한 단원의 문제가 오른쪽에서 열립니다.
 
+현재 `변수`와 `자료형` 단원이 들어 있습니다. 처음 접속하면 학번 4자리를 입력하며, 문제 화면 상단과 완료 화면에 학번이 표시됩니다. 완료 화면에는 학번 워터마크, 완료 시각, 단원별 무작위 완료 코드가 함께 표시됩니다.
+
 ## GitHub Pages 설정
 
 1. 이 ZIP 파일의 압축을 풉니다.
@@ -51,7 +53,11 @@ JSplayground/
 ├─ style.css
 ├─ app.js
 ├─ README.md
-└─ variable/
+├─ variable/
+   ├─ index.html
+   ├─ style.css
+   └─ script.js
+└─ datatype/
    ├─ index.html
    ├─ style.css
    └─ script.js

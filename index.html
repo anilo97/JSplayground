@@ -20,6 +20,10 @@
         <div id="moduleMenu"></div>
       </nav>
 
+      <div id="studentBadge" class="student-badge" hidden>
+        <span>학습자</span><strong id="studentNumberText"></strong>
+      </div>
+
       <button id="teacherLoginButton" class="teacher-login" type="button">교사용 모드</button>
       <div id="teacherStatus" class="teacher-status" hidden>
         <span>교사용 모드 사용 중</span>
@@ -36,6 +40,17 @@
       <iframe id="practiceFrame" title="문제 풀이 영역"></iframe>
     </main>
   </div>
+
+  <dialog id="studentDialog" class="teacher-dialog student-dialog">
+    <form id="studentForm">
+      <div class="dialog-heading"><h2>학번 확인</h2></div>
+      <p>완료 화면에 표시할 본인의 학번을 입력하세요.</p>
+      <label for="studentNumber">학번</label>
+      <input id="studentNumber" type="text" inputmode="numeric" maxlength="4" placeholder="예: 2302" autocomplete="off">
+      <p id="studentFeedback" class="login-feedback" role="status"></p>
+      <button class="dialog-submit" type="submit">문제 풀기 시작</button>
+    </form>
+  </dialog>
 
   <dialog id="teacherDialog" class="teacher-dialog">
     <form method="dialog" id="teacherForm">

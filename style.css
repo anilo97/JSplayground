@@ -26,6 +26,7 @@ nav { margin-top: 26px; }
 .teacher-login:hover { color:white; border-color:var(--yellow); }
 .teacher-status { margin-top:auto; padding:12px; border-radius:8px; color:#27210d; background:var(--yellow); font-size:.78rem; font-weight:800; }
 .teacher-status button { float:right; border:0; border-bottom:1px solid #514310; padding:0; background:none; font:inherit; font-size:.75rem; cursor:pointer; }
+.student-badge { margin:18px 5px 0; padding:12px 13px; display:flex; align-items:center; justify-content:space-between; border:1px solid rgba(255,255,255,.14); border-radius:8px; color:#aeb9ca; font-size:.78rem; }.student-badge strong { color:white; font-size:1rem; letter-spacing:.06em; }
 .sidebar-note { margin-top:14px; }
 .content { min-width: 0; height: 100vh; background: #f4f7fb; }
 #practiceFrame { width: 100%; height: 100%; display: block; border: 0; }
@@ -35,6 +36,7 @@ nav { margin-top: 26px; }
 .teacher-dialog form { padding:25px; }
 .dialog-heading { display:flex; align-items:center; justify-content:space-between; }.dialog-heading h2 { margin:0; font-size:1.3rem; }.dialog-close { border:0; background:none; color:#69758a; font-size:1.7rem; cursor:pointer; }
 .teacher-dialog p { color:#667085; }.teacher-dialog label { display:block; margin:20px 0 7px; font-size:.86rem; font-weight:800; }.teacher-dialog input { width:100%; padding:12px; border:1px solid #cbd4e2; border-radius:7px; font:inherit; }.dialog-submit { width:100%; margin-top:16px; padding:12px; border:0; border-radius:7px; color:#27210d; background:var(--yellow); font:inherit; font-weight:900; cursor:pointer; }.teacher-dialog .login-feedback { min-height:20px; margin:7px 0 0; color:#c93434; font-size:.82rem; }
+.student-dialog form { padding-top:30px; }.student-dialog input { font-size:1.2rem; letter-spacing:.1em; text-align:center; }.student-dialog::backdrop { background:#111a2c; }
 
 @media (max-width: 760px) {
   .layout { display: block; }
@@ -46,6 +48,7 @@ nav { margin-top: 26px; }
   .sidebar nav { flex:1; min-width:0; }
   .teacher-login { margin:0; flex:0 0 auto; padding:10px 12px; }
   .teacher-status { margin:0; flex:0 0 auto; padding:10px; }
+  .student-badge { margin:0; flex:0 0 auto; gap:7px; padding:9px 10px; }.student-badge span { display:none; }
   .menu-button { width: auto; flex: 0 0 auto; margin: 0; padding: 10px 13px; }
   .menu-button.active { box-shadow: inset 0 -3px var(--yellow); }
   .content { height: calc(100vh - 56px); }
