@@ -11,6 +11,15 @@ const modules = [
     { id:"operator-string", title:"문자열 연산자", path:"operator/?category=string" },
     { id:"operator-ternary", title:"삼항 연산자", path:"operator/?category=ternary" },
     { id:"operator-precedence", title:"연산자 우선순위", path:"operator/?category=precedence" }
+  ]},
+  { id:"condition", title:"조건문", children:[
+    { id:"condition-if", title:"if문", path:"condition/?category=if" },
+    { id:"condition-if-else", title:"if ~ else문", path:"condition/?category=if-else" },
+    { id:"condition-else-if", title:"if ~ else if문", path:"condition/?category=else-if" },
+    { id:"condition-nested", title:"중첩 조건문", path:"condition/?category=nested" },
+    { id:"condition-switch", title:"switch문", path:"condition/?category=switch" },
+    { id:"condition-truthy", title:"Truthy와 Falsy", path:"condition/?category=truthy" },
+    { id:"condition-mixed", title:"조건문 종합", path:"condition/?category=mixed" }
   ]}
 ];
 const TEACHER_PASSWORD="js2026";
@@ -19,7 +28,7 @@ let teacherMode=sessionStorage.getItem("teacherMode")==="true",studentNumber=ses
 const allModules=modules.flatMap(item=>item.children||[item]);
 function sendSessionContext(){const target=location.origin==="null"?"*":location.origin;frame.contentWindow?.postMessage({type:"session-context",teacherMode,studentNumber},target);}
 function updateTeacherUI(){document.getElementById("teacherLoginButton").hidden=teacherMode;document.getElementById("teacherStatus").hidden=!teacherMode;sendSessionContext();}
-function openModule(module){activeModule=module;frame.src=module.path;frame.title=`${module.title} 문제 풀이`;document.querySelectorAll(".menu-button,.submenu-button").forEach(b=>b.classList.toggle("active",b.dataset.id===module.id));if(module.id.startsWith("operator-")){const parent=document.querySelector('[data-target="submenu-operator"]');parent.classList.add("open","active");document.getElementById("submenu-operator").hidden=false;}history.replaceState(null,"",`#${module.id}`);}
+function openModule(module){activeModule=module;frame.src=module.path;frame.title=`${module.title} 문제 풀이`;document.querySelectorAll(".menu-button,.submenu-button").forEach(b=>b.classList.toggle("active",b.dataset.id===module.id));const parentId=module.id.split("-")[0];const parent=document.querySelector(`[data-target="submenu-${parentId}"]`);if(parent){parent.classList.add("open","active");document.getElementById(`submenu-${parentId}`).hidden=false;}history.replaceState(null,"",`#${module.id}`);}
 modules.forEach((module,index)=>{
   if(!module.children){const b=document.createElement("button");b.type="button";b.className="menu-button";b.dataset.id=module.id;b.innerHTML=`<span class="menu-number">${String(index+1).padStart(2,"0")}</span><span>${module.title}</span>`;b.addEventListener("click",()=>openModule(module));menu.appendChild(b);return;}
   const wrap=document.createElement("div"),b=document.createElement("button"),sub=document.createElement("div");sub.id=`submenu-${module.id}`;sub.className="submenu";sub.hidden=true;b.type="button";b.className="menu-button parent-menu";b.dataset.target=sub.id;b.innerHTML=`<span class="menu-number">${String(index+1).padStart(2,"0")}</span><span>${module.title}</span><span class="chevron">⌄</span>`;b.addEventListener("click",()=>{sub.hidden=!sub.hidden;b.classList.toggle("open",!sub.hidden);});module.children.forEach((child,i)=>{const c=document.createElement("button");c.type="button";c.className="submenu-button";c.dataset.id=child.id;c.innerHTML=`<span>${i+1}</span>${child.title}`;c.addEventListener("click",()=>openModule(child));sub.appendChild(c);});wrap.append(b,sub);menu.appendChild(wrap);

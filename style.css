@@ -144,6 +144,7 @@ nav {
   line-height: 1.6;
 }
 .teacher-login {
+  /* 학생용 공개 시에는 아래 display: none; 한 줄만 삭제하세요. */
   display: none;
   margin-top: auto;
   padding: 11px 13px;
