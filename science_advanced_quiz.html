@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#087f75">
+  <meta name="description" content="중학교 2학년 과학 고난도 40문제. 20문제씩 2세트, 제출 후 정답과 해설 확인.">
+  <title>과학 생각 실험실 | 고난도 40문제</title>
+  <style>
+
+:root {
+  --bg:#f3f6f4; --paper:#fff; --ink:#19332f; --text:#283a37; --muted:#657974;
+  --line:#dce6e0; --green:#087f75; --green-dark:#056158; --tint:#e8f5ef;
+  --blue:#4865af; --blue-tint:#eef1fb; --amber:#ab6d0e; --amber-tint:#fff5df;
+  --red:#a93838; --red-tint:#fff0ef; --shadow:0 8px 30px rgba(26,65,49,.045);
+  font-family: "Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  color:var(--text); font-synthesis:none;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth; scroll-padding-top:100px}
+body {margin:0; background:var(--bg); font-size:16px; line-height:1.65; word-break:keep-all; overflow-wrap:anywhere}
+button,input,textarea {font:inherit}
+button {cursor:pointer}
+button:disabled {cursor:not-allowed}
+button,a,input,textarea,summary {-webkit-tap-highlight-color:transparent}
+button {color:inherit}
+a {color:var(--green)}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible {outline:3px solid #e3ad42; outline-offset:4px}
+button {touch-action:manipulation}
+button:disabled {opacity:.44}
+[hidden] {display:none!important}
+.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link {position:fixed;left:20px;top:-100px;padding:12px 20px;background:var(--ink);color:white;z-index:100}
+.skip-link:focus {top:10px}
+.site-header {height:86px; background:rgba(255,255,255,.95);border-bottom:1px solid var(--line)}
+.header-inner {max-width:1240px;margin:auto;padding:0 34px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand {border:0;background:none;display:flex;align-items:center;gap:12px;font-size:19px;font-weight:850;line-height:1.25;text-align:left;padding:0;color:var(--ink)}
+.brand small {display:block;font-size:9px;letter-spacing:2px;font-weight:650;color:var(--muted);margin-top:5px}
+.brand-symbol {width:43px;height:43px;background:var(--green);border-radius:14px;position:relative;display:inline-block;flex-shrink:0}
+.brand-symbol i {width:31px;height:14px;border:1.2px solid rgba(255,255,255,.8);border-radius:100%;position:absolute;top:14px;left:6px;transform:rotate(45deg)}
+.brand-symbol i:nth-child(2) {transform:rotate(-45deg)}
+.brand-symbol b {position:absolute;top:19px;left:19px;width:6px;height:6px;border-radius:50%;background:#fff}
+.header-right {display:flex;align-items:center;gap:28px}
+.header-badge {font-size:12px;font-weight:700;color:var(--green-dark);background:var(--tint);padding:7px 12px;border-radius:20px}
+.text-button {border:0;background:none;font-size:13px;font-weight:700;padding:7px 0}
+.text-button:hover {color:var(--green)}
+.text-button span {margin-left:8px}
+#app {max-width:1240px;padding:0 34px;margin:0 auto;min-height:calc(100vh - 175px)}
+.site-footer {max-width:1240px;margin:30px auto 0;padding:24px 34px 32px;display:flex;justify-content:space-between;gap:16px;font-size:11px;color:var(--muted);border-top:1px solid var(--line)}
+.eyebrow {font-size:11px;font-weight:850;letter-spacing:2px;color:var(--green)}
+.hero {display:grid;grid-template-columns:1fr 320px;align-items:center;gap:30px;padding:50px 0 30px}
+.hero h1 {font-size:42px;line-height:1.32;letter-spacing:-1.8px;color:var(--ink);margin:14px 0 18px}
+.hero h1 em {font-style:normal;color:var(--green)}
+.hero p {font-size:15px;color:var(--muted);margin:0}
+.hero-art {width:292px;height:240px;position:relative;justify-self:end;isolation:isolate}
+.hero-art::before {content:"";position:absolute;inset:14px 20px;background:radial-gradient(circle,#d9efe3 0%,rgba(226,240,231,.5) 49%,transparent 71%);border-radius:50%;z-index:-1}
+.orbit {position:absolute;width:234px;height:116px;border:1px solid #b2cec2;left:26px;top:63px;border-radius:50%;transform:rotate(-28deg)}
+.orbit.two {transform:rotate(38deg);border-color:#b9d5cc}
+.orbit.three {transform:rotate(95deg);height:98px;top:72px}
+.nucleus {position:absolute;left:106px;top:78px;width:80px;height:80px;border-radius:26px;background:var(--green);color:#fff;display:grid;place-items:center;font-size:43px;box-shadow:0 12px 30px #087f7522;transform:rotate(-8deg)}
+.art-dot {position:absolute;width:11px;height:11px;background:#adc766;border-radius:50%;left:55px;top:156px}
+.art-dot.second {width:8px;height:8px;background:#729ac4;left:232px;top:58px}
+.art-label {position:absolute;top:31px;left:5px;background:#fff;border:1px solid var(--line);padding:5px 11px;border-radius:8px;font-size:9px;letter-spacing:1.5px;font-weight:800;color:var(--muted);box-shadow:var(--shadow)}
+.art-label.two {top:175px;left:166px}
+.overview-strip {display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:35px}
+.overview-item {padding:18px 24px;display:flex;align-items:baseline;gap:12px}
+.overview-item:first-child {padding-left:0}
+.overview-item + .overview-item {border-left:1px solid var(--line)}
+.overview-item strong {font-size:23px;font-weight:800;color:var(--ink);white-space:nowrap}
+.overview-item strong small {font-size:12px;margin-left:3px;font-weight:600}
+.overview-item span {font-size:12px;color:var(--muted)}
+.section-heading {display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin:0 0 16px}
+.section-heading h2 {margin:0;font-size:19px;letter-spacing:-.5px}
+.section-heading p {margin:0;color:var(--muted);font-size:12px}
+.set-grid {display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.set-card {background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.set-card::before {content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--green)}
+.set-card.blue::before {background:var(--blue)}
+.set-card-top {display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.set-index {font-size:12px;font-weight:800;color:var(--green);letter-spacing:2px}
+.blue .set-index {color:var(--blue)}
+.pill {display:inline-flex;align-items:center;gap:5px;background:#f2f6f4;border:1px solid #e1e9e4;color:var(--muted);border-radius:20px;font-size:11px;font-weight:700;padding:4px 10px;white-space:nowrap}
+.pill.done {background:var(--tint);color:var(--green);border-color:#c8e5d9}
+.set-card h3 {font-size:27px;margin:0 0 9px;letter-spacing:-1px;color:var(--ink)}
+.set-sub {font-size:13px;color:var(--muted);margin:0}
+.set-topics {display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 24px}
+.topic {font-size:11px;color:var(--green-dark);background:var(--tint);padding:5px 9px;border-radius:6px}
+.blue .topic {background:var(--blue-tint);color:var(--blue)}
+.set-progress-line {display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px;margin-bottom:9px;gap:10px}
+.progress-track {background:#e9efeb;height:5px;border-radius:6px;overflow:hidden}
+.progress-track>span {display:block;height:100%;background:var(--green);border-radius:6px;transition:width .15s ease}
+.blue .progress-track>span {background:var(--blue)}
+.set-card .button {width:100%;margin-top:23px;display:flex;justify-content:space-between}
+.button {border:1px solid transparent;border-radius:10px;padding:11px 18px;min-height:46px;display:inline-flex;justify-content:center;align-items:center;gap:10px;font-size:14px;font-weight:750;line-height:1.45;transition:background .15s ease,transform .15s ease}
+.button.primary {background:var(--green);color:#fff}
+.button.primary:hover:not(:disabled) {background:var(--green-dark)}
+.button.primary.blue-button {background:var(--blue)}
+.button.primary.blue-button:hover:not(:disabled) {background:#3b5496}
+.button.secondary {background:#fff;border-color:var(--line);color:var(--text)}
+.button.secondary:hover:not(:disabled) {background:#f3f7f4}
+.button.soft {background:var(--tint);color:var(--green-dark)}
+.button.danger {color:var(--red);background:var(--red-tint);border-color:#f2d7d2}
+.button.small {padding:8px 13px;min-height:38px;font-size:12px}
+.guide {display:grid;grid-template-columns:180px 1fr;gap:24px;padding:26px 28px;margin:24px 0 18px;background:#eaf0ec;border-radius:16px}
+.guide h2 {font-size:15px;margin:0 0 5px;color:var(--ink)}
+.guide>div>p {font-size:11px;color:var(--muted);margin:0}
+.guide-steps {display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.guide-step {display:flex;gap:10px;align-items:flex-start}
+.step-number {background:#fff;border:1px solid var(--line);border-radius:7px;width:25px;height:25px;display:grid;place-items:center;font-size:11px;color:var(--green);font-weight:850;flex-shrink:0;margin-top:1px}
+.guide-step strong {font-size:12px;display:block;margin-bottom:3px}
+.guide-step p {font-size:11px;color:var(--muted);line-height:1.7;margin:0}
+.local-note {font-size:11px;color:var(--muted);line-height:1.9;margin:15px 3px 30px}
+.quiz-top {padding:30px 0 21px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.quiz-top h1 {font-size:25px;letter-spacing:-.7px;color:var(--ink);margin:0 0 4px}
+.quiz-top p {font-size:12px;margin:0;color:var(--muted)}
+.quiz-top-tools {display:flex;gap:18px;align-items:center}
+.timer-box {font-size:19px;line-height:1.2;font-variant-numeric:tabular-nums;text-align:right;font-weight:750;color:var(--ink)}
+.timer-box small {display:block;font-size:10px;font-weight:500;color:var(--muted);margin-bottom:5px}
+.save-state {font-size:11px;color:var(--muted);white-space:nowrap}
+.save-state::before {content:"";display:inline-block;width:5px;height:5px;background:#4b9272;border-radius:50%;margin-right:6px;vertical-align:middle}
+.quiz-layout {display:grid;grid-template-columns:242px minmax(0,1fr);gap:24px;align-items:start}
+.question-sidebar {background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;position:sticky;top:22px;box-shadow:var(--shadow)}
+.sidebar-title {display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:12px;font-weight:750}
+.sidebar-title strong {color:var(--green);font-size:14px}
+.q-grid {display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:22px 0 14px}
+.q-dot {height:34px;position:relative;border:1px solid var(--line);border-radius:7px;background:#fff;font-size:12px;font-weight:650;font-variant-numeric:tabular-nums}
+.q-dot.answered {background:var(--tint);color:var(--green-dark);border-color:#c9e1d5}
+.q-dot.current {background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 0 0 3px #e5f4ec}
+.q-dot.flagged::after {content:"";width:6px;height:6px;border-radius:50%;position:absolute;right:3px;top:3px;background:#d19823;border:1px solid #fff}
+.nav-legend {font-size:10px;color:var(--muted);display:flex;gap:11px;align-items:center;flex-wrap:wrap;margin:15px 0 20px}
+.legend-dot {width:7px;height:7px;border-radius:2px;display:inline-block;margin-right:3px;vertical-align:middle;background:#d6eadd}
+.legend-dot.empty {border:1px solid #a6bdb1;background:white}
+.legend-dot.flag {border-radius:50%;background:#d19823}
+.question-sidebar .button {width:100%}
+.submit-help {font-size:10px;text-align:center;color:var(--muted);margin:8px 0 0}
+.sidebar-note {font-size:11px;line-height:1.8;color:var(--muted);border-top:1px solid var(--line);padding-top:17px;margin:18px 0 0}
+.question-main {min-width:0}
+.common-conditions {padding:12px 17px;border:1px solid var(--line);border-radius:10px;background:#edf3ee;font-size:12px;margin-bottom:16px}
+.common-conditions summary {cursor:pointer;font-weight:700;color:#526c60}
+.common-conditions p {font-size:12px;margin:9px 0 1px;color:var(--muted);line-height:1.85}
+.question-card {background:#fff;border:1px solid var(--line);border-radius:17px;padding:30px 34px;box-shadow:var(--shadow)}
+.question-meta {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.question-meta-left {display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.question-type {background:var(--tint);color:var(--green-dark);font-size:10px;font-weight:750;border-radius:5px;padding:4px 8px}
+.question-type.written {background:var(--blue-tint);color:var(--blue)}
+.domain-label {font-size:11px;color:var(--muted)}
+.flag-button {font-size:11px;color:var(--muted);border:1px solid var(--line);background:#fff;padding:5px 9px;border-radius:7px;white-space:nowrap}
+.flag-button.active {background:var(--amber-tint);border-color:#ead6a9;color:var(--amber)}
+.question-title {font-size:23px;line-height:1.3;color:var(--ink);margin:0 0 20px;letter-spacing:-.7px}
+.question-title small {font-size:12px;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:8px}
+.stem {font-size:16px;line-height:1.95;letter-spacing:-.18px}
+.stem p {margin:0 0 15px}
+.stem p:last-child {margin-bottom:0}
+.stem ul {padding-left:22px;margin:14px 0}
+.stem li {padding-left:3px;margin:4px 0}
+.stem strong {font-weight:800;color:#182f2a}
+.stem blockquote {border-left:3px solid #bdcec4;margin:18px 0;background:#f5f7f5;padding:15px 18px;font-size:15px}
+.table-scroll {overflow-x:auto;max-width:100%;margin:18px 0;border:1px solid var(--line);border-radius:9px;background:#fff}
+table {border-collapse:collapse;width:100%;font-size:13px;line-height:1.65}
+th {background:#edf3ef;color:#415b50;font-weight:750}
+th,td {padding:11px 13px;text-align:center;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+th:last-child,td:last-child {border-right:0}
+tr:last-child td {border-bottom:0}
+tbody tr:nth-child(even) {background:#fafcfb}
+td {min-width:58px}
+.formula {font-family:inherit;font-variant-numeric:tabular-nums;background:#f1f4f1;border-radius:4px;padding:1px 4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.formula sub {font-size:75%;line-height:0}
+.equation {background:#eff5f0;border-left:3px solid #89b79c;border-radius:3px;padding:12px 15px;margin:12px 0;line-height:1.8;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.options {padding:0;border:0;min-width:0;margin:25px 0 0;display:grid;gap:10px}
+.option {border:1px solid var(--line);border-radius:10px;display:flex;align-items:flex-start;gap:12px;padding:14px 16px;cursor:pointer;font-size:14px;line-height:1.85;position:relative;transition:background .12s,border-color .12s}
+.option:hover {background:#f6f9f6;border-color:#bccfc2}
+.option.selected {border-color:var(--green);background:#eff8f3;box-shadow:inset 0 0 0 .5px var(--green)}
+.option input {position:absolute;opacity:0;width:1px;height:1px;left:10px;top:15px}
+.option:focus-within {outline:3px solid #e3ad42;outline-offset:3px}
+.option-number {width:25px;height:25px;flex-shrink:0;display:grid;place-items:center;border:1px solid #d8e2dc;border-radius:50%;font-size:12px;line-height:1;background:#fff;color:var(--muted);margin-top:1px}
+.option.selected .option-number {background:var(--green);color:#fff;border-color:var(--green)}
+.option-text {min-width:0}
+.written-area {margin-top:25px;border-top:1px solid var(--line);padding-top:22px}
+.written-label {display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px}
+.written-label label {font-size:13px;font-weight:750}
+.written-label span {font-size:11px;color:var(--muted)}
+textarea {display:block;width:100%;resize:vertical;border:1px solid #cbdad1;border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.85;background:#fafcf9;min-height:170px;color:var(--ink);word-break:normal;overflow-wrap:anywhere}
+textarea::placeholder {color:#8b9b92;font-size:13px}
+textarea:focus {background:#fff;border-color:var(--green)}
+.input-help {font-size:11px;color:var(--muted);margin:8px 0 0}
+.scratch {margin-top:20px;padding-top:15px;border-top:1px dashed var(--line)}
+.scratch summary {font-size:12px;color:var(--muted);cursor:pointer}
+.scratch textarea {margin-top:10px;min-height:90px;font-size:13px}
+.question-bottom {display:flex;justify-content:space-between;align-items:center;gap:20px;margin:18px 0 30px}
+.question-bottom .button {min-width:100px}
+.question-position {font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.mobile-submit {display:none}
+.result-header {padding:39px 0 24px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.result-header h1 {font-size:31px;line-height:1.3;letter-spacing:-1px;margin:10px 0 8px;color:var(--ink)}
+.result-header p {font-size:13px;color:var(--muted);margin:0}
+.result-actions {display:flex;gap:8px;flex-wrap:wrap}
+.result-summary {display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;margin-bottom:16px}
+.score-card {background:#fff;border:1px solid var(--line);border-radius:16px;padding:23px 25px}
+.score-card.primary-score {background:var(--ink);border-color:var(--ink);color:#fff}
+.score-label {font-size:11px;color:var(--muted);font-weight:650}
+.primary-score .score-label {color:#b8d1c4}
+.score-number {font-size:35px;font-weight:850;letter-spacing:-1px;line-height:1.3;margin:10px 0 7px}
+.score-number small {font-size:16px;font-weight:550;letter-spacing:0;opacity:.7}
+.score-caption {font-size:11px;color:var(--muted);margin:0}
+.primary-score .score-caption {color:#b8d1c4}
+.score-caption strong {color:inherit}
+.score-note {font-size:11px;line-height:1.9;color:var(--muted);margin:12px 0 25px}
+.result-toolbar {display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:20px}
+.filters {display:flex;gap:7px;flex-wrap:wrap}
+.filter {background:transparent;border:1px solid var(--line);border-radius:24px;padding:7px 13px;font-size:12px;font-weight:650}
+.filter.active {background:var(--green);color:#fff;border-color:var(--green)}
+.filter:hover:not(.active) {background:#fff}
+.review-count {font-size:11px;color:var(--muted);white-space:nowrap}
+.review-list {display:grid;gap:18px}
+.review-card {padding:24px 27px;background:white;border:1px solid var(--line);border-radius:16px;scroll-margin-top:20px}
+.review-top {display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}
+.review-title {display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px;font-weight:800}
+.review-title small {font-size:11px;font-weight:500;color:var(--muted)}
+.answer-badge {font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;border:1px solid var(--line);white-space:nowrap}
+.answer-badge.good {color:var(--green-dark);background:var(--tint);border-color:#cde4d6}
+.answer-badge.bad {color:var(--red);background:var(--red-tint);border-color:#efd5d0}
+.answer-badge.pending {color:var(--amber);background:var(--amber-tint);border-color:#eadbb7}
+.answer-badge.partial {color:var(--blue);background:var(--blue-tint);border-color:#d4dcf0}
+.review-problem {border:1px solid var(--line);background:#f8faf8;border-radius:9px;margin:12px 0 18px}
+.review-problem summary {font-size:12px;color:#556d60;cursor:pointer;padding:11px 14px}
+.review-problem[open] summary {border-bottom:1px solid var(--line)}
+.review-problem .stem {font-size:14px;padding:15px 19px;line-height:1.9}
+.review-option {display:flex;gap:10px;margin:7px 0;font-size:13px}
+.review-option span:first-child {font-weight:700;color:var(--muted);min-width:18px}
+.answer-pair {display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:17px}
+.answer-box {border-radius:9px;background:#f3f6f3;padding:14px 16px;font-size:13px;line-height:1.85;min-width:0}
+.answer-box.correct-answer {background:#eaf6ee}
+.answer-box.wrong-answer {background:#fff2ef}
+.answer-box .answer-label {font-size:10px;font-weight:750;color:var(--muted);display:block;margin-bottom:6px}
+.answer-box p {margin:0}
+.explanation {font-size:13px;line-height:1.95;color:#3e5749}
+.explanation>strong {display:block;font-size:11px;color:var(--green-dark);margin-bottom:7px}
+.explanation p {margin:0 0 10px}
+.explanation ul {padding-left:20px}
+.explanation p:last-child {margin-bottom:0}
+.written-review {display:grid;grid-template-columns:.85fr 1.15fr;gap:17px}
+.student-answer {white-space:pre-wrap;word-break:normal;overflow-wrap:anywhere;line-height:1.9}
+.model-answer {font-size:13px;line-height:1.95}
+.model-answer p {margin:0 0 10px}
+.model-answer ul {padding-left:20px;margin:9px 0}
+.model-answer p:last-child {margin-bottom:0}
+.model-answer .equation {background:#e0efe5}
+.self-assess {display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);padding-top:15px;margin-top:18px}
+.self-assess>span {font-size:11px;color:var(--muted)}
+.grade-buttons {display:flex;gap:7px;flex-wrap:wrap}
+.grade-button {border:1px solid var(--line);border-radius:7px;background:#fff;font-size:11px;padding:7px 10px;min-height:34px}
+.grade-button.selected {background:var(--green);border-color:var(--green);color:#fff}
+.review-note {border-left:2px solid #c5d4c9;padding-left:12px;font-size:12px;color:var(--muted);margin:15px 0 0;white-space:pre-wrap}
+.empty-state {border:1px dashed #bfcfc3;border-radius:16px;text-align:center;padding:45px 20px;color:var(--muted);font-size:14px;background:#f8fbf8}
+.result-bottom {display:flex;justify-content:space-between;align-items:center;gap:14px;padding:27px 0}
+.result-bottom p {font-size:12px;color:var(--muted);margin:0}
+.storage-warning {padding:13px 24px;text-align:center;background:#fff2dc;color:#825b20;font-size:12px}
+dialog {max-width:450px;width:calc(100% - 34px);border:1px solid var(--line);border-radius:20px;padding:0;box-shadow:0 25px 80px #102c3240;color:var(--text)}
+dialog::backdrop {background:rgba(15,37,31,.43);backdrop-filter:blur(3px)}
+.dialog-body {padding:30px}
+.dialog-body h2 {font-size:24px;line-height:1.4;letter-spacing:-.8px;margin:12px 0}
+.dialog-body p {font-size:14px;line-height:1.9;color:var(--muted);margin-bottom:24px;white-space:pre-line}
+.dialog-buttons {display:flex;gap:10px;justify-content:flex-end}
+.toast {position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;visibility:hidden;transition:all .2s;background:var(--ink);color:white;font-size:13px;padding:12px 19px;border-radius:10px;box-shadow:var(--shadow);z-index:100;max-width:calc(100vw - 30px);text-align:center}
+.toast.show {opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.noscript {margin:25px;padding:20px;background:#fff3e3;border-radius:12px}
+@media (min-width:1450px) {
+  #app,.header-inner,.site-footer {max-width:1280px}
+  .question-card {padding:34px 40px}
+}
+@media (max-width:1000px) {
+  .quiz-layout {grid-template-columns:205px minmax(0,1fr);gap:18px}
+  .question-sidebar {padding:18px 15px}
+  .q-grid {gap:5px}
+  .question-card {padding:25px}
+  .guide {grid-template-columns:1fr;gap:15px}
+  .hero {grid-template-columns:1fr 250px}
+  .hero h1 {font-size:36px}
+  .hero-art {transform:scale(.85);transform-origin:right center}
+}
+@media (max-width:760px) {
+  .site-header {height:72px}
+  .header-inner {padding:0 20px}
+  .brand {font-size:17px;gap:9px}
+  .brand-symbol {width:38px;height:38px;border-radius:12px}
+  .brand-symbol i {left:4px;top:12px}
+  .brand-symbol b {left:16px;top:16px}
+  .brand small {font-size:8px}
+  .header-badge {display:none}
+  #app {padding:0 20px}
+  .hero {padding:32px 0 24px;grid-template-columns:1fr 170px;gap:10px}
+  .hero h1 {font-size:30px;letter-spacing:-1.3px}
+  .hero-art {width:240px;transform:scale(.68);height:205px;margin-left:-60px}
+  .hero p {font-size:13px}
+  .overview-item {padding:15px}
+  .overview-item strong {font-size:20px}
+  .overview-item {display:block}
+  .overview-item span {display:block;font-size:10px;margin-top:3px}
+  .set-card {padding:24px}
+  .set-card h3 {font-size:24px}
+  .section-heading p {font-size:10px}
+  .guide-steps {gap:14px}
+  .quiz-layout {grid-template-columns:1fr;gap:15px}
+  .question-sidebar {position:static;padding:16px 18px}
+  .sidebar-title {margin-bottom:9px}
+  .q-grid {grid-template-columns:repeat(10,1fr);margin:14px 0 10px;gap:6px}
+  .q-dot {height:32px;font-size:11px}
+  .nav-legend {margin:9px 0 0;gap:12px}
+  .question-sidebar>.button,.submit-help,.sidebar-note {display:none}
+  .question-card {padding:25px 24px}
+  .quiz-top {padding:24px 0 17px}
+  .quiz-top h1 {font-size:22px}
+  .quiz-top-tools {gap:10px}
+  .timer-box {font-size:16px}
+  .save-state {font-size:10px}
+  .quiz-top p {font-size:10px}
+  .mobile-submit {display:block;margin:0 0 25px}
+  .mobile-submit .button {width:100%}
+  .mobile-submit p {font-size:10px;color:var(--muted);text-align:center;margin:7px 0 0}
+  .result-header {align-items:flex-start;flex-direction:column;gap:18px;padding-top:28px}
+  .result-header h1 {font-size:28px}
+  .result-summary {gap:10px}
+  .score-card {padding:18px}
+  .score-number {font-size:28px}
+  .score-number small {font-size:12px}
+  .review-card {padding:22px}
+  .written-review {grid-template-columns:1fr}
+  .self-assess {align-items:flex-start;flex-direction:column}
+  .site-footer {padding:20px;flex-direction:column;gap:3px;font-size:10px;margin-top:10px}
+}
+@media (max-width:520px) {
+  .header-inner,#app {padding-left:16px;padding-right:16px}
+  .home-link {font-size:11px}
+  .hero {grid-template-columns:1fr;padding:30px 0 23px}
+  .hero-art {display:none}
+  .hero h1 {font-size:33px;margin:12px 0}
+  .hero p {font-size:12px}
+  .overview-strip {margin-bottom:25px}
+  .overview-item {padding:14px 12px}
+  .overview-item strong {font-size:21px}
+  .overview-item strong small {font-size:10px}
+  .overview-item span {font-size:9px}
+  .section-heading {align-items:flex-start;flex-direction:column;gap:5px}
+  .section-heading h2 {font-size:17px}
+  .section-heading p {font-size:11px}
+  .set-grid {grid-template-columns:1fr;gap:16px}
+  .set-card-top {margin-bottom:18px}
+  .set-card {padding:23px}
+  .set-card h3 {font-size:25px}
+  .guide {padding:22px;gap:18px}
+  .guide-steps {grid-template-columns:1fr;gap:16px}
+  .guide-step strong {font-size:12px}
+  .guide-step p {font-size:11px}
+  .quiz-top-tools {flex-direction:column-reverse;gap:5px;align-items:flex-end}
+  .timer-box small {display:inline;font-size:9px;margin-right:5px}
+  .quiz-top h1 {font-size:21px}
+  .quiz-top p {font-size:10px;max-width:220px}
+  .question-sidebar {padding:14px}
+  .q-grid {gap:4px}
+  .q-dot {height:30px;font-size:10px}
+  .question-card {padding:23px 18px}
+  .question-meta {margin-bottom:19px}
+  .question-type {font-size:9px}
+  .domain-label {font-size:10px}
+  .flag-button {font-size:10px;padding:5px 7px}
+  .question-title {font-size:22px;margin-bottom:17px}
+  .stem {font-size:15px;line-height:1.95}
+  th,td {font-size:11px;padding:9px 8px}
+  .option {font-size:13px;padding:13px 12px;gap:9px}
+  .option-number {width:23px;height:23px;font-size:11px}
+  .common-conditions {font-size:11px;padding:11px 14px}
+  .common-conditions p {font-size:11px}
+  .written-label {align-items:flex-start;flex-direction:column;gap:3px}
+  textarea {font-size:16px;padding:12px;min-height:190px}
+  .question-bottom {margin-bottom:19px}
+  .question-bottom .button {font-size:12px;min-width:96px;padding:10px 14px}
+  .result-summary {grid-template-columns:1fr 1fr;gap:10px}
+  .score-card.primary-score {grid-column:1/-1;padding:20px 23px}
+  .primary-score .score-number {font-size:37px}
+  .score-label {font-size:10px}
+  .score-number {font-size:26px}
+  .score-caption {font-size:10px}
+  .result-toolbar {align-items:flex-start;flex-direction:column;gap:8px}
+  .filter {font-size:11px;padding:7px 10px}
+  .review-card {padding:20px 17px}
+  .review-title {font-size:13px;gap:6px}
+  .review-title small {font-size:10px}
+  .answer-pair {grid-template-columns:1fr;gap:9px}
+  .answer-box {padding:12px 14px}
+  .review-problem .stem {padding:13px 14px;font-size:13px}
+  .grade-buttons {gap:5px}
+  .grade-button {font-size:10px;padding:7px 8px}
+  .result-bottom {align-items:flex-start;flex-direction:column}
+  .dialog-body {padding:25px}
+}
+@media (prefers-reduced-motion:reduce) {
+  html {scroll-behavior:auto}
+  *,*::before,*::after {transition:none!important;animation:none!important}
+}
+@media print {
+  body {background:white;color:#000}
+  .site-header,.site-footer,.result-actions,.result-toolbar,.result-bottom,.self-assess,.toast,dialog,.score-note,.storage-warning {display:none!important}
+  #app {max-width:none;padding:0}
+  .result-header {padding-top:0}
+  .review-card {break-inside:avoid;box-shadow:none;margin-bottom:15px}
+  .result-summary {grid-template-columns:1fr 1fr 1fr}
+  .score-card.primary-score {color:#000;background:#fff}
+  .primary-score .score-label,.primary-score .score-caption {color:#333}
+  .review-problem .stem {display:block}
+  .answer-box,.equation {border:1px solid #ddd}
+}
+
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#app">본문으로 바로가기</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <button type="button" class="brand" data-action="home" aria-label="과학 생각 실험실, 세트 선택으로">
+        <span class="brand-symbol" aria-hidden="true"><i></i><i></i><b></b></span>
+        <span>생각 실험실<small>SCIENCE PRACTICE</small></span>
+      </button>
+      <div class="header-right">
+        <span class="header-badge">중2 과학 · 고난도</span>
+        <button type="button" class="text-button home-link" data-action="home">세트 선택 <span aria-hidden="true">↗</span></button>
+      </div>
+    </div>
+  </header>
+  <div id="storage-warning" class="storage-warning" hidden>이 브라우저에서는 답안을 저장할 수 없습니다. 현재 창에서는 풀 수 있지만, 새로고침하거나 창을 닫으면 기록이 사라질 수 있어요.</div>
+  <main id="app" tabindex="-1"></main>
+  <footer class="site-footer">
+    <span>스스로 생각하고, 근거로 설명하는 연습.</span>
+    <span>첨부된 고난도 과학 40문항 기준 · 전류의 자기 작용 제외</span>
+  </footer>
+  <dialog id="confirm-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+    <div class="dialog-body">
+      <span class="eyebrow">SCIENCE PRACTICE</span>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-description"></p>
+      <div class="dialog-buttons">
+        <button type="button" class="button secondary" id="dialog-cancel">취소</button>
+        <button type="button" class="button primary" id="dialog-confirm">확인</button>
+      </div>
+    </div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">문제 선택과 채점에는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 허용한 뒤 다시 열어 주세요.</div></noscript>
+  <script>
+window.QUIZ_DATA = {"version": 1, "common": "회로에서는 전원의 전압이 일정하며 도선·전류계의 저항은 무시한다. 저항값은 온도에 따라 변하지 않는다. 생물 실험의 수치는 해당 실험 조건에서 얻은 값이며, 별도 설명이 없는 조건으로 확대 해석하지 않는다.", "sets": [{"id": "s1", "number": 1, "title": "고난도 1세트", "questions": [{"id": 1, "type": "mc", "domain": "식물과 에너지", "stem": "<p>같은 식물의 동일한 양을 이용하여 온도에 따른 산소량 변화를 측정하였다. 각 온도에서 빛이 있을 때와 없을 때의 호흡 속도는 같다고 가정한다.</p>\n<div class=\"table-scroll\" role=\"region\" aria-label=\"문제 자료 표\" tabindex=\"0\"><table>\n<thead>\n<tr>\n<th>온도</th>\n<th>빛이 있을 때 산소량 변화</th>\n<th>어두울 때 산소량 변화</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>20℃</td>\n<td>시간당 5 증가</td>\n<td>시간당 3 감소</td>\n</tr>\n<tr>\n<td>30℃</td>\n<td>시간당 4 증가</td>\n<td>시간당 6 감소</td>\n</tr>\n</tbody>\n</table></div>\n<p>20℃에서 30℃로 바꾸었을 때의 변화를 옳게 설명한 것은?</p>\n", "options": ["광합성에 의한 산소 생성량과 호흡에 의한 산소 소비량이 모두 감소했다.", "광합성에 의한 산소 생성량은 감소하고 호흡에 의한 소비량은 증가했다.", "광합성에 의한 산소 생성량은 증가했지만, 외부로 내보내는 순산소량은 감소했다.", "광합성에 의한 산소 생성량은 같고, 호흡에 의한 소비량만 증가했다.", "광합성에 의한 산소 생성량과 외부로 내보내는 순산소량이 모두 증가했다."], "correct": 3, "answerHtml": "<p>실제 광합성 산소 생성량은 20℃에서 <span class=\"formula\">5+3=8</span>, 30℃에서 <span class=\"formula\">4+6=10</span>이다. 광합성은 증가했지만 호흡 증가가 더 커서 순방출량은 줄었다.</p>\n"}, {"id": 2, "type": "mc", "domain": "식물과 에너지", "stem": "<p>빛의 세기와 이산화 탄소 농도를 달리하여 광합성량을 측정했다. 온도와 식물의 양 등은 같았다.</p>\n<div class=\"table-scroll\" role=\"region\" aria-label=\"문제 자료 표\" tabindex=\"0\"><table>\n<thead>\n<tr>\n<th>이산화 탄소 농도</th>\n<th>약한 빛</th>\n<th>중간 빛</th>\n<th>강한 빛</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>낮음</td>\n<td>2</td>\n<td>6</td>\n<td>6</td>\n</tr>\n<tr>\n<td>높음</td>\n<td>2</td>\n<td>9</td>\n<td>12</td>\n</tr>\n</tbody>\n</table></div>\n<p>자료에서 뒷받침되는 설명만 고른 것은?</p>\n<ul>\n<li>ㄱ. 낮은 이산화 탄소 농도에서 중간 빛을 강한 빛으로 바꾸는 것만으로는 광합성량이 늘지 않았다.</li>\n<li>ㄴ. 이산화 탄소 농도를 높이는 효과는 빛의 세기에 따라 달랐다.</li>\n<li>ㄷ. 높은 이산화 탄소 농도에서는 앞으로 빛을 아무리 강하게 해도 광합성량이 계속 증가할 것이다.</li>\n</ul>\n", "options": ["ㄱ", "ㄴ", "ㄱ, ㄴ", "ㄱ, ㄷ", "ㄴ, ㄷ"], "correct": 3, "answerHtml": "<p>ㄱ·ㄴ은 표에서 확인된다. ㄷ은 측정하지 않은 더 강한 빛으로 결과를 확대했으므로 인정할 수 없다.</p>\n"}, {"id": 3, "type": "mc", "domain": "식물과 에너지", "stem": "<p>식물을 충분히 어두운 곳에 둔 뒤, 한 잎의 일부를 불투명 덮개로 가리고 빛을 비추었다. 가린 부분에서는 녹말 반응이 나타나지 않았다.</p>\n<p>학생은 “불투명 덮개가 빛뿐 아니라 기체 교환도 막았을 수 있으므로, 이 결과만으로 빛의 영향을 분리하기 어렵다”고 지적했다.</p>\n<p>이 지적에 가장 직접적으로 대응하는 추가 처리는?</p>\n", "options": ["덮개가 없는 잎을 두 배의 시간 동안 빛에 둔다.", "같은 재질·구조이며 빛을 통과시키는 덮개를 다른 부분에 씌운다. 단, 두 덮개의 기체 교환과 온도 조건은 같게 한다.", "불투명 덮개를 씌운 잎을 더 낮은 온도에 둔다.", "불투명 덮개를 씌운 부분에 아이오딘 용액을 두 배로 떨어뜨린다.", "다른 종류의 식물에서 덮개 없이 실험한다."], "correct": 2, "answerHtml": "<p>기체 교환과 온도를 같게 유지하면서 빛의 통과 여부만 달리해야 지적된 원인을 분리할 수 있다.</p>\n"}, {"id": 4, "type": "mc", "domain": "식물과 에너지", "stem": "<p>나무줄기의 한 부분에서 체관이 포함된 껍질을 고리 모양으로 제거하고, 물관은 손상시키지 않았다. 제거 부위 위쪽에만 잎이 있다. 일정 시간이 지난 뒤의 변화에 대한 예상으로 가장 타당한 것은?</p>\n", "options": ["위쪽에 양분이 쌓이므로 뿌리의 양분 공급도 증가한다.", "잎에 물이 도달할 수 있으므로 뿌리도 장기간 영향을 받지 않는다.", "뿌리의 양분 공급이 줄 수 있지만, 잎으로 향하는 물의 이동이 처음부터 완전히 끊기는 것은 아니다.", "양분은 아래쪽에 쌓이고 제거 부위 위쪽의 줄기는 양분이 부족해진다.", "체관의 일부가 제거되면 남은 물관이 같은 양의 양분을 대신 운반한다."], "correct": 3, "answerHtml": "<p>체관 손상은 아래쪽 양분 공급을 방해한다. 물관이 남아 있으므로 물 이동이 처음부터 완전히 끊기지는 않는다.</p>\n"}, {"id": 5, "type": "mc", "domain": "식물과 에너지", "stem": "<p>같은 크기의 잎을 가진 식물 A, B를 같은 시간 동안 빛에 두었다. 실험 전후 잎의 녹말량을 비교했더니 A의 증가량이 B보다 컸다.</p>\n<p>이 결과만으로 <strong>확정하기 어려운 판단</strong>은?</p>\n", "options": ["실험 후 잎에 남은 녹말의 증가량은 A가 더 컸다.", "A와 B의 녹말 축적 결과가 같지 않았다.", "잎의 녹말 축적만 비교하면 A가 더 많은 증가를 보였다.", "A가 실험 중 광합성으로 만든 양분의 총량은 반드시 B보다 많았다.", "B도 녹말이 증가했다면 실험 후 잎에 녹말이 더 많이 남았다."], "correct": 4, "answerHtml": "<p>잎에 남은 녹말은 생성량뿐 아니라 호흡, 다른 기관으로의 이동, 다른 물질로의 전환 등의 영향을 받는다.</p>\n"}, {"id": 6, "type": "mc", "domain": "식물과 에너지", "stem": "<p>동일한 양의 초록색 BTB 용액을 넣은 시험관 A, B에 같은 양의 검정말을 넣었다. 서로 다른 빛 조건에서 일정 시간 뒤 두 시험관 모두 파란색이 되었다. 색은 육안으로만 구분했다.</p>\n<p>다음 중 가장 타당한 결론은?</p>\n", "options": ["두 시험관의 광합성량이 정확히 같다.", "두 시험관의 호흡량이 정확히 같다.", "두 시험관 모두 이산화 탄소가 감소한 방향의 변화를 보였지만, 감소량이 같다고 단정할 수는 없다.", "두 시험관에서 검정말이 만든 산소량이 정확히 같다.", "두 시험관 모두 실험 시작부터 끝까지 같은 속도로 광합성했다."], "correct": 3, "answerHtml": "<p>같은 색 범주가 정확히 같은 농도나 같은 변화량을 뜻하지는 않는다. 육안 색 관찰만으로 정량적 동등성을 판단할 수 없다.</p>\n"}, {"id": 7, "type": "written", "domain": "식물과 에너지", "stem": "<p>어느 식물은 빛을 비추는 동안 시간당 양분 9단위를 만들고, 빛의 유무와 관계없이 시간당 3단위를 호흡에 사용한다.</p>\n<p>하루는 24시간이며, 위 속도는 일정하다. 다른 양분의 출입은 없다.</p>\n<p>⑴ 하루 동안 양분이 줄어들지 않으려면 최소 몇 시간 빛을 비추어야 하는가?<br />\n⑵ 하루에 양분을 18단위 이상 축적하려면 최소 몇 시간 빛을 비추어야 하는가?</p>\n<p><strong>풀이 과정을 쓰시오.</strong></p>\n", "options": [], "correct": null, "answerHtml": "<p><strong>정답: ⑴ 8시간 ⑵ 10시간</strong></p>\n<p>빛을 비추는 시간을 <span class=\"formula\">t</span>시간이라 하면,</p>\n<ul>\n<li>만든 양분: <span class=\"formula\">9t</span></li>\n<li>하루 호흡에 사용한 양분: <span class=\"formula\">3×24=72</span></li>\n<li>하루 순증가량: <span class=\"formula\">9t-72</span></li>\n</ul>\n<p>⑴ <span class=\"formula\">9t-72≥0</span>이므로 <span class=\"formula\">t≥8</span>.<br />\n⑵ <span class=\"formula\">9t-72≥18</span>이므로 <span class=\"formula\">t≥10</span>.</p>\n<p><strong>핵심:</strong> 호흡 시간을 빛을 비춘 시간으로만 계산하면 안 된다.</p>\n"}, {"id": 8, "type": "written", "domain": "식물과 에너지", "stem": "<p>학생이 “온도가 높으면 발아하는 씨의 호흡이 더 활발하다”는 가설을 조사했다.</p>\n<div class=\"table-scroll\" role=\"region\" aria-label=\"문제 자료 표\" tabindex=\"0\"><table>\n<thead>\n<tr>\n<th>장치</th>\n<th>씨의 상태</th>\n<th>씨의 질량</th>\n<th>온도</th>\n<th>10분 동안 산소 감소량</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>A</td>\n<td>발아 중</td>\n<td>10 g</td>\n<td>20℃</td>\n<td>4</td>\n</tr>\n<tr>\n<td>B</td>\n<td>발아 중</td>\n<td>20 g</td>\n<td>30℃</td>\n<td>10</td>\n</tr>\n</tbody>\n</table></div>\n<p>학생은 “B의 산소 감소량이 더 크므로 가설이 입증되었다”고 결론 내렸다.</p>\n<p>⑴ 이 결론의 문제점을 쓰시오.<br />\n⑵ 더 타당하게 비교하기 위해 고쳐야 할 실험 조건 두 가지를 쓰시오.<br />\n⑶ 이 두 결과만으로 모든 온도에서 ‘높을수록 호흡이 활발하다’고 말할 수 있는지 설명하시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴ B는 온도뿐 아니라 씨의 질량도 더 크다. 산소 감소량 차이가 온도 때문인지 씨의 양 때문인지 분리할 수 없다.</p>\n<p>⑵ 씨의 질량을 같게 하고, 씨의 종류와 발아 정도를 같게 한다. 용기의 크기·측정 시간 등도 통제한다.</p>\n<p>⑶ 두 온도의 결과만으로 모든 온도에 일반화할 수 없다. 더 높은 온도에서 생명 활동이 약해지거나 손상될 수 있으므로 추가 측정이 필요하다.</p>\n<p><strong>핵심:</strong> ‘여러 번 측정한다’만으로 변인 통제 문제를 해결했다고 볼 수 없다.</p>\n"}, {"id": 9, "type": "written", "domain": "식물과 에너지", "stem": "<p>어느 식물의 잎에서 만들어진 양분이 씨로 이동했다. 이후 그 씨에서는 아이오딘 반응이 약하게 나타났고 지방은 많이 검출되었다.</p>\n<p>학생은 “씨에서 녹말이 거의 검출되지 않았으므로 잎에서 만든 양분은 씨에 거의 도달하지 않았다”고 주장했다.</p>\n<p>⑴ 이 주장을 평가하시오.<br />\n⑵ <strong>이동한 양분과 저장 물질의 관계</strong>를 포함하여 설명하시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴ 타당하지 않다.</p>\n<p>⑵ 잎에서 이동한 양분은 씨에서 지방 등 다른 물질로 바뀌어 저장될 수 있다. 녹말이 적다는 사실만으로 양분의 이동량이 적었다고 판단할 수 없다.</p>\n<p><strong>핵심:</strong> 특정 저장 물질의 검출량과 이동한 양분의 총량을 구별한다.</p>\n"}, {"id": 10, "type": "written", "domain": "식물과 에너지", "stem": "<p>같은 식물을 어두운 곳에 두고 다음 결과를 얻었다.</p>\n<ul>\n<li>A: 식물과 장치를 합한 질량이 감소했다.</li>\n<li>B: 식물을 건조한 뒤 측정한 식물의 질량도 감소했다.</li>\n<li>실험 중 외부에서 양분을 공급하지 않았다.</li>\n</ul>\n<p>학생은 “A만으로도 호흡 때문에 양분이 줄었다고 확정할 수 있다”고 말했다.</p>\n<p>⑴ A만으로는 결론을 확정하기 어려운 이유를 쓰시오.<br />\n⑵ B가 A보다 양분 감소를 판단하는 데 도움이 되는 이유를 쓰시오.<br />\n⑶ 어둠에서 양분이 줄어드는 과정을 설명하시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴ A의 질량 감소에는 물의 손실 등이 포함될 수 있어, 양분 감소만을 나타낸다고 보기 어렵다.</p>\n<p>⑵ 건조 질량은 물의 양에 따른 차이를 줄여 비교할 수 있으므로 유기물 감소를 판단하는 데 더 도움이 된다.</p>\n<p>⑶ 어둠에서는 광합성으로 양분을 새로 만들지 못하지만 호흡은 계속된다. 저장 양분이 분해되고 생성된 기체 등이 식물 밖으로 나가면서 건조 질량이 감소할 수 있다.</p>\n<p><strong>핵심:</strong> 건조 질량 감소만으로 호흡의 모든 세부 과정을 증명한 것은 아니지만, 단순한 수분 감소 설명을 줄일 수 있다.</p>\n"}, {"id": 11, "type": "mc", "domain": "전기와 자기", "stem": "<p>처음에 중성이던 물체 A, B, C가 있다. 다음 두 과정에서 이동한 입자는 전자뿐이며, 외부와 전하를 주고받지 않았다.</p>\n<ul>\n<li>A에서 B로 전자 8개에 해당하는 양이 이동했다.</li>\n<li>이어서 B에서 C로 전자 3개에 해당하는 양이 이동했다.</li>\n</ul>\n<p>최종 상태에 대한 설명으로 옳은 것은?</p>\n", "options": ["A와 B는 끌어당기고, B와 C는 밀어낸다.", "A와 B는 밀어내고, B와 C는 끌어당긴다.", "A와 C는 밀어내고, B와 C도 밀어낸다.", "A, B, C 모두 처음보다 전자가 부족하다.", "B는 처음보다 전자 11개에 해당하는 양이 많다."], "correct": 1, "answerHtml": "<p>A는 전자 8개 부족, B는 5개 과잉, C는 3개 과잉이다. A–B는 인력, B–C는 척력이다.</p>\n"}, {"id": 12, "type": "mc", "domain": "전기와 자기", "stem": "<p>서로 접촉해 있는 중성 금속 구 A, B가 절연 받침 위에 있다. A 가까이에 (+)대전체를 접촉 없이 가져간다.</p>\n<p>다음 두 실험의 최종 상태를 비교했다.</p>\n<ul>\n<li>실험 Ⅰ: 대전체를 가까이 둔 채 A와 B를 떼어 놓고, 이후 대전체를 멀리한다.</li>\n<li>실험 Ⅱ: A와 B가 붙어 있는 상태에서 대전체를 먼저 멀리하고, 이후 두 구를 떼어 놓는다.</li>\n</ul>\n<p>옳은 것은?</p>\n", "options": ["Ⅰ: A(+), B(−) / Ⅱ: 둘 다 중성", "Ⅰ: A(−), B(+) / Ⅱ: 둘 다 중성", "Ⅰ: A(−), B(+) / Ⅱ: A(−), B(+)", "Ⅰ: 둘 다 중성 / Ⅱ: A(−), B(+)", "Ⅰ: A(+), B(−) / Ⅱ: A(+), B(−)"], "correct": 2, "answerHtml": "<p>(+)대전체에 가까운 A로 전자가 모인다. 이때 분리하면 A(−), B(+)가 남는다. 대전체부터 치우면 두 구의 전하 분리가 사라진다.</p>\n"}, {"id": 13, "type": "mc", "domain": "전기와 자기", "stem": "<p>(−)로 대전되어 금속박이 벌어진 검전기에 어떤 대전체를 접촉 없이 천천히 가까이했다. 일반적인 검전기 모형에서 금속박이 처음에는 오므라들다가, 더 가까이하자 다시 벌어졌다.</p>\n<p>가장 적절한 설명은?</p>\n", "options": ["대전체는 (−)이며, 검전기의 총전하는 계속 증가했다.", "대전체는 (+)이며, 검전기의 총전하는 변하지 않았지만 전자 분포가 달라졌다.", "대전체는 (+)이며, 금속박이 붙는 순간 검전기 전체가 반드시 중성이 되었다.", "대전체는 (−)이며, 금속박이 다시 벌어진 것은 전자가 사라졌기 때문이다.", "대전체의 전하 종류는 알 수 없고, 다시 벌어질 때 검전기의 총전하는 반드시 (+)가 된다."], "correct": 2, "answerHtml": "<p>(+)대전체가 전자를 금속판으로 끌어당긴다. 금속박의 (−)전하가 줄다가 충분히 강한 유도에서는 (+)가 되어 다시 벌어질 수 있다. 전체 총전하는 그대로이다.</p>\n"}, {"id": 14, "type": "mc", "domain": "전기와 자기", "stem": "<p>저항 A, B의 전압과 전류 관계를 서로 다른 축으로 나타냈다.</p>\n<ul>\n<li>A: 가로축 전압(V), 세로축 전류(A). 직선 위의 점은 <span class=\"formula\">(4, 0.5)</span>.</li>\n<li>B: 가로축 전류(A), 세로축 전압(V). 직선 위의 점은 <span class=\"formula\">(0.5, 6)</span>.</li>\n</ul>\n<p>두 저항에 같은 전압을 각각 걸었을 때, 전류의 비 <span class=\"formula\">I<sub>A</sub>:I<sub>B</sub></span>는?</p>\n", "options": ["2:3", "3:2", "4:9", "9:4", "1:1"], "correct": 2, "answerHtml": "<p><span class=\"formula\">R<sub>A</sub>=4/0.5=8Ω, R<sub>B</sub>=6/0.5=12Ω</span>. 같은 전압에서 전류비는 <span class=\"formula\">1/8:1/12=3:2</span>이다.</p>\n"}, {"id": 15, "type": "mc", "domain": "전기와 자기", "stem": "<p>저항 A, B를 직렬로 연결하고 18 V를 걸었더니, A에는 6 V가 걸렸고 회로에는 1 A가 흘렀다.</p>\n<p>A와 B를 분리한 뒤, 두 저항을 18 V 전원에 병렬로 연결했다. 전체 전류는?</p>\n", "options": ["1 A", "1.5 A", "3 A", "4.5 A", "6 A"], "correct": 4, "answerHtml": "<p>직렬 자료에서 A는 6 Ω, B는 12 Ω이다. 병렬에서는 각각 3 A, 1.5 A가 흘러 전체 4.5 A이다.</p>\n"}, {"id": 16, "type": "mc", "domain": "전기와 자기", "stem": "<p>동일한 기구를 다음 두 방식으로 사용한다. 표시된 소비 전력은 각 상태에서 일정하다.</p>\n<div class=\"table-scroll\" role=\"region\" aria-label=\"문제 자료 표\" tabindex=\"0\"><table>\n<thead>\n<tr>\n<th>방식</th>\n<th>작동 상태</th>\n<th>나머지 시간</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>A</td>\n<td>100 W로 하루 3시간</td>\n<td>21시간 동안 2 W 대기</td>\n</tr>\n<tr>\n<td>B</td>\n<td>80 W로 하루 4시간</td>\n<td>20시간 동안 전원 완전 차단</td>\n</tr>\n</tbody>\n</table></div>\n<p>30일 동안 사용했을 때의 비교로 옳은 것은?</p>\n", "options": ["A가 B보다 0.60 kWh 적게 사용한다.", "A가 B보다 0.66 kWh 많이 사용한다.", "A가 B보다 1.26 kWh 많이 사용한다.", "B가 A보다 0.60 kWh 많이 사용한다.", "두 방식의 전력량은 같다."], "correct": 2, "answerHtml": "<p>A는 하루 <span class=\"formula\">300+42=342Wh</span>, B는 <span class=\"formula\">320Wh</span>. 차이는 <span class=\"formula\">22×30=660Wh=0.66kWh</span>이다.</p>\n"}, {"id": 17, "type": "written", "domain": "전기와 자기", "stem": "<p>저항값을 모르는 A, B를 같은 전원에 각각 하나씩 연결했다.</p>\n<ul>\n<li>A를 연결하면 0.6 A</li>\n<li>B를 연결하면 0.3 A</li>\n</ul>\n<p>이 전원에 A와 B를 <strong>직렬로 함께 연결</strong>하면 흐르는 전류는 얼마인가? 전원 전압을 임의로 정하지 말고 풀이하시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p><strong>정답: 0.2 A</strong></p>\n<p>전원 전압을 <span class=\"formula\">V</span>라 하면,</p>\n<div class=\"equation\" role=\"math\">R<sub>A</sub> = V ÷ 0.6,   R<sub>B</sub> = V ÷ 0.3</div>\n<p>따라서 직렬연결의 전류는</p>\n<div class=\"equation\" role=\"math\">I = V ÷ (V/0.6 + V/0.3) = 1 ÷ (1/0.6 + 1/0.3) = 0.2 A</div>\n<p><strong>핵심:</strong> 전압의 실제 값을 몰라도 같은 전원을 썼다는 관계로 구할 수 있다.</p>\n"}, {"id": 18, "type": "written", "domain": "전기와 자기", "stem": "<p>서로 같은 12 Ω 저항 세 개를 이용한다. 세 저항을 모두 사용하고, 각 저항에 전류가 흐르도록 연결한다.</p>\n<p>⑴ 전체 저항이 가장 큰 연결 방법과 그 값을 쓰시오.<br />\n⑵ 전체 저항이 가장 작은 연결 방법과 그 값을 쓰시오.<br />\n⑶ 같은 전원에 연결할 때 ⑴과 ⑵의 전체 전류 비를 구하시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴ 모두 직렬: <span class=\"formula\">12+12+12=36Ω</span></p>\n<p>⑵ 모두 병렬: 각 가지에 <span class=\"formula\">V/12</span>가 흐르므로 전체 전류는 <span class=\"formula\">V/4</span>. 따라서 전체 저항은 <span class=\"formula\">4Ω</span>.</p>\n<p>⑶ 같은 전압에서</p>\n<div class=\"equation\" role=\"math\">I(직렬) : I(병렬) = V/36 : V/4 = 1 : 9</div>\n"}, {"id": 19, "type": "written", "domain": "전기와 자기", "stem": "<p>전기 기구 A는 900 W로 20분 작동하여 원하는 작업을 끝낸다. B는 같은 작업을 600 W로 35분 동안 수행한다.</p>\n<p>⑴ 1회 작업에 필요한 전력량을 각각 구하시오.<br />\n⑵ “소비 전력이 작은 B가 같은 작업에 전기 에너지를 더 적게 쓴다”는 판단을 평가하시오.<br />\n⑶ 이 작업을 24회 할 때 두 기구의 전력량 차이를 kWh로 구하시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴</p>\n<ul>\n<li>A: <span class=\"formula\">900×20/60=300Wh</span></li>\n<li>B: <span class=\"formula\">600×35/60=350Wh</span></li>\n</ul>\n<p>⑵ B의 소비 전력은 작지만 작동 시간이 길어 1회 작업의 전력량은 더 크다. 따라서 학생의 판단은 틀렸다.</p>\n<p>⑶ <span class=\"formula\">(350-300)×24=1,200Wh=1.2kWh</span></p>\n"}, {"id": 20, "type": "written", "domain": "전기와 자기", "stem": "<p>6 V 전원에 A, B, C의 세 저항을 각각 별도의 가지로 병렬 연결했다. 각 가지에 흐르는 전류는 차례로 0.2 A, 0.3 A, 0.5 A였다.</p>\n<p>이 중 <strong>어느 한 저항이 끊어진 뒤</strong>, 전원에서 나오는 전체 전류가 0.7 A가 되었다.</p>\n<p>⑴ 끊어진 저항을 찾으시오.<br />\n⑵ 끊어지기 전 그 저항의 저항값을 구하시오.<br />\n⑶ 끊어진 뒤 C에 걸리는 전압과 흐르는 전류를 쓰시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴ 처음 전체 전류는 <span class=\"formula\">0.2+0.3+0.5=1.0A</span>. 줄어든 전류는 <span class=\"formula\">1.0-0.7=0.3A</span>이므로 <strong>B</strong>가 끊어졌다.</p>\n<p>⑵ <span class=\"formula\">R<sub>B</sub>=6/0.3=20Ω</span></p>\n<p>⑶ C의 전압은 <span class=\"formula\">6V</span>, 전류는 <span class=\"formula\">0.5A</span>이다.</p>\n<p><strong>핵심:</strong> 전원 전압이 일정한 병렬회로에서는 한 가지가 끊어져도 다른 가지의 전압은 유지된다.</p>\n"}]}, {"id": "s2", "number": 2, "title": "고난도 2세트", "questions": [{"id": 1, "type": "mc", "domain": "식물과 에너지", "stem": "<p>식물 A, B의 잎을 각각 같은 면적만큼 떼어 내어 조사했다. 두 식물의 호흡 속도는 각각 빛의 유무에 따라 변하지 않는다고 가정한다.</p>\n<div class=\"table-scroll\" role=\"region\" aria-label=\"문제 자료 표\" tabindex=\"0\"><table>\n<thead>\n<tr>\n<th>식물</th>\n<th>어둠에서 시간당 이산화 탄소 방출량</th>\n<th>특정 빛에서 시간당 이산화 탄소 순흡수량</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>A</td>\n<td>2</td>\n<td>6</td>\n</tr>\n<tr>\n<td>B</td>\n<td>5</td>\n<td>4</td>\n</tr>\n</tbody>\n</table></div>\n<p>옳은 설명만 고른 것은?</p>\n<ul>\n<li>ㄱ. 특정 빛에서 광합성으로 실제 흡수한 이산화 탄소의 양은 B가 더 많다.</li>\n<li>ㄴ. 특정 빛에서 외부 공기의 이산화 탄소를 순수하게 줄이는 정도는 A가 더 크다.</li>\n<li>ㄷ. 위 자료의 순흡수량만 비교하면 광합성 자체의 활발한 정도를 반대로 판단할 수 있다.</li>\n</ul>\n", "options": ["ㄱ", "ㄴ", "ㄱ, ㄴ", "ㄴ, ㄷ", "ㄱ, ㄴ, ㄷ"], "correct": 5, "answerHtml": "<p>실제 광합성 흡수량은 A가 <span class=\"formula\">6+2=8</span>, B가 <span class=\"formula\">4+5=9</span>이다. 순흡수량은 A가 크지만 광합성 자체는 B가 더 크다. 세 설명 모두 옳다.</p>\n"}, {"id": 2, "type": "mc", "domain": "식물과 에너지", "stem": "<p>같은 식물에서 빛의 세기, 온도, 이산화 탄소 농도를 달리하여 광합성량을 조사했다.</p>\n<div class=\"table-scroll\" role=\"region\" aria-label=\"문제 자료 표\" tabindex=\"0\"><table>\n<thead>\n<tr>\n<th>장치</th>\n<th>빛</th>\n<th>온도</th>\n<th>이산화 탄소 농도</th>\n<th>광합성량</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>A</td>\n<td>약함</td>\n<td>20℃</td>\n<td>낮음</td>\n<td>2</td>\n</tr>\n<tr>\n<td>B</td>\n<td>강함</td>\n<td>20℃</td>\n<td>낮음</td>\n<td>5</td>\n</tr>\n<tr>\n<td>C</td>\n<td>강함</td>\n<td>30℃</td>\n<td>낮음</td>\n<td>7</td>\n</tr>\n<tr>\n<td>D</td>\n<td>강함</td>\n<td>30℃</td>\n<td>높음</td>\n<td>10</td>\n</tr>\n</tbody>\n</table></div>\n<p>이 자료를 이용한 설명 중 <strong>뒷받침되지 않는 것</strong>은?</p>\n", "options": ["A와 B를 비교하면 20℃·낮은 농도에서 빛의 영향을 볼 수 있다.", "B와 C를 비교하면 강한 빛·낮은 농도에서 온도 변화의 영향을 볼 수 있다.", "C와 D를 비교하면 강한 빛·30℃에서 농도 변화의 영향을 볼 수 있다.", "A와 D의 차이 8은 이산화 탄소 농도를 높인 효과만으로 설명할 수 있다.", "조사한 조건에서는 빛, 온도, 농도 중 하나를 바꾼 비교에서 모두 증가 사례가 있었다."], "correct": 4, "answerHtml": "<p>A–D는 빛·온도·농도가 모두 달라 농도만의 효과로 설명할 수 없다.</p>\n"}, {"id": 3, "type": "mc", "domain": "식물과 에너지", "stem": "<p>충분히 어두운 곳에 두어 녹말을 제거한 얼룩무늬 잎에 다음 처리를 했다. 물과 이산화 탄소는 충분히 공급했다.</p>\n<div class=\"table-scroll\" role=\"region\" aria-label=\"문제 자료 표\" tabindex=\"0\"><table>\n<thead>\n<tr>\n<th>부분</th>\n<th>색</th>\n<th>빛</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>P</td>\n<td>녹색</td>\n<td>받음</td>\n</tr>\n<tr>\n<td>Q</td>\n<td>녹색</td>\n<td>차단</td>\n</tr>\n<tr>\n<td>R</td>\n<td>흰색</td>\n<td>받음</td>\n</tr>\n<tr>\n<td>S</td>\n<td>흰색</td>\n<td>차단</td>\n</tr>\n</tbody>\n</table></div>\n<p>빛을 비춘 뒤 P에서만 녹말이 검출되었다. 빛의 필요성과 녹색 부분의 역할을 <strong>각각 다른 한 요인만 비교하여</strong> 조사한 조합으로 가장 적절한 것은?</p>\n", "options": ["빛: P–Q / 녹색 부분: P–R", "빛: P–S / 녹색 부분: Q–R", "빛: P–R / 녹색 부분: P–Q", "빛: Q–S / 녹색 부분: R–S", "빛: P–Q / 녹색 부분: P–S"], "correct": 1, "answerHtml": "<p>P–Q는 녹색이라는 조건을 같게 하고 빛만 바꾼다. P–R은 빛을 같게 하고 녹색·흰색 부분을 비교한다.</p>\n"}, {"id": 4, "type": "mc", "domain": "식물과 에너지", "stem": "<p>식물의 잎 한 장에서 새로 만들어진 양분에 추적 가능한 표시를 했다. 표시 자체는 생명 활동에 영향을 주지 않는다.</p>\n<p>이후 표시가 줄기와 뿌리에서 검출되었다. 이 결과에 대한 판단으로 가장 타당한 것은?</p>\n", "options": ["줄기와 뿌리에서 검출된 물질은 모두 잎에서 만들어진 물질과 정확히 같은 형태이다.", "뿌리에서 표시가 검출되었으므로 뿌리에서도 반드시 광합성이 일어났다.", "잎에서 만들어진 양분의 일부가 다른 기관으로 이동했음을 뒷받침하지만, 이동 후 이용·변환 여부는 추가 조사가 필요하다.", "표시가 이동했으므로 양분은 식물체 안에서 에너지원으로 사용되지 않았다.", "표시의 이동 방향만으로 그 물질이 물관을 통과했다고 확정할 수 있다."], "correct": 3, "answerHtml": "<p>표시는 물질의 이동을 뒷받침한다. 이동 후 화학적 형태가 그대로인지, 저장·호흡 등에 얼마나 쓰였는지는 별도 자료가 필요하다.</p>\n"}, {"id": 5, "type": "mc", "domain": "식물과 에너지", "stem": "<p>같은 종류의 잎 조각을 사용해 산소 발생량을 비교했다. 잎의 상태, 온도, 이산화 탄소 농도는 같지만 빛의 세기는 달랐다.</p>\n<div class=\"table-scroll\" role=\"region\" aria-label=\"문제 자료 표\" tabindex=\"0\"><table>\n<thead>\n<tr>\n<th>장치</th>\n<th>잎의 총면적</th>\n<th>측정 시간</th>\n<th>모은 산소 부피</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>A</td>\n<td>4 cm²</td>\n<td>5분</td>\n<td>8 mL</td>\n</tr>\n<tr>\n<td>B</td>\n<td>6 cm²</td>\n<td>10분</td>\n<td>18 mL</td>\n</tr>\n<tr>\n<td>C</td>\n<td>3 cm²</td>\n<td>4분</td>\n<td>6 mL</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>단위 면적·단위 시간당 모인 산소량</strong>이 큰 순서는?</p>\n", "options": ["A &gt; B &gt; C", "B &gt; A &gt; C", "B &gt; C &gt; A", "C &gt; A &gt; B", "C &gt; B &gt; A"], "correct": 4, "answerHtml": "<p>A는 <span class=\"formula\">8/(4×5)=0.4</span>, B는 <span class=\"formula\">18/(6×10)=0.3</span>, C는 <span class=\"formula\">6/(3×4)=0.5</span>. 따라서 C&gt;A&gt;B이다.</p>\n"}, {"id": 6, "type": "mc", "domain": "식물과 에너지", "stem": "<p>광합성 확인 실험을 마친 뒤, 학생이 다음과 같이 기록했다.</p>\n<blockquote>\n<p>“빛을 받은 잎이 아이오딘 용액에 청람색으로 변했다. 따라서 광합성으로 생성된 산소가 청람색 반응을 일으킨다고 결론 내렸다.”</p>\n</blockquote>\n<p>이 결론을 바로잡는 설명으로 가장 적절한 것은?</p>\n", "options": ["청람색은 포도당만 검출하므로 산소 생성 여부와는 관계가 없다.", "청람색은 녹말의 존재를 나타내므로 산소 생성 여부는 별도 방법으로 확인해야 한다.", "청람색은 엽록소의 존재만 나타내므로 녹말 여부는 알 수 없다.", "청람색은 이산화 탄소의 감소를 나타내므로 산소 증가량과 정확히 같다.", "청람색은 호흡량이 광합성량보다 크다는 뜻이므로 결론의 방향만 반대이다."], "correct": 2, "answerHtml": "<p>아이오딘 반응은 녹말을 확인하는 방법이다. 산소 확인 실험과 혼동하면 안 된다.</p>\n"}, {"id": 7, "type": "written", "domain": "식물과 에너지", "stem": "<p>어느 식물의 잎에 있는 저장 양분을 조사했다.</p>\n<ul>\n<li>밝은 시간 동안 잎에서 새로 만든 양분: 30단위</li>\n<li>같은 시간 동안 잎의 호흡에 사용한 양분: 8단위</li>\n<li>실험 전 잎의 저장 양분: 12단위</li>\n<li>실험 후 잎의 저장 양분: 19단위</li>\n</ul>\n<p>잎으로 들어온 양분은 없고, 이 시간 동안 잎의 몸을 만드는 데 쓰인 양분도 없다고 가정한다.</p>\n<p>⑴ 잎에서 다른 기관으로 이동한 양분의 양을 구하시오.<br />\n⑵ “잎의 저장 양분이 7단위 증가했으므로 광합성으로 만든 양분도 7단위이다”라는 주장이 틀린 이유를 쓰시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p><strong>정답: ⑴ 15단위</strong></p>\n<p>다른 기관으로 이동한 양을 <span class=\"formula\">x</span>라 하면,</p>\n<div class=\"equation\" role=\"math\">12 + 30 − 8 − x = 19</div>\n<p>따라서 <span class=\"formula\">x=15</span>.</p>\n<p>⑵ 잎에 남은 양분은 광합성으로 만든 양분에서 호흡과 이동에 사용된 양을 반영한 결과이다. 저장량의 증가 7단위는 광합성 총생성량 30단위와 다르다.</p>\n"}, {"id": 8, "type": "written", "domain": "식물과 에너지", "stem": "<p>발아하는 씨가 호흡으로 이산화 탄소를 방출하는지 조사하려고 한다. 사용할 수 있는 것은 다음과 같다.</p>\n<ul>\n<li>발아 중인 씨</li>\n<li>같은 종류의 삶아서 식힌 씨</li>\n<li>초록색 BTB 용액</li>\n<li>동일한 밀폐 용기</li>\n<li>씨가 용액에 직접 닿지 않도록 하는 받침</li>\n</ul>\n<p>⑴ 비교할 두 장치의 구성을 쓰시오.<br />\n⑵ 씨의 상태 외에 같게 해야 할 조건 세 가지를 쓰시오.<br />\n⑶ 어떤 결과가 나타나면 가설을 뒷받침할 수 있는지 쓰시오.</p>\n<p>단, 미생물 등 씨 이외 생물의 영향은 없다고 가정한다.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴ 두 밀폐 용기에 같은 양의 초록색 BTB 용액을 넣는다. 한쪽에는 발아 중인 씨, 다른 쪽에는 삶아서 식힌 씨를 받침 위에 놓아 용액에 직접 닿지 않게 한다.</p>\n<p>⑵ 씨의 양, 용액의 양·처음 색, 용기의 크기, 온도, 관찰 시간 등을 같게 한다. 이 중 세 가지를 제시하면 된다.</p>\n<p>⑶ 발아 중인 씨가 있는 장치의 BTB가 노란색 쪽으로 변하고, 비교 장치는 변화가 없거나 더 작다면 발아 중인 씨에서 이산화 탄소가 방출된다는 가설을 뒷받침한다.</p>\n<p><strong>핵심:</strong> 씨를 용액에 직접 담가 다른 물질이 녹아 나오게 하는 영향을 피하고, 살아 있는 씨의 활동 여부를 비교한다.</p>\n"}, {"id": 9, "type": "written", "domain": "식물과 에너지", "stem": "<p>학생이 서로 같은 식물 두 개를 다음 조건에서 길렀다.</p>\n<ul>\n<li>A: 하루 8시간 동안 강한 빛</li>\n<li>B: 하루 16시간 동안 약한 빛</li>\n</ul>\n<p>학생은 “빛을 받은 시간이 두 배이므로 B가 하루에 만든 양분도 반드시 두 배이다”라고 주장했다.</p>\n<p>⑴ 이 주장을 판단하시오.<br />\n⑵ 두 식물의 <strong>하루 양분 순증가량</strong>을 비교하려면 각각 어떤 양을 알아야 하는지 두 가지 쓰시오.<br />\n⑶ B가 더 오래 빛을 받아도 A보다 양분 순증가량이 작을 수 있는 이유를 설명하시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴ 반드시 두 배라고 할 수 없다.</p>\n<p>⑵ 각 식물의 <strong>하루 동안 광합성으로 만든 총양분량</strong>과 <strong>하루 동안 호흡에 사용한 총양분량</strong>이 필요하다.</p>\n<p>⑶ 약한 빛에서 시간당 광합성량이 매우 작으면, 16시간 동안 만들어도 강한 빛에서 8시간 동안 만든 양보다 적을 수 있다. 여기에 하루 전체의 호흡 소비량까지 반영해야 순증가량을 비교할 수 있다.</p>\n"}, {"id": 10, "type": "written", "domain": "식물과 에너지", "stem": "<p>물을 충분히 공급한 식물을 어둠에 두었다. 시간이 흐르는 동안 잎의 녹말량이 감소했다.</p>\n<p>학생 갑은 “감소한 녹말이 전부 잎의 호흡에 쓰였다”고 했고, 학생 을은 “감소한 녹말이 전부 뿌리로 이동했다”고 했다.</p>\n<p>⑴ 두 주장 중 자료만으로 확정할 수 있는 주장이 있는가?<br />\n⑵ 녹말 감소를 설명할 수 있는 서로 다른 과정 두 가지를 쓰시오.<br />\n⑶ 어느 과정이 얼마나 일어났는지 구분하려면 어떤 추가 자료가 필요한지 한 가지 제안하시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴ 둘 다 확정할 수 없다.</p>\n<p>⑵ 가능한 과정은 다음과 같다.</p>\n<ul>\n<li>저장 녹말이 다른 형태로 바뀐 뒤 잎의 호흡에 사용된다.</li>\n<li>저장 녹말이 이동 가능한 형태로 바뀌어 다른 기관으로 이동한다.</li>\n</ul>\n<p>⑶ 잎에서 방출한 이산화 탄소량 등 호흡 관련 자료, 또는 표시한 양분이 다른 기관으로 이동한 양 등을 추가로 조사한다.</p>\n<p><strong>핵심:</strong> 하나의 관찰 결과를 여러 과정이 함께 만들어 낼 수 있다.</p>\n"}, {"id": 11, "type": "mc", "domain": "전기와 자기", "stem": "<p>서로 같은 금속 구 A와 B가 멀리 떨어져 있다. A는 전자 6개에 해당하는 양이 부족하고, B는 전자 2개에 해당하는 양이 많다.</p>\n<p>두 구를 접촉시켰다가 떼어 놓았다. 외부와 전하를 주고받지 않았으며, 같은 구끼리 접촉하면 전체 전하가 같은 양으로 나뉜다.</p>\n<p>옳은 것은?</p>\n", "options": ["A에서 B로 전자 2개에 해당하는 양이 이동하고 두 구는 중성이 된다.", "B에서 A로 전자 4개에 해당하는 양이 이동하고 두 구는 각각 (+)로 대전된다.", "A에서 B로 전자 4개에 해당하는 양이 이동하고 두 구는 각각 (−)로 대전된다.", "B에서 A로 전자 6개에 해당하는 양이 이동하고 A만 중성이 된다.", "전하의 종류가 반대이므로 전자는 이동하지 않고 전기력만 작용한다."], "correct": 2, "answerHtml": "<p>전체는 전자 4개에 해당하는 양이 부족하다. 접촉 후 각각 2개 부족이 되려면 B에서 A로 4개에 해당하는 전자가 이동해야 한다.</p>\n"}, {"id": 12, "type": "mc", "domain": "전기와 자기", "stem": "<p>전하의 종류를 아는 A는 (+)대전체이다. A와 B는 서로 밀어내고, B와 C는 서로 끌어당긴다. C는 금속이며, 처음에 대전되어 있었는지는 모른다. 관찰 중 세 물체는 서로 접촉하지 않았다.</p>\n<p>반드시 옳은 판단은?</p>\n", "options": ["B는 (+)이며 C는 반드시 (−)이다.", "B는 (−)이며 C는 반드시 (+)이다.", "B는 (+)이며 C는 중성일 가능성도 있다.", "B는 중성일 수 있고 C는 반드시 (−)이다.", "B와 C가 끌어당겼으므로 두 물체의 총전하량은 크기가 같다."], "correct": 3, "answerHtml": "<p>A와 밀어내는 B는 (+)이다. B와 끌어당기는 C는 (−)일 수도 있지만, 중성 금속에서 정전기 유도가 일어난 경우일 수도 있다.</p>\n"}, {"id": 13, "type": "mc", "domain": "전기와 자기", "stem": "<p>(+)로 대전된 검전기에 대전체 X를 접촉 없이 조금 가까이했더니, 금속박의 벌어진 각도가 작아졌다. <strong>금속박이 완전히 붙거나 다시 벌어지는 단계까지는 가지 않았다.</strong></p>\n<p>일반적인 검전기 모형에서 옳은 것은?</p>\n", "options": ["X는 (+)이고 전자는 금속박에서 금속판 쪽으로 이동했다.", "X는 (−)이고 전자는 금속판에서 금속박 쪽으로 이동했다.", "X는 (−)이고 검전기의 전체 전자 수가 증가했다.", "X는 (+)이고 검전기의 전체 전자 수가 감소했다.", "X는 (−)이고 검전기 내부의 양성자가 금속판 쪽으로 이동했다."], "correct": 2, "answerHtml": "<p>(−)대전체가 전자를 금속박 쪽으로 밀어 (+)금속박의 전자 부족을 줄인다. 접촉이 없으므로 전체 전자 수는 변하지 않는다.</p>\n"}, {"id": 14, "type": "mc", "domain": "전기와 자기", "stem": "<p>재질과 온도가 같은 도선 A, B, C가 있다. 이 문제에서는 저항이 길이에 비례하고 단면적에 반비례한다.</p>\n<div class=\"table-scroll\" role=\"region\" aria-label=\"문제 자료 표\" tabindex=\"0\"><table>\n<thead>\n<tr>\n<th>도선</th>\n<th>길이</th>\n<th>단면적</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>A</td>\n<td><span class=\"formula\">L</span></td>\n<td><span class=\"formula\">S</span></td>\n</tr>\n<tr>\n<td>B</td>\n<td><span class=\"formula\">2L</span></td>\n<td><span class=\"formula\">2S</span></td>\n</tr>\n<tr>\n<td>C</td>\n<td><span class=\"formula\">L/2</span></td>\n<td><span class=\"formula\">2S</span></td>\n</tr>\n</tbody>\n</table></div>\n<p>A, B, C에 각각 <span class=\"formula\">V, 2V, V/2</span>의 전압을 걸었다. 전류의 비 <span class=\"formula\">I<sub>A</sub>:I<sub>B</sub>:I<sub>C</sub></span>는?</p>\n", "options": ["1:1:1", "1:2:2", "1:2:4", "2:2:1", "2:4:1"], "correct": 2, "answerHtml": "<p>저항비는 1:1:1/4이다. 전류비는 <span class=\"formula\">1/1:2/1:(1/2)/(1/4)=1:2:2</span>이다.</p>\n"}, {"id": 15, "type": "mc", "domain": "전기와 자기", "stem": "<p>두 저항 A, B를 12 V 전원에 병렬로 연결했다.</p>\n<ul>\n<li>전체 전류는 3 A이다.</li>\n<li>A에 흐르는 전류는 B의 2배이다.</li>\n</ul>\n<p>이 두 저항을 같은 전원에 직렬로 연결하면 전류는?</p>\n", "options": ["<span class=\"formula\">1/3</span> A", "<span class=\"formula\">1/2</span> A", "<span class=\"formula\">2/3</span> A", "1 A", "<span class=\"formula\">3/2</span> A"], "correct": 3, "answerHtml": "<p>가지 전류는 A=2 A, B=1 A. 저항은 6 Ω, 12 Ω이므로 직렬 전류는 <span class=\"formula\">12/18=2/3A</span>이다.</p>\n"}, {"id": 16, "type": "mc", "domain": "전기와 자기", "stem": "<p>자동으로 켜졌다 꺼지는 전열 기구를 1시간 동안 사용했더니 전력량이 0.36 kWh였다.</p>\n<ul>\n<li>켜졌을 때 소비 전력: 900 W</li>\n<li>꺼졌을 때 소비 전력: 0 W</li>\n</ul>\n<p>이 1시간 동안 실제로 켜져 있었던 총시간은?</p>\n", "options": ["18분", "24분", "30분", "36분", "40분"], "correct": 2, "answerHtml": "<p>켜진 시간은 <span class=\"formula\">0.36/0.9=0.4</span>시간, 즉 24분이다.</p>\n"}, {"id": 17, "type": "written", "domain": "전기와 자기", "stem": "<p>12 V 전원에 두 가지를 병렬로 연결했다.</p>\n<ul>\n<li>첫째 가지: 4 Ω 저항 한 개</li>\n<li>둘째 가지: 2 Ω과 4 Ω 저항을 직렬로 연결</li>\n</ul>\n<p>⑴ 첫째 가지와 둘째 가지에 흐르는 전류를 각각 구하시오.<br />\n⑵ 둘째 가지의 4 Ω 저항에 걸리는 전압을 구하시오.<br />\n⑶ “두 4 Ω 저항은 저항값이 같으므로 전류도 같다”는 설명이 틀린 이유를 쓰시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴</p>\n<ul>\n<li>첫째 가지: <span class=\"formula\">12/4=3A</span></li>\n<li>둘째 가지: <span class=\"formula\">12/(2+4)=2A</span></li>\n</ul>\n<p>⑵ 둘째 가지의 4 Ω 저항에는</p>\n<div class=\"equation\" role=\"math\">V = IR = 2 × 4 = 8 V</div>\n<p>⑶ 첫째 가지의 4 Ω에는 12 V가 걸리지만 둘째 가지의 4 Ω에는 8 V가 걸린다. 저항이 같아도 걸리는 전압이 다르면 전류가 다르다.</p>\n"}, {"id": 18, "type": "written", "domain": "전기와 자기", "stem": "<p>어떤 전원에 저항 A 하나를 연결했을 때 전류가 0.8 A였다. A와 직렬로 저항 B를 추가했더니 전류가 0.5 A가 되었다.</p>\n<p>전원 전압은 변하지 않았다.</p>\n<p>⑴ <span class=\"formula\">R<sub>A</sub>:R<sub>B</sub></span>를 구하시오.<br />\n⑵ B만 이 전원에 연결하면 흐르는 전류를 구하시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴ 같은 전압에서</p>\n<div class=\"equation\" role=\"math\">0.8R<sub>A</sub> = 0.5(R<sub>A</sub> + R<sub>B</sub>)</div>\n<div class=\"equation\" role=\"math\">0.3R<sub>A</sub> = 0.5R<sub>B</sub></div>\n<p>따라서</p>\n<div class=\"equation\" role=\"math\">R<sub>A</sub> : R<sub>B</sub> = 5 : 3</div>\n<p>⑵ <span class=\"formula\">R<sub>B</sub>=(3/5)R<sub>A</sub></span>이므로</p>\n<div class=\"equation\" role=\"math\">I<sub>B</sub> = V/R<sub>B</sub> = (5/3) × (V/R<sub>A</sub>) = (5/3) × 0.8 = 4/3 A</div>\n"}, {"id": 19, "type": "written", "domain": "전기와 자기", "stem": "<p>같은 일을 하는 두 기구를 비교했다.</p>\n<ul>\n<li>A: 1,200 W로 15분 작동</li>\n<li>B: 750 W로 20분 작동</li>\n</ul>\n<p>단, A가 완성한 결과물 중 20%는 다시 작업해야 하며, 재작업 1회에는 A의 원래 1회 작업과 같은 전력량이 든다. 재작업한 결과물은 모두 사용할 수 있다. B는 재작업이 필요 없다.</p>\n<p>사용할 수 있는 결과물 10개를 얻을 때,</p>\n<p>⑴ A의 총전력량을 구하시오.<br />\n⑵ B의 총전력량을 구하시오.<br />\n⑶ 두 기구의 차이를 kWh로 구하시오.</p>\n<p>단, A로 처음 만든 10개 중 정확히 2개를 재작업한다.</p>\n", "options": [], "correct": null, "answerHtml": "<p>A의 1회 전력량:</p>\n<div class=\"equation\" role=\"math\">1.2 × 15/60 = 0.3 kWh</div>\n<p>처음 10회와 재작업 2회, 총 12회이므로</p>\n<div class=\"equation\" role=\"math\">E<sub>A</sub> = 0.3 × 12 = 3.6 kWh</div>\n<p>B의 1회 전력량:</p>\n<div class=\"equation\" role=\"math\">0.75 × 20/60 = 0.25 kWh</div>\n<div class=\"equation\" role=\"math\">E<sub>B</sub> = 0.25 × 10 = 2.5 kWh</div>\n<p>차이:</p>\n<div class=\"equation\" role=\"math\">3.6 − 2.5 = 1.1 kWh</div>\n<p><strong>핵심:</strong> 기구를 켠 한 번의 소비량이 아니라, 같은 수의 완성된 결과물을 얻는 데 필요한 총량을 비교한다.</p>\n"}, {"id": 20, "type": "written", "domain": "전기와 자기", "stem": "<p>저항 A와 B를 직렬로 연결했다. 같은 시간 동안 각 저항을 통과한 전하량을 측정했더니 다음과 같았다.</p>\n<div class=\"table-scroll\" role=\"region\" aria-label=\"문제 자료 표\" tabindex=\"0\"><table>\n<thead>\n<tr>\n<th>측정 위치</th>\n<th>10초 동안 통과한 전하량</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>A 앞</td>\n<td>4 C</td>\n</tr>\n<tr>\n<td>A와 B 사이</td>\n<td>4 C</td>\n</tr>\n<tr>\n<td>B 뒤</td>\n<td>4 C</td>\n</tr>\n</tbody>\n</table></div>\n<p>그동안 A와 B에서는 열이 발생했다.</p>\n<p>⑴ 회로의 전류를 구하시오. 단, 1 A는 1초 동안 1 C의 전하가 통과하는 경우이다.<br />\n⑵ 이 자료가 “저항을 통과하면서 전류가 소모된다”는 주장과 맞지 않는 이유를 설명하시오.<br />\n⑶ 전하량은 줄지 않았는데 열이 발생한 사실을 <strong>에너지 전환</strong>으로 설명하시오.</p>\n", "options": [], "correct": null, "answerHtml": "<p>⑴</p>\n<div class=\"equation\" role=\"math\">I = 4 C ÷ 10 s = 0.4 A</div>\n<p>⑵ 같은 시간 동안 각 위치를 통과한 전하량이 같으므로 전류의 세기도 같다. 저항을 지났다고 전류가 줄어들지 않았다.</p>\n<p>⑶ 저항에서는 전기 에너지가 열에너지로 전환된다. 전하가 사라져서 열이 발생하는 것이 아니므로, 전하량이 유지되는 것과 열이 발생하는 것은 모순되지 않는다.</p>\n"}]}]};
+
+</script>
+  <script>
+
+(() => {
+  "use strict";
+
+  // No server, account, or external library is required.
+  const DATA = window.QUIZ_DATA;
+  const STORAGE_KEY = "science-think-lab-advanced-v1";
+  const MAX_TEXT = 20000;
+  const app = document.getElementById("app");
+  const dialog = document.getElementById("confirm-dialog");
+  let storageAvailable = true;
+  let pendingSave = 0;
+  let toastTimer = 0;
+  let confirmAction = null;
+  let activeFilter = "all";
+
+  const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+  const blankSet = () => ({
+    started: false, submitted: false, submittedAt: null,
+    index: 0, elapsed: 0, answers: {}, notes: {}, flags: [], grades: {}
+  });
+
+  const initialState = () => ({
+    version: DATA.version, view: "home", setId: "s1",
+    sets: Object.fromEntries(DATA.sets.map((set) => [set.id, blankSet()]))
+  });
+
+  function answered(question, progress) {
+    const value = progress.answers[question.id];
+    return question.type === "mc"
+      ? Number.isInteger(value) && value >= 1 && value <= 5
+      : typeof value === "string" && value.trim().length > 0;
+  }
+
+  function loadState() {
+    const clean = initialState();
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) return clean;
+      const raw = JSON.parse(stored);
+      if (!raw || raw.version !== DATA.version || !raw.sets) return clean;
+      for (const set of DATA.sets) {
+        const old = raw.sets[set.id];
+        if (!old || typeof old !== "object") continue;
+        const current = clean.sets[set.id];
+        current.started = Boolean(old.started);
+        current.index = Number.isInteger(old.index) ? Math.min(19, Math.max(0, old.index)) : 0;
+        current.elapsed = Number.isFinite(old.elapsed) ? Math.max(0, Math.floor(old.elapsed)) : 0;
+        current.flags = Array.isArray(old.flags)
+          ? [...new Set(old.flags.filter((n) => Number.isInteger(n) && n >= 1 && n <= 20))] : [];
+        for (const q of set.questions) {
+          const answer = old.answers?.[q.id];
+          if (q.type === "mc" && Number.isInteger(answer) && answer >= 1 && answer <= 5) {
+            current.answers[q.id] = answer;
+          } else if (q.type === "written" && typeof answer === "string") {
+            current.answers[q.id] = answer.slice(0, MAX_TEXT);
+          }
+          if (typeof old.notes?.[q.id] === "string") {
+            current.notes[q.id] = old.notes[q.id].slice(0, MAX_TEXT);
+          }
+          if (q.type === "written" && [0, 2.5, 5].includes(old.grades?.[q.id])) {
+            current.grades[q.id] = old.grades[q.id];
+          }
+        }
+        current.submitted = Boolean(old.submitted) && set.questions.every((q) => answered(q, current));
+        current.submittedAt = current.submitted && typeof old.submittedAt === "string"
+          ? old.submittedAt : null;
+      }
+      if (DATA.sets.some((s) => s.id === raw.setId)) clean.setId = raw.setId;
+      if (["home", "quiz", "results"].includes(raw.view)) clean.view = raw.view;
+      const selected = clean.sets[clean.setId];
+      if (clean.view === "results" && !selected.submitted) clean.view = "home";
+      if (clean.view === "quiz" && selected.submitted) clean.view = "results";
+      return clean;
+    } catch (error) {
+      // Malformed saved data is ignored. Storage errors are handled on save.
+      return clean;
+    }
+  }
+
+  let state = loadState();
+  const getSet = () => DATA.sets.find((s) => s.id === state.setId) || DATA.sets[0];
+  const getProgress = () => state.sets[state.setId];
+  const countAnswered = (set, progress) => set.questions.filter((q) => answered(q, progress)).length;
+
+  function save() {
+    clearTimeout(pendingSave);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      storageAvailable = true;
+    } catch (error) {
+      storageAvailable = false;
+    }
+    document.getElementById("storage-warning").hidden = storageAvailable;
+    document.querySelectorAll("[data-save-label]").forEach((el) => {
+      el.textContent = storageAvailable ? "답안 저장됨" : "이 창에서만 유지";
+    });
+  }
+
+  function queueSave() {
+    document.querySelectorAll("[data-save-label]").forEach((el) => {
+      el.textContent = storageAvailable ? "저장 중…" : "이 창에서만 유지";
+    });
+    clearTimeout(pendingSave);
+    pendingSave = window.setTimeout(save, 250);
+  }
+
+  function showToast(message) {
+    const el = document.getElementById("toast");
+    el.textContent = message;
+    el.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => el.classList.remove("show"), 2400);
+  }
+
+  function clock(seconds) {
+    const sec = Math.max(0, Math.floor(seconds));
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    const s = sec % 60;
+    return h
+      ? `${h}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`
+      : `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  }
+
+  function metrics(set, progress) {
+    const multipleChoice = set.questions.filter((q) => q.type === "mc");
+    const written = set.questions.filter((q) => q.type === "written");
+    const correct = multipleChoice.filter((q) => progress.answers[q.id] === q.correct).length;
+    const graded = written.filter((q) => [0, 2.5, 5].includes(progress.grades[q.id])).length;
+    const writtenScore = written.reduce((sum, q) => sum + (progress.grades[q.id] ?? 0), 0);
+    return { correct, graded, writtenScore, autoScore: correct * 5, total: correct * 5 + writtenScore };
+  }
+
+  function focusPage(id = "app") {
+    window.scrollTo({ top: 0, behavior: "instant" });
+    const el = document.getElementById(id);
+    if (el) el.focus({ preventScroll: true });
+  }
+
+  function showHome() {
+    state.view = "home";
+    save();
+    render();
+    focusPage();
+  }
+
+  function openSet(setId) {
+    if (!DATA.sets.some((s) => s.id === setId)) return;
+    state.setId = setId;
+    const progress = getProgress();
+    progress.started = true;
+    state.view = progress.submitted ? "results" : "quiz";
+    activeFilter = "all";
+    save();
+    render();
+    focusPage();
+  }
+
+  function goQuestion(index) {
+    const progress = getProgress();
+    if (state.view !== "quiz" || progress.submitted) return;
+    progress.index = Math.min(19, Math.max(0, index));
+    save();
+    renderQuiz();
+    const heading = document.getElementById("question-heading");
+    if (heading) {
+      heading.focus({ preventScroll: true });
+      const y = Math.max(0, document.querySelector(".quiz-top").getBoundingClientRect().top + window.scrollY - 20);
+      window.scrollTo({ top: y, behavior: "instant" });
+    }
+  }
+
+  function goFirstEmpty() {
+    const index = getSet().questions.findIndex((q) => !answered(q, getProgress()));
+    if (index >= 0) {
+      goQuestion(index);
+      showToast(`${index + 1}번 문제의 답안을 작성해 주세요.`);
+    }
+  }
+
+  function renderHome() {
+    document.title = "과학 생각 실험실 | 고난도 40문제";
+    app.innerHTML = `
+      <section class="hero" aria-labelledby="home-heading">
+        <div>
+          <span class="eyebrow">THE SCIENCE THINKING LAB</span>
+          <h1 id="home-heading">개념을 넘어,<br><em>근거로 답하는 과학.</em></h1>
+          <p>자료를 해석하고, 조건을 연결하고, 나의 말로 설명해 보세요.<br>식물과 에너지 · 전기와 자기 고난도 연습</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit"></div><div class="orbit two"></div><div class="orbit three"></div>
+          <div class="nucleus">✦</div><i class="art-dot"></i><i class="art-dot second"></i>
+          <span class="art-label">OBSERVE & THINK</span><span class="art-label two">EXPLAIN WHY</span>
+        </div>
+      </section>
+      <section class="overview-strip" aria-label="문제 구성">
+        <div class="overview-item"><strong>40<small>문제</small></strong><span>객관식 + 주관식</span></div>
+        <div class="overview-item"><strong>2<small>세트</small></strong><span>세트당 20문제</span></div>
+        <div class="overview-item"><strong>60<small>분</small></strong><span>세트당 권장 · 계산기 없이</span></div>
+      </section>
+      <section aria-labelledby="sets-heading">
+        <div class="section-heading"><h2 id="sets-heading">오늘의 도전 선택</h2><p>각 세트의 20문제를 모두 작성하면 정답이 열려요.</p></div>
+        <div class="set-grid">${DATA.sets.map((set, index) => {
+          const progress = state.sets[set.id];
+          const count = countAnswered(set, progress);
+          const m = metrics(set, progress);
+          const status = progress.submitted ? "풀이 완료" : progress.started ? "풀이 중" : "시작 전";
+          let progressLabel = `${count} / 20문제 작성`;
+          if (progress.submitted) {
+            progressLabel = m.graded === 8
+              ? `연습 점수 ${m.total} / 100점`
+              : `객관식 ${m.correct} / 12 정답 · 주관식 ${m.graded} / 8 평가`;
+          }
+          return `
+          <article class="set-card ${index === 1 ? "blue" : ""}">
+            <div class="set-card-top"><span class="set-index">CHALLENGE 0${set.number}</span><span class="pill ${progress.submitted ? "done" : ""}">${status}</span></div>
+            <h3>${set.title}</h3>
+            <p class="set-sub">객관식 12문항 + 주관식 8문항</p>
+            <div class="set-topics"><span class="topic">식물과 에너지</span><span class="topic">전기와 자기</span><span class="topic">심화 사고력</span></div>
+            <div class="set-progress-line"><span>${progressLabel}</span><span>${Math.round(count / 20 * 100)}%</span></div>
+            <div class="progress-track" role="progressbar" aria-label="${set.title} 작성 진행률" aria-valuenow="${count}" aria-valuemin="0" aria-valuemax="20"><span style="width:${count * 5}%"></span></div>
+            <button type="button" class="button primary ${index === 1 ? "blue-button" : ""}" data-action="open-set" data-set="${set.id}">
+              <span>${progress.submitted ? "결과와 해설 보기" : progress.started ? "이어서 풀기" : "도전 시작하기"}</span><span aria-hidden="true">→</span>
+            </button>
+          </article>`;
+        }).join("")}</div>
+      </section>
+      <section class="guide" aria-labelledby="guide-heading">
+        <div><h2 id="guide-heading">이렇게 풀어 보세요</h2><p>맞혔는지보다, 왜 그런지가 중요해요.</p></div>
+        <div class="guide-steps">
+          <div class="guide-step"><span class="step-number">1</span><div><strong>답과 풀이 작성</strong><p>주관식은 답뿐 아니라 조건을 적용한 과정도 적어요.</p></div></div>
+          <div class="guide-step"><span class="step-number">2</span><div><strong>20문제 작성 후 제출</strong><p>제출 전에는 정답이 보이지 않아요. 문제 이동은 자유로워요.</p></div></div>
+          <div class="guide-step"><span class="step-number">3</span><div><strong>해설 비교와 자기평가</strong><p>객관식은 자동 채점, 주관식은 모범 답안과 비교해요.</p></div></div>
+        </div>
+      </section>
+      <p class="local-note">로그인 없이 사용해요. 답안은 이 브라우저에 저장되며 다른 기기로 자동 공유되지 않아요.<br>60분은 권장 시간이며 자동 제출하지 않아요. 정답·해설은 제출한 세트만 공개돼요.</p>`;
+  }
+
+  function navHTML(set, progress) {
+    return set.questions.map((q, index) => {
+      const done = answered(q, progress);
+      const flagged = progress.flags.includes(q.id);
+      return `<button type="button" class="q-dot ${done ? "answered" : ""} ${progress.index === index ? "current" : ""} ${flagged ? "flagged" : ""}"
+        data-action="go" data-index="${index}" aria-label="${q.id}번, ${done ? "작성 완료" : "미작성"}${flagged ? ", 다시 볼 문제" : ""}"
+        ${progress.index === index ? 'aria-current="step"' : ""}>${q.id}</button>`;
+    }).join("");
+  }
+
+  function answerInputHTML(q, progress) {
+    if (q.type === "mc") {
+      return `<fieldset class="options"><legend class="sr-only">${q.id}번 정답을 하나 선택하세요.</legend>${q.options.map((option, i) =>
+        `<label class="option ${progress.answers[q.id] === i + 1 ? "selected" : ""}">
+          <input type="radio" name="answer-${q.id}" value="${i + 1}" data-kind="choice" ${progress.answers[q.id] === i + 1 ? "checked" : ""}>
+          <span class="option-number" aria-hidden="true">${i + 1}</span><span class="option-text"><span class="sr-only">${i + 1}번. </span>${option}</span>
+        </label>`).join("")}</fieldset>
+        <details class="scratch" ${progress.notes[q.id] ? "open" : ""}><summary>풀이 메모 남기기 <span aria-hidden="true">＋</span> <small>(선택)</small></summary>
+          <label class="sr-only" for="scratch-answer">${q.id}번 풀이 메모</label>
+          <textarea id="scratch-answer" data-kind="note" maxlength="${MAX_TEXT}" placeholder="계산 과정이나 판단 근거를 자유롭게 적어 보세요.">${escapeHTML(progress.notes[q.id] || "")}</textarea>
+        </details>`;
+    }
+    return `<div class="written-area">
+      <div class="written-label"><label for="written-answer">나의 답과 풀이</label><span>⑴, ⑵, ⑶을 구분해서 작성해 주세요.</span></div>
+      <textarea id="written-answer" data-kind="written" maxlength="${MAX_TEXT}" aria-describedby="written-help"
+        placeholder="답과 풀이를 함께 적어 주세요.&#10;계산 문제는 사용한 식과 단위도 적어 보세요.">${escapeHTML(progress.answers[q.id] || "")}</textarea>
+      <p id="written-help" class="input-help">제출 후 모범 답안을 보며 직접 평가해요. 문장의 표현이 달라도 설명의 의미와 풀이 과정을 비교해 주세요.</p>
+    </div>`;
+  }
+
+  function renderQuiz() {
+    const set = getSet(), progress = getProgress(), q = set.questions[progress.index];
+    if (progress.submitted) { state.view = "results"; renderResults(); return; }
+    const count = countAnswered(set, progress), complete = count === 20;
+    const last = progress.index === 19;
+    document.title = `${set.title} · ${q.id}번 | 과학 생각 실험실`;
+    app.innerHTML = `
+      <section class="quiz-top" aria-label="세트 정보">
+        <div><h1>${set.title}</h1><p>20문제 · 객관식 12 + 주관식 8 · 권장 60분</p></div>
+        <div class="quiz-top-tools"><span class="save-state" data-save-label>${storageAvailable ? "답안 저장됨" : "이 창에서만 유지"}</span>
+          <div class="timer-box"><small>풀이 시간</small><span id="elapsed-time">${clock(progress.elapsed)}</span></div>
+        </div>
+      </section>
+      <div class="quiz-layout">
+        <aside class="question-sidebar" aria-label="문제 탐색">
+          <div class="sidebar-title"><span>답안 작성</span><strong><span data-answer-count>${count}</span> / 20</strong></div>
+          <div class="progress-track" data-quiz-progress role="progressbar" aria-label="답안 작성 진행률" aria-valuenow="${count}" aria-valuemin="0" aria-valuemax="20"><span style="width:${count * 5}%"></span></div>
+          <nav class="q-grid" aria-label="문제 번호">${navHTML(set, progress)}</nav>
+          <div class="nav-legend"><span><i class="legend-dot"></i>작성</span><span><i class="legend-dot empty"></i>미작성</span><span><i class="legend-dot flag"></i>다시 보기</span></div>
+          <button type="button" class="button primary" data-action="submit" data-submit ${complete ? "" : "disabled"}>제출하고 정답 확인</button>
+          <p class="submit-help" data-submit-help>${complete ? "20문제 작성 완료! 제출할 수 있어요." : `아직 ${20 - count}문제가 남아 있어요.`}</p>
+          <p class="sidebar-note">정답은 제출 후 공개돼요.<br>헷갈리는 문제는 표시해 두고<br>제출 전에 다시 확인해 보세요.</p>
+        </aside>
+        <div class="question-main">
+          <details class="common-conditions"><summary>문제를 풀 때 적용하는 공통 조건</summary><p>${escapeHTML(DATA.common)}</p></details>
+          <article class="question-card" aria-labelledby="question-heading">
+            <div class="question-meta">
+              <div class="question-meta-left"><span class="question-type ${q.type === "written" ? "written" : ""}">${q.type === "mc" ? "객관식" : "주관식"}</span><span class="domain-label">${q.domain}</span></div>
+              <button type="button" class="flag-button ${progress.flags.includes(q.id) ? "active" : ""}" id="flag-button" data-action="flag" aria-pressed="${progress.flags.includes(q.id)}">${progress.flags.includes(q.id) ? "★ 다시 볼 문제" : "☆ 다시 볼 문제"}</button>
+            </div>
+            <h2 class="question-title" id="question-heading" tabindex="-1">문제 ${String(q.id).padStart(2, "0")}<small>/ 20</small></h2>
+            <div class="stem">${q.stem}</div>
+            ${answerInputHTML(q, progress)}
+          </article>
+          <div class="question-bottom">
+            <button type="button" class="button secondary" data-action="prev" ${progress.index === 0 ? "disabled" : ""}><span aria-hidden="true">←</span> 이전 문제</button>
+            <span class="question-position">${q.id} / 20</span>
+            <button type="button" class="button primary" id="next-button" data-action="${last ? complete ? "submit" : "first-empty" : "next"}">${last ? complete ? "제출 전 확인" : "남은 문제 풀기" : '다음 문제 <span aria-hidden="true">→</span>'}</button>
+          </div>
+          <div class="mobile-submit">
+            <button type="button" class="button soft" data-action="submit" data-submit ${complete ? "" : "disabled"}>20문제 제출하고 정답 확인</button>
+            <p data-submit-help>${complete ? "20문제 작성 완료! 제출할 수 있어요." : `아직 ${20 - count}문제가 남아 있어요.`}</p>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function refreshQuizProgress() {
+    if (state.view !== "quiz") return;
+    const set = getSet(), progress = getProgress(), count = countAnswered(set, progress);
+    document.querySelectorAll("[data-answer-count]").forEach((el) => el.textContent = count);
+    const bar = document.querySelector("[data-quiz-progress]");
+    if (bar) {
+      bar.setAttribute("aria-valuenow", String(count));
+      bar.firstElementChild.style.width = `${count * 5}%`;
+    }
+    document.querySelectorAll(".q-dot").forEach((button) => {
+      const index = Number(button.dataset.index), q = set.questions[index];
+      const done = answered(q, progress), flagged = progress.flags.includes(q.id);
+      button.classList.toggle("answered", done);
+      button.classList.toggle("flagged", flagged);
+      button.setAttribute("aria-label", `${q.id}번, ${done ? "작성 완료" : "미작성"}${flagged ? ", 다시 볼 문제" : ""}`);
+    });
+    document.querySelectorAll("[data-submit]").forEach((button) => button.disabled = count !== 20);
+    document.querySelectorAll("[data-submit-help]").forEach((el) => {
+      el.textContent = count === 20 ? "20문제 작성 완료! 제출할 수 있어요." : `아직 ${20 - count}문제가 남아 있어요.`;
+    });
+    if (progress.index === 19) {
+      const next = document.getElementById("next-button");
+      next.dataset.action = count === 20 ? "submit" : "first-empty";
+      next.textContent = count === 20 ? "제출 전 확인" : "남은 문제 풀기";
+    }
+  }
+
+  function confirmModal(title, description, label, callback) {
+    if (typeof dialog.showModal !== "function") {
+      if (window.confirm(`${title}\n\n${description}`)) callback();
+      return;
+    }
+    document.getElementById("dialog-title").textContent = title;
+    document.getElementById("dialog-description").textContent = description;
+    document.getElementById("dialog-confirm").textContent = label;
+    confirmAction = callback;
+    dialog.showModal();
+    document.getElementById("dialog-cancel").focus();
+  }
+
+  function submitSet() {
+    const set = getSet(), progress = getProgress();
+    if (progress.submitted) return;
+    if (!set.questions.every((q) => answered(q, progress))) {
+      goFirstEmpty();
+      return;
+    }
+    const flagCount = progress.flags.length;
+    confirmModal(
+      "답안을 제출할까요?",
+      `20문제의 답안을 모두 작성했어요.${flagCount ? `\n다시 보기 표시가 ${flagCount}문제에 남아 있어요.` : ""}\n제출하면 이 세트의 정답과 해설이 공개되며, 제출한 답안은 수정할 수 없어요.`,
+      "제출하고 정답 보기",
+      () => {
+        progress.submitted = true;
+        progress.submittedAt = new Date().toISOString();
+        state.view = "results";
+        activeFilter = "all";
+        save();
+        renderResults();
+        focusPage();
+      }
+    );
+  }
+
+  function statusInfo(q, progress) {
+    if (q.type === "mc") {
+      return progress.answers[q.id] === q.correct
+        ? { label: "정답", className: "good" } : { label: "오답", className: "bad" };
+    }
+    const grade = progress.grades[q.id];
+    if (grade === 5) return { label: "자기평가 · 맞음", className: "good" };
+    if (grade === 2.5) return { label: "자기평가 · 일부 맞음", className: "partial" };
+    if (grade === 0) return { label: "자기평가 · 다시 공부", className: "bad" };
+    return { label: "자기평가 전", className: "pending" };
+  }
+
+  function pendingWritten(q, progress) {
+    return q.type === "written" && ![0, 2.5, 5].includes(progress.grades[q.id]);
+  }
+
+  function needsReview(q, progress) {
+    return progress.flags.includes(q.id) ||
+      (q.type === "mc" ? progress.answers[q.id] !== q.correct : progress.grades[q.id] !== 5);
+  }
+
+  function filteredQuestions() {
+    const set = getSet(), progress = getProgress();
+    if (activeFilter === "review") return set.questions.filter((q) => needsReview(q, progress));
+    if (activeFilter === "pending") return set.questions.filter((q) => pendingWritten(q, progress));
+    return set.questions;
+  }
+
+  function resultSummaryHTML(set, progress) {
+    const m = metrics(set, progress);
+    return `<div class="score-card primary-score">
+        <div class="score-label">연습 점수 · 객관식 + 주관식 자기평가</div>
+        <div class="score-number">${m.graded === 8 ? m.total : "—"} <small>/ 100점</small></div>
+        <p class="score-caption">${m.graded === 8 ? "모든 주관식 자기평가를 마쳤어요." : `주관식 ${8 - m.graded}문제를 평가하면 점수가 완성돼요.`}</p>
+      </div>
+      <div class="score-card">
+        <div class="score-label">객관식 자동 채점</div>
+        <div class="score-number">${m.correct} <small>/ 12문제</small></div>
+        <p class="score-caption"><strong>${m.autoScore} / 60점</strong> · 제출한 답안 기준</p>
+      </div>
+      <div class="score-card">
+        <div class="score-label">주관식 자기평가</div>
+        <div class="score-number">${m.graded} <small>/ 8문제</small></div>
+        <p class="score-caption">${m.graded === 8 ? `<strong>${m.writtenScore} / 40점</strong>` : "아래 모범 답안과 비교해 주세요."}</p>
+      </div>`;
+  }
+
+  function reviewCardHTML(q, progress) {
+    const badge = statusInfo(q, progress);
+    const own = progress.answers[q.id];
+    let answerHTML = "";
+    if (q.type === "mc") {
+      const correct = own === q.correct;
+      answerHTML = `<div class="answer-pair">
+        <div class="answer-box ${correct ? "" : "wrong-answer"}"><span class="answer-label">내가 고른 답</span><p>${own}번 · ${q.options[own - 1]}</p></div>
+        <div class="answer-box correct-answer"><span class="answer-label">정답</span><p>${q.correct}번 · ${q.options[q.correct - 1]}</p></div>
+      </div><div class="explanation"><strong>판단 과정</strong>${q.answerHtml}</div>
+      ${progress.notes[q.id] ? `<div class="review-note"><strong>나의 풀이 메모</strong>\n${escapeHTML(progress.notes[q.id])}</div>` : ""}`;
+    } else {
+      answerHTML = `<div class="written-review">
+        <div class="answer-box"><span class="answer-label">내가 쓴 답과 풀이</span><div class="student-answer">${escapeHTML(own)}</div></div>
+        <div class="answer-box correct-answer"><span class="answer-label">모범 답안 · 해설</span><div class="model-answer">${q.answerHtml}</div></div>
+      </div>
+      <div class="self-assess"><span>풀이 과정과 설명의 의미를 비교해 평가해 주세요.</span>
+        <div class="grade-buttons" role="group" aria-label="${q.id}번 주관식 자기평가">
+          ${[[5, "맞음 · 5점"], [2.5, "일부 맞음 · 2.5점"], [0, "다시 공부 · 0점"]].map(([value, label]) =>
+            `<button type="button" class="grade-button ${progress.grades[q.id] === value ? "selected" : ""}"
+              data-action="grade" data-question="${q.id}" data-grade="${value}" aria-pressed="${progress.grades[q.id] === value}">${label}</button>`
+          ).join("")}
+        </div>
+      </div>`;
+    }
+    return `<article class="review-card" data-review-question="${q.id}" id="review-${q.id}" tabindex="-1">
+      <div class="review-top">
+        <div class="review-title">문제 ${String(q.id).padStart(2, "0")} <small>${q.type === "mc" ? "객관식" : "주관식"} · ${q.domain}${progress.flags.includes(q.id) ? " · ★" : ""}</small></div>
+        <span class="answer-badge ${badge.className}" id="status-${q.id}">${badge.label}</span>
+      </div>
+      <details class="review-problem"><summary>문제와 선택지 다시 보기</summary><div class="stem">${q.stem}
+        ${q.type === "mc" ? `<div class="review-options">${q.options.map((option, i) => `<div class="review-option"><span>${i + 1}</span><span>${option}</span></div>`).join("")}</div>` : ""}
+      </div></details>
+      ${answerHTML}
+    </article>`;
+  }
+
+  function filterToolbarHTML(set, progress) {
+    const reviewCount = set.questions.filter((q) => needsReview(q, progress)).length;
+    const pending = set.questions.filter((q) => pendingWritten(q, progress)).length;
+    return `<div class="filters" role="group" aria-label="결과 필터">
+      <button type="button" class="filter ${activeFilter === "all" ? "active" : ""}" data-action="filter" data-filter="all" aria-pressed="${activeFilter === "all"}">전체 <span data-filter-count="all">20</span></button>
+      <button type="button" class="filter ${activeFilter === "review" ? "active" : ""}" data-action="filter" data-filter="review" aria-pressed="${activeFilter === "review"}">복습할 문제 <span data-filter-count="review">${reviewCount}</span></button>
+      <button type="button" class="filter ${activeFilter === "pending" ? "active" : ""}" data-action="filter" data-filter="pending" aria-pressed="${activeFilter === "pending"}">자기평가 전 <span data-filter-count="pending">${pending}</span></button>
+    </div><span class="review-count" id="review-count">${filteredQuestions().length}문제 표시 중</span>`;
+  }
+
+  const emptyResultHTML = () => `<div class="empty-state">${activeFilter === "pending" ? "주관식 자기평가를 모두 마쳤어요." : "이 분류에 해당하는 문제가 없어요."}</div>`;
+
+  function renderResults() {
+    const set = getSet(), progress = getProgress();
+    if (!progress.submitted) { state.view = "quiz"; renderQuiz(); return; }
+    document.title = `${set.title} 결과 | 과학 생각 실험실`;
+    const visible = filteredQuestions();
+    app.innerHTML = `
+      <section class="result-header">
+        <div><span class="eyebrow">CHALLENGE COMPLETE</span><h1>${set.title}, 풀이 완료!</h1>
+          <p>정답보다 중요한 건 풀이의 근거예요. 내 생각과 해설을 비교해 보세요.</p></div>
+        <div class="result-actions">
+          <button type="button" class="button secondary small" data-action="export">결과 저장 (.txt)</button>
+          <button type="button" class="button secondary small" data-action="home">세트 선택</button>
+        </div>
+      </section>
+      <section class="result-summary" id="result-summary" aria-label="채점 결과">${resultSummaryHTML(set, progress)}</section>
+      <p class="score-note">풀이 시간 ${clock(progress.elapsed)} · 객관식은 정답표에 따라 자동 채점했어요. 주관식의 문장과 풀이 과정은 자동 판정하지 않아요.<br>
+        연습용 참고 점수: 문항당 5점, 주관식 일부 정답은 2.5점으로 직접 표시해요. 공식 평가 기준이나 학교 성적을 뜻하지 않아요.</p>
+      <div class="result-toolbar" id="result-toolbar" tabindex="-1">${filterToolbarHTML(set, progress)}</div>
+      <div class="review-list" id="review-list">${visible.length ? visible.map((q) => reviewCardHTML(q, progress)).join("") : emptyResultHTML()}</div>
+      <div class="result-bottom"><p>다시 풀면 이 세트의 기존 답안과 평가가 초기화돼요.</p>
+        <button type="button" class="button secondary" data-action="reset">이 세트 다시 풀기 <span aria-hidden="true">↻</span></button></div>`;
+  }
+
+  function setGrade(questionId, grade) {
+    if (state.view !== "results" || !getProgress().submitted || ![0, 2.5, 5].includes(grade)) return;
+    const set = getSet(), progress = getProgress(), q = set.questions.find((item) => item.id === questionId);
+    if (!q || q.type !== "written") return;
+    progress.grades[questionId] = grade;
+    save();
+    document.getElementById("result-summary").innerHTML = resultSummaryHTML(set, progress);
+    document.querySelectorAll(`[data-action="grade"][data-question="${questionId}"]`).forEach((button) => {
+      const selected = Number(button.dataset.grade) === grade;
+      button.classList.toggle("selected", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+    const badge = statusInfo(q, progress), badgeElement = document.getElementById(`status-${questionId}`);
+    if (badgeElement) {
+      badgeElement.className = `answer-badge ${badge.className}`;
+      badgeElement.textContent = badge.label;
+    }
+    const reviewCount = set.questions.filter((item) => needsReview(item, progress)).length;
+    const pending = set.questions.filter((item) => pendingWritten(item, progress)).length;
+    document.querySelector('[data-filter-count="review"]').textContent = reviewCount;
+    document.querySelector('[data-filter-count="pending"]').textContent = pending;
+    const visible = filteredQuestions();
+    if (!visible.some((item) => item.id === questionId)) {
+      const card = document.getElementById(`review-${questionId}`);
+      const nextCard = card?.nextElementSibling || card?.previousElementSibling;
+      card?.remove();
+      if (!visible.length) document.getElementById("review-list").innerHTML = emptyResultHTML();
+      if (nextCard && nextCard.isConnected) nextCard.focus({ preventScroll: true });
+      else document.getElementById("result-toolbar").focus({ preventScroll: true });
+    }
+    document.getElementById("review-count").textContent = `${visible.length}문제 표시 중`;
+    if (metrics(set, progress).graded === 8) showToast("주관식 자기평가가 모두 완료되었어요.");
+  }
+
+  function changeFilter(filter) {
+    if (!["all", "review", "pending"].includes(filter) || state.view !== "results") return;
+    activeFilter = filter;
+    const set = getSet(), progress = getProgress(), visible = filteredQuestions();
+    document.getElementById("result-toolbar").innerHTML = filterToolbarHTML(set, progress);
+    document.getElementById("review-list").innerHTML = visible.length
+      ? visible.map((q) => reviewCardHTML(q, progress)).join("") : emptyResultHTML();
+    document.querySelector(`[data-filter="${filter}"]`)?.focus({ preventScroll: true });
+  }
+
+  function resetSet() {
+    const set = getSet();
+    confirmModal(`${set.title}를 다시 풀까요?`, "이 세트의 답안, 풀이 시간, 다시 보기 표시와 자기평가 기록을 지우고 새로 시작해요.\n다른 세트의 기록은 유지돼요. 필요한 결과는 먼저 저장해 주세요.", "지우고 다시 시작", () => {
+      state.sets[set.id] = blankSet();
+      openSet(set.id);
+    });
+  }
+
+  function plainText(markup) {
+    const box = document.createElement("div");
+    box.innerHTML = markup.replace(/<\/(?:p|div|li|tr)>|<br\s*\/?>/g, "$&\n");
+    return box.textContent.replace(/\n{3,}/g, "\n\n").trim();
+  }
+
+  function exportResults() {
+    const set = getSet(), progress = getProgress();
+    if (!progress.submitted) return;
+    const m = metrics(set, progress);
+    const lines = [
+      `과학 생각 실험실 — ${set.title}`,
+      `풀이 시간: ${clock(progress.elapsed)}`,
+      `객관식: ${m.correct}/12문제 정답 (${m.autoScore}/60점)`,
+      `주관식: ${m.graded}/8문제 자기평가 완료`,
+      `연습 점수: ${m.graded === 8 ? `${m.total}/100점` : "주관식 자기평가 미완료"}`,
+      "※ 주관식 점수는 학습자의 자기평가이며 공식 채점 결과가 아닙니다.",
+      "",
+    ];
+    for (const q of set.questions) {
+      lines.push("=".repeat(44), `${q.id}번 [${q.type === "mc" ? "객관식" : "주관식"}]`, plainText(q.stem), "");
+      if (q.type === "mc") {
+        q.options.forEach((option, i) => lines.push(`${i + 1}. ${plainText(option)}`));
+        lines.push("", `내 답: ${progress.answers[q.id]}번`, `정답: ${q.correct}번`, `결과: ${statusInfo(q, progress).label}`);
+        if (progress.notes[q.id]) lines.push(`풀이 메모: ${progress.notes[q.id]}`);
+      } else {
+        lines.push("내 답과 풀이:", progress.answers[q.id], "", `자기평가: ${statusInfo(q, progress).label}`);
+      }
+      lines.push("", "정답·해설:", plainText(q.answerHtml), "");
+    }
+    const blob = new Blob(["\ufeff" + lines.join("\r\n")], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = `science-set-${set.number}-results.txt`;
+    document.body.appendChild(a); a.click(); a.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  function render() {
+    if (state.view === "quiz") renderQuiz();
+    else if (state.view === "results") renderResults();
+    else renderHome();
+  }
+
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-action]");
+    if (!button || button.disabled) return;
+    const action = button.dataset.action;
+    if (action === "home") showHome();
+    else if (action === "open-set") openSet(button.dataset.set);
+    else if (action === "go") goQuestion(Number(button.dataset.index));
+    else if (action === "prev") goQuestion(getProgress().index - 1);
+    else if (action === "next") goQuestion(getProgress().index + 1);
+    else if (action === "first-empty") goFirstEmpty();
+    else if (action === "submit") submitSet();
+    else if (action === "flag" && state.view === "quiz" && !getProgress().submitted) {
+      const progress = getProgress(), id = getSet().questions[progress.index].id;
+      if (progress.flags.includes(id)) progress.flags = progress.flags.filter((n) => n !== id);
+      else progress.flags.push(id);
+      const flagged = progress.flags.includes(id);
+      button.classList.toggle("active", flagged);
+      button.setAttribute("aria-pressed", String(flagged));
+      button.textContent = flagged ? "★ 다시 볼 문제" : "☆ 다시 볼 문제";
+      refreshQuizProgress();
+      save();
+    } else if (action === "grade") setGrade(Number(button.dataset.question), Number(button.dataset.grade));
+    else if (action === "filter") changeFilter(button.dataset.filter);
+    else if (action === "reset") resetSet();
+    else if (action === "export") exportResults();
+  });
+
+  app.addEventListener("input", (event) => {
+    const target = event.target;
+    if (state.view !== "quiz" || getProgress().submitted) return;
+    const progress = getProgress(), q = getSet().questions[progress.index];
+    if (target.dataset.kind === "choice" && q.type === "mc") {
+      progress.answers[q.id] = Number(target.value);
+      document.querySelectorAll(".option").forEach((label) => {
+        label.classList.toggle("selected", label.querySelector("input").checked);
+      });
+    } else if (target.dataset.kind === "written" && q.type === "written") {
+      progress.answers[q.id] = target.value.slice(0, MAX_TEXT);
+    } else if (target.dataset.kind === "note") {
+      progress.notes[q.id] = target.value.slice(0, MAX_TEXT);
+    } else return;
+    refreshQuizProgress();
+    queueSave();
+  });
+
+  document.getElementById("dialog-cancel").addEventListener("click", () => {
+    confirmAction = null; dialog.close();
+  });
+  document.getElementById("dialog-confirm").addEventListener("click", () => {
+    const callback = confirmAction;
+    confirmAction = null; dialog.close();
+    if (callback) callback();
+  });
+  dialog.addEventListener("cancel", () => { confirmAction = null; });
+
+  window.setInterval(() => {
+    if (state.view !== "quiz" || document.hidden || getProgress().submitted) return;
+    getProgress().elapsed += 1;
+    const el = document.getElementById("elapsed-time");
+    if (el) el.textContent = clock(getProgress().elapsed);
+    if (getProgress().elapsed % 15 === 0) save();
+  }, 1000);
+
+  document.addEventListener("visibilitychange", () => { if (document.hidden) save(); });
+  window.addEventListener("pagehide", save);
+  window.addEventListener("beforeunload", save);
+
+  save();
+  render();
+})();
+
+</script>
+</body>
+</html>
