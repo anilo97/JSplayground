@@ -76,14 +76,10 @@
             ×
           </button>
         </div>
-        <p>교사용 비밀번호를 입력하세요.</p>
-        <label for="teacherPassword">비밀번호</label>
-        <input
-          id="teacherPassword"
-          type="password"
-          autocomplete="current-password"
-        />
-        <p id="loginFeedback" class="login-feedback" role="status"></p>
+        <p>교사용 정답 파일을 선택하세요. 파일은 서버로 업로드되지 않습니다.</p>
+        <label for="teacherSolutionFile">정답 파일</label>
+<input id="teacherSolutionFile" type="file" accept=".json,application/json" />
+<p id="loginFeedback" class="login-feedback" role="status"></p>
         <button class="dialog-submit" type="submit">확인</button>
       </form>
     </dialog>

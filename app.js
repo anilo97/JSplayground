@@ -25,11 +25,11 @@ const modules = [
   { id: "loop-for", title: "for문", path: "loop/?category=for" }
 ] }
 ];
-const TEACHER_PASSWORD="js2026";
 const menu=document.getElementById("moduleMenu"),frame=document.getElementById("practiceFrame"),teacherDialog=document.getElementById("teacherDialog"),studentDialog=document.getElementById("studentDialog");
-let teacherMode=sessionStorage.getItem("teacherMode")==="true",studentNumber=sessionStorage.getItem("studentNumber")||"",activeModule=null;
+let solutionBundle=null;
+let teacherMode=false,studentNumber=sessionStorage.getItem("studentNumber")||"",activeModule=null;
 const allModules=modules.flatMap(item=>item.children||[item]);
-function sendSessionContext(){const target=location.origin==="null"?"*":location.origin;frame.contentWindow?.postMessage({type:"session-context",teacherMode,studentNumber},target);}
+function sendSessionContext(){const target=location.origin==="null"?"*":location.origin;frame.contentWindow?.postMessage({type:"session-context",teacherMode,studentNumber,solutions:teacherMode?(solutionBundle?.units[activeModule?.id]||[]):[]},target);}
 function updateTeacherUI(){document.getElementById("teacherLoginButton").hidden=teacherMode;document.getElementById("teacherStatus").hidden=!teacherMode;sendSessionContext();}
 function openModule(module){activeModule=module;frame.src=module.path;frame.title=`${module.title} 문제 풀이`;document.querySelectorAll(".menu-button,.submenu-button").forEach(b=>b.classList.toggle("active",b.dataset.id===module.id));const parentId=module.id.split("-")[0];const parent=document.querySelector(`[data-target="submenu-${parentId}"]`);if(parent){parent.classList.add("open","active");document.getElementById(`submenu-${parentId}`).hidden=false;}history.replaceState(null,"",`#${module.id}`);}
 modules.forEach((module,index)=>{
@@ -40,8 +40,19 @@ const requested=location.hash.slice(1),initialModule=allModules.find(m=>m.id===r
 function beginSession(){document.getElementById("studentNumberText").textContent=studentNumber;document.getElementById("studentBadge").hidden=false;openModule(activeModule||initialModule);}
 document.getElementById("studentForm").addEventListener("submit",e=>{e.preventDefault();const value=document.getElementById("studentNumber").value.trim();if(!/^\d{4}$/.test(value)){document.getElementById("studentFeedback").textContent="학번을 숫자 4자리로 입력하세요.";return;}studentNumber=value;sessionStorage.setItem("studentNumber",value);studentDialog.close();beginSession();});
 document.getElementById("studentNumber").addEventListener("input",e=>e.currentTarget.value=e.currentTarget.value.replace(/\D/g,""));
-document.getElementById("teacherLoginButton").addEventListener("click",()=>{document.getElementById("teacherPassword").value="";document.getElementById("loginFeedback").textContent="";teacherDialog.showModal();setTimeout(()=>document.getElementById("teacherPassword").focus(),0);});
+document.getElementById("teacherLoginButton").addEventListener("click",()=>{document.getElementById("teacherSolutionFile").value="";document.getElementById("loginFeedback").textContent="";teacherDialog.showModal();setTimeout(()=>document.getElementById("teacherSolutionFile").focus(),0);});
 document.getElementById("dialogCloseButton").addEventListener("click",()=>teacherDialog.close());
-document.getElementById("teacherForm").addEventListener("submit",e=>{e.preventDefault();if(document.getElementById("teacherPassword").value!==TEACHER_PASSWORD){document.getElementById("loginFeedback").textContent="비밀번호가 올바르지 않습니다.";return;}teacherMode=true;sessionStorage.setItem("teacherMode","true");teacherDialog.close();updateTeacherUI();});
-document.getElementById("teacherLogoutButton").addEventListener("click",()=>{teacherMode=false;sessionStorage.removeItem("teacherMode");updateTeacherUI();});
+document.getElementById("teacherForm").addEventListener("submit",async e=>{
+  e.preventDefault();const feedback=document.getElementById("loginFeedback");const file=document.getElementById("teacherSolutionFile").files[0];
+  if(!file){feedback.textContent="교사용 정답 JSON 파일을 선택하세요.";return;}
+  try{
+    if(file.size>2000000)throw new Error("파일이 너무 큽니다.");
+    const data=JSON.parse(await file.text());
+    if(data.format!=="jsplayground-teacher-solutions"||data.version!==1||!data.units)throw new Error("지원하는 정답 파일 형식이 아닙니다.");
+    for(const m of allModules){const entries=data.units[m.id];if(!Array.isArray(entries)||!entries.length||entries.some(x=>!x||typeof x.title!=="string"||typeof x.solution!=="string"))throw new Error("단원 정답이 누락되었거나 파일 형식이 잘못되었습니다.");}
+    solutionBundle=data;teacherMode=true;teacherDialog.close();updateTeacherUI();
+  }catch(error){feedback.textContent=error instanceof SyntaxError?"올바른 JSON 파일을 선택하세요.":error.message;}
+});
+document.getElementById("teacherLogoutButton").addEventListener("click",()=>{teacherMode=false;solutionBundle=null;sessionStorage.removeItem("teacherMode");updateTeacherUI();});
+sessionStorage.removeItem("teacherMode");
 updateTeacherUI();if(studentNumber)beginSession();else{studentDialog.showModal();setTimeout(()=>document.getElementById("studentNumber").focus(),0);}

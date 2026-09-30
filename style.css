@@ -395,3 +395,6 @@ nav {
     height: calc(100% - 54px);
   }
 }
+
+/* hidden이 flex 스타일보다 우선하도록 명시 */
+[hidden] { display: none !important; }

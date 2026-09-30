@@ -7,7 +7,6 @@
       "숫자를 한 줄에 하나씩 출력하세요."
     ],
     "starter": "const start = 10;\nconst end = 1;\n\n// 여기에 코드를 작성하세요.",
-    "solution": "const start = 10;\nconst end = 1;\n\nfor (let i = start; i >= end; i--) {\n  console.log(i);\n}",
     "output": "10\n9\n8\n7\n6\n5\n4\n3\n2\n1"
   },
   {
@@ -19,7 +18,6 @@
       "숫자를 한 줄에 하나씩 출력하세요."
     ],
     "starter": "const start = 3;\nconst end = 30;\nconst step = 3;\n\n// 여기에 코드를 작성하세요.",
-    "solution": "const start = 3;\nconst end = 30;\nconst step = 3;\n\nfor (let i = start; i <= end; i += step) {\n  console.log(i);\n}",
     "output": "3\n6\n9\n12\n15\n18\n21\n24\n27\n30"
   },
   {
@@ -31,7 +29,6 @@
       "반복문 뒤에서 \"출력 완료\"를 한 번 출력하세요."
     ],
     "starter": "const start = 5;\nconst end = 3;\n\n// 여기에 코드를 작성하세요.",
-    "solution": "const start = 5;\nconst end = 3;\n\nfor (let i = start; i <= end; i++) {\n  console.log(i);\n}\nconsole.log(\"출력 완료\");",
     "output": "출력 완료"
   },
   {
@@ -43,7 +40,6 @@
       "조건에 맞는 수를 total에 누적하고, 반복문 뒤에서 합계만 출력하세요."
     ],
     "starter": "const limit = 50;\nlet total = 0;\n\n// 여기에 코드를 작성하세요.",
-    "solution": "const limit = 50;\nlet total = 0;\n\nfor (let i = 1; i <= limit; i++) {\n  if (i % 3 === 0 && i % 2 !== 0) {\n    total += i;\n  }\n}\nconsole.log(total);",
     "output": "192"
   },
   {
@@ -55,7 +51,6 @@
       "배송비를 totalShipping에 누적하고 \"전체 배송비: 15000원\" 형식으로 한 번 출력하세요."
     ],
     "starter": "const firstAmount = 5000;\nconst lastAmount = 40000;\nconst step = 5000;\nlet totalShipping = 0;\n\n// 여기에 코드를 작성하세요.",
-    "solution": "const firstAmount = 5000;\nconst lastAmount = 40000;\nconst step = 5000;\nlet totalShipping = 0;\n\nfor (let amount = firstAmount; amount <= lastAmount; amount += step) {\n  if (amount < 30000) {\n    totalShipping += 3000;\n  }\n}\nconsole.log(`전체 배송비: ${totalShipping}원`);",
     "output": "전체 배송비: 15000원"
   },
   {
@@ -68,7 +63,6 @@
       "반복 후 \"오전: 5명\", \"오후: 4명\", \"대기: 3명\"을 순서대로 출력하세요."
     ],
     "starter": "const count = 12;\nlet morning = 0;\nlet afternoon = 0;\nlet waiting = 0;\n\n// 여기에 코드를 작성하세요.",
-    "solution": "const count = 12;\nlet morning = 0;\nlet afternoon = 0;\nlet waiting = 0;\n\nfor (let number = 1; number <= count; number++) {\n  let status;\n  if (number <= 5) {\n    status = \"오전\";\n    morning++;\n  } else if (number <= 9) {\n    status = \"오후\";\n    afternoon++;\n  } else {\n    status = \"대기\";\n    waiting++;\n  }\n  console.log(`${number}번: ${status}`);\n}\nconsole.log(`오전: ${morning}명`);\nconsole.log(`오후: ${afternoon}명`);\nconsole.log(`대기: ${waiting}명`);",
     "output": "1번: 오전\n2번: 오전\n3번: 오전\n4번: 오전\n5번: 오전\n6번: 오후\n7번: 오후\n8번: 오후\n9번: 오후\n10번: 대기\n11번: 대기\n12번: 대기\n오전: 5명\n오후: 4명\n대기: 3명"
   },
   {
@@ -81,7 +75,6 @@
       "완성된 result를 반복문 뒤에서 한 번 출력하세요."
     ],
     "starter": "const end = 6;\nlet result = \"\";\n\n// 여기에 코드를 작성하세요.",
-    "solution": "const end = 6;\nlet result = \"\";\n\nfor (let i = 1; i <= end; i++) {\n  result += i;\n  if (i < end) {\n    result += \", \";\n  }\n}\nconsole.log(result);",
     "output": "1, 2, 3, 4, 5, 6"
   },
   {
@@ -94,7 +87,6 @@
       "현재 페이지의 번호를 한 줄에 하나씩 출력하세요."
     ],
     "starter": "const page = 3;\nconst pageSize = 5;\n\n// 여기에 코드를 작성하세요.",
-    "solution": "const page = 3;\nconst pageSize = 5;\n\nconst start = (page - 1) * pageSize + 1;\nconst end = page * pageSize;\nfor (let number = start; number <= end; number++) {\n  console.log(number);\n}",
     "output": "11\n12\n13\n14\n15"
   },
   {
@@ -107,7 +99,6 @@
       "10시 미만인 시간 앞에는 0을 붙여 HH:MM 형식으로 출력하세요."
     ],
     "starter": "const startHour = 9;\nconst endHour = 18;\n\n// 여기에 코드를 작성하세요.",
-    "solution": "const startHour = 9;\nconst endHour = 18;\n\nfor (let hour = startHour; hour < endHour; hour++) {\n  const hourText = hour < 10 ? \"0\" + hour : \"\" + hour;\n  console.log(`${hourText}:00`);\n  console.log(`${hourText}:30`);\n}",
     "output": "09:00\n09:30\n10:00\n10:30\n11:00\n11:30\n12:00\n12:30\n13:00\n13:30\n14:00\n14:30\n15:00\n15:30\n16:00\n16:30\n17:00\n17:30"
   },
   {
@@ -120,7 +111,6 @@
       "반복 후 \"전체 용량: 2200MB\", \"평균 용량: 275MB\" 형식으로 출력하세요."
     ],
     "starter": "const fileCount = 8;\nconst firstSize = 100;\nconst increase = 50;\nlet total = 0;\n\n// 여기에 코드를 작성하세요.",
-    "solution": "const fileCount = 8;\nconst firstSize = 100;\nconst increase = 50;\nlet total = 0;\n\nfor (let number = 1; number <= fileCount; number++) {\n  const size = firstSize + (number - 1) * increase;\n  total += size;\n  console.log(`${number}번 파일: ${size}MB`);\n}\nconsole.log(`전체 용량: ${total}MB`);\nconsole.log(`평균 용량: ${total / fileCount}MB`);",
     "output": "1번 파일: 100MB\n2번 파일: 150MB\n3번 파일: 200MB\n4번 파일: 250MB\n5번 파일: 300MB\n6번 파일: 350MB\n7번 파일: 400MB\n8번 파일: 450MB\n전체 용량: 2200MB\n평균 용량: 275MB"
   }
 ]
