@@ -23,7 +23,8 @@ const modules = [
   ]},
   { id: "loop", title: "반복문", children: [
   { id: "loop-for", title: "for문", path: "loop/?category=for" },
-  { id: "loop-while", title: "while문", path: "loop/?category=while" }
+  { id: "loop-while", title: "while문", path: "loop/?category=while" },
+  { id: "loop-do-while", title: "do...while문", path: "loop/?category=do-while" }
 ] }
 ];
 const menu=document.getElementById("moduleMenu"),frame=document.getElementById("practiceFrame"),teacherDialog=document.getElementById("teacherDialog"),studentDialog=document.getElementById("studentDialog");
