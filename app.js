@@ -25,7 +25,8 @@ const modules = [
   { id: "loop-for", title: "for문", path: "loop/?category=for" },
   { id: "loop-while", title: "while문", path: "loop/?category=while" },
   { id: "loop-do-while", title: "do...while문", path: "loop/?category=do-while" },
-  { id: "loop-break-continue", title: "break · continue", path: "loop/?category=break-continue" }
+  { id: "loop-break-continue", title: "break · continue", path: "loop/?category=break-continue" },
+  { id: "loop-nested", title: "중첩 반복문", path: "loop/?category=nested" }
 ] }
 ];
 const menu=document.getElementById("moduleMenu"),frame=document.getElementById("practiceFrame"),teacherDialog=document.getElementById("teacherDialog"),studentDialog=document.getElementById("studentDialog");
