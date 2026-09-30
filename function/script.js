@@ -1,0 +1,400 @@
+const category = new URLSearchParams(location.search).get("category") || "parameters";
+const units = {
+  "parameters": {
+    "title": "매개변수와 인수",
+    "prefix": "FP",
+    "problems": [
+      {
+        "title": "배송 상태 안내",
+        "description": "전달받은 배송 상태를 출력하세요.",
+        "conditions": [
+          "status를 매개변수로 받는 showDelivery 함수를 함수 선언식으로 작성하세요.",
+          "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+          "\"상품 준비 중\", \"배송 중\", \"배송 완료\"를 각각 전달하여 호출하세요."
+        ],
+        "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+        "output": "배송 상태: 상품 준비 중\n배송 상태: 배송 중\n배송 상태: 배송 완료",
+        "functionName": "showDelivery",
+        "parameters": [
+          "status"
+        ],
+        "probeArgs": [
+          "확인 중"
+        ],
+        "probeOutput": "배송 상태: 확인 중"
+      },
+      {
+        "title": "할인 금액 계산",
+        "description": "전달받은 가격에서 10%를 할인한 금액을 출력하세요.",
+        "conditions": [
+          "price를 매개변수로 받는 showDiscountPrice 함수를 함수 선언식으로 작성하세요.",
+          "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+          "10000, 25000, 40000을 각각 전달하여 호출하세요."
+        ],
+        "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+        "output": "할인 적용 금액: 9000원\n할인 적용 금액: 22500원\n할인 적용 금액: 36000원",
+        "functionName": "showDiscountPrice",
+        "parameters": [
+          "price"
+        ],
+        "probeArgs": [
+          20000
+        ],
+        "probeOutput": "할인 적용 금액: 18000원"
+      },
+      {
+        "title": "행사 일정 안내",
+        "description": "행사 이름과 개최일을 출력하세요.",
+        "conditions": [
+          "eventName, date를 매개변수로 받는 showEvent 함수를 함수 선언식으로 작성하세요.",
+          "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+          "\"작품 전시회\", \"10월 15일\"을 순서대로 전달하여 호출하세요.",
+          "\"진로 특강\", \"10월 22일\"을 순서대로 전달하여 호출하세요."
+        ],
+        "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+        "output": "작품 전시회 개최일: 10월 15일\n진로 특강 개최일: 10월 22일",
+        "functionName": "showEvent",
+        "parameters": [
+          "eventName",
+          "date"
+        ],
+        "probeArgs": [
+          "학교 축제",
+          "11월 3일"
+        ],
+        "probeOutput": "학교 축제 개최일: 11월 3일"
+      },
+      {
+        "title": "주문 금액 계산",
+        "description": "상품 가격 × 수량 + 배송비를 계산하여 출력하세요.",
+        "conditions": [
+          "price, quantity, deliveryFee를 매개변수로 받는 showOrderTotal 함수를 함수 선언식으로 작성하세요.",
+          "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+          "unitPrice = 8000, orderCount = 2, shippingCost = 3000인 변수를 선언하세요. orderCount는 변경 가능하게 선언하세요.",
+          "세 변수를 순서대로 인수로 전달하여 호출하세요.",
+          "orderCount를 5로 변경하고 같은 변수들을 전달하여 다시 호출하세요."
+        ],
+        "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+        "output": "총 주문 금액: 19000원\n총 주문 금액: 43000원",
+        "functionName": "showOrderTotal",
+        "parameters": [
+          "price",
+          "quantity",
+          "deliveryFee"
+        ],
+        "probeArgs": [
+          4000,
+          3,
+          2000
+        ],
+        "probeOutput": "총 주문 금액: 14000원"
+      },
+      {
+        "title": "무료 배송 여부 확인",
+        "description": "구매 금액에 따라 배송비 안내를 출력하세요.",
+        "conditions": [
+          "amount를 매개변수로 받는 checkDeliveryFee 함수를 함수 선언식으로 작성하세요.",
+          "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+          "30000원 이상이면 \"무료 배송\", 미만이면 \"배송비 3000원\"을 출력하세요.",
+          "15000, 30000, 45000을 각각 전달하여 호출하세요."
+        ],
+        "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+        "output": "배송비 3000원\n무료 배송\n무료 배송",
+        "functionName": "checkDeliveryFee",
+        "parameters": [
+          "amount"
+        ],
+        "probeArgs": [
+          29999
+        ],
+        "probeOutput": "배송비 3000원"
+      },
+      {
+        "title": "번호가 있는 목록 출력",
+        "description": "전달받은 이름과 개수로 번호 목록을 출력하세요.",
+        "conditions": [
+          "label, count를 매개변수로 받는 showNumberedList 함수를 함수 선언식으로 작성하세요.",
+          "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+          "for문으로 1부터 count까지 \"이름 번호\" 형식으로 출력하세요. 이름과 번호 사이에는 공백 한 칸을 넣으세요.",
+          "\"공지\", 3과 \"자료\", 2를 각각 순서대로 전달하여 호출하세요."
+        ],
+        "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+        "output": "공지 1\n공지 2\n공지 3\n자료 1\n자료 2",
+        "functionName": "showNumberedList",
+        "parameters": [
+          "label",
+          "count"
+        ],
+        "probeArgs": [
+          "안내",
+          4
+        ],
+        "probeOutput": "안내 1\n안내 2\n안내 3\n안내 4"
+      }
+    ]
+  }
+};
+const unit = units[category] || units.parameters;
+const problems = unit.problems;
+let teacherSolutions = [];
+function teacherSolution(){return teacherSolutions[current]?.solution || "정답 파일을 불러오세요.";}
+window.addEventListener("message", event => {
+  if(event.source !== parent || event.origin !== location.origin || event.data?.type !== "session-context") return;
+  const entries=event.data.solutions;
+  teacherSolutions=event.data.teacherMode && Array.isArray(entries) && entries.length===problems.length && entries.every((x,i)=>x.title===problems[i].title && typeof x.solution==="string") ? entries : [];
+  document.getElementById("solutionCode").textContent=teacherSolutions.length?teacherSolution():"";
+  document.getElementById("solutionPanel").hidden=true;
+  document.getElementById("showSolution").textContent="정답 보기";
+});
+let current = 0;
+let studentNumber = '----';
+
+const el = (id) => document.getElementById(id);
+
+const clean = (code) =>
+  code.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
+
+function valid(code, item) {
+  const cleaned = clean(code);
+  const declaration = new RegExp("\\bfunction\\s+" + item.functionName + "\\s*\\(\\s*" + item.parameters.join("\\s*,\\s*") + "\\s*\\)\\s*\\{");
+  if (!declaration.test(cleaned)) return Promise.resolve(false);
+  if (item.functionName === "showNumberedList" && !/\bfor\s*\(/.test(cleaned)) return Promise.resolve(false);
+  return new Promise((resolve) => {
+    const source = `onmessage = (event) => { const logs = []; try {
+      const console = {log: (...args) => logs.push(args.map(String).join(" "))};
+      const {code, name, args} = event.data;
+      const probe = new Function("console", code + "\\n;return " + name + ";")(console);
+      const output = logs.join("\\n");
+      logs.length = 0;
+      probe(...args);
+      postMessage({output, probeOutput: logs.join("\\n")});
+    } catch(error) { postMessage({error: error.message}); } };`;
+    const url = URL.createObjectURL(new Blob([source], {type: "text/javascript"}));
+    const worker = new Worker(url);
+    let done = false;
+    const finish = (ok) => { if (done) return; done = true; clearTimeout(timer); worker.terminate(); URL.revokeObjectURL(url); resolve(ok); };
+    const timer = setTimeout(() => finish(false), 1500);
+    worker.onmessage = event => finish(!event.data.error && event.data.output === item.output && event.data.probeOutput === item.probeOutput);
+    worker.onerror = () => finish(false);
+    worker.postMessage({code, name: item.functionName, args: item.probeArgs});
+  });
+}
+
+function lines() {
+  el('lineNumbers').textContent = Array.from(
+    {
+      length: el('codeInput').value.split('\n').length,
+    },
+    (_, index) => index + 1
+  ).join('\n');
+}
+
+function message(text, ok) {
+  el('feedback').textContent = text;
+  el('feedback').className = ok ? 'good' : 'bad';
+}
+
+function render() {
+  const item = problems[current];
+
+  el('practice').hidden = false;
+  el('completion').hidden = true;
+
+  el('unitTitle').textContent = unit.title;
+  el('problemNumber').textContent = `문제 ${current + 1}`;
+  el('problemTitle').textContent = item.title;
+  el('description').textContent = item.description;
+  const reference = el('algorithmReference');
+  reference.hidden = !item.reference;
+  el('algorithmSteps').replaceChildren(...(item.reference || []).map(text => {
+    const li = document.createElement('li'); li.textContent = text; return li;
+  }));
+  el('progressText').textContent = `${current + 1} / ${problems.length}`;
+
+  el('progressBar').style.width = `${((current + 1) / problems.length) * 100}%`;
+
+  el('conditionList').replaceChildren(
+    ...item.conditions.map((text) => {
+      const li = document.createElement('li');
+      li.textContent = text;
+      return li;
+    })
+  );
+
+  
+  el('expectedOutput').textContent = item.output;
+  el('codeInput').value = item.starter;
+
+  el('solutionPanel').hidden = true;
+  el('solutionCode').textContent = teacherSolution();
+  el('showSolution').textContent = '정답 보기';
+
+  el('teacherPrev').disabled = current === 0;
+  el('teacherNext').disabled = current === problems.length - 1;
+
+  message('', true);
+  lines();
+}
+
+function makeCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = `${unit.prefix}-`;
+
+  for (let i = 0; i < 4; i++) {
+    code += chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  return code;
+}
+
+function complete() {
+  el('practice').hidden = true;
+  el('completion').hidden = false;
+
+  el('progressText').textContent = `${problems.length} / ${problems.length}`;
+
+  el('progressBar').style.width = '100%';
+  el('completeTitle').textContent = `${unit.title} 완료`;
+  el('completeStudent').textContent = studentNumber;
+  el('completeCount').textContent = problems.length;
+
+  el('completedAt').textContent = new Intl.DateTimeFormat('ko-KR', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  }).format(new Date());
+
+  el('completionCode').textContent = makeCode();
+
+  el('watermark').replaceChildren(
+    ...Array.from({ length: 20 }, () => {
+      const span = document.createElement('span');
+      span.textContent = studentNumber;
+      return span;
+    })
+  );
+
+  scrollTo(0, 0);
+}
+
+async function submit() {
+  const code = el('codeInput').value;
+
+  if (!code.trim()) {
+    return message('코드를 작성한 후 확인하세요.', false);
+  }
+
+  el('submitButton').disabled = true;
+  const correct = await valid(code, problems[current]);
+  el('submitButton').disabled = false;
+  if (!correct) {
+    return message(
+      '출력 결과와 조건을 확인하세요. 오류 또는 실행 시간 초과도 확인해 주세요.',
+      false
+    );
+  }
+
+  message('정답입니다! 다음 문제로 이동합니다.', true);
+  el('submitButton').disabled = true;
+
+  setTimeout(() => {
+    current++;
+    el('submitButton').disabled = false;
+
+    if (current === problems.length) {
+      complete();
+    } else {
+      render();
+    }
+  }, 650);
+}
+
+el('submitButton').addEventListener('click', submit);
+
+el('resetButton').addEventListener('click', () => {
+  el('codeInput').value = problems[current].starter;
+  message('처음 상태로 되돌렸습니다.', true);
+  lines();
+});
+
+el('restartButton').addEventListener('click', () => {
+  location.reload();
+});
+
+el('codeInput').addEventListener('input', lines);
+
+el('codeInput').addEventListener('scroll', () => {
+  el('lineNumbers').scrollTop = el('codeInput').scrollTop;
+});
+
+el('codeInput').addEventListener('keydown', (event) => {
+  if (event.key === 'Tab') {
+    event.preventDefault();
+
+    const start = event.currentTarget.selectionStart;
+
+    event.currentTarget.setRangeText(
+      '  ',
+      start,
+      event.currentTarget.selectionEnd,
+      'end'
+    );
+
+    lines();
+  }
+
+  if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
+    submit();
+  }
+});
+
+window.addEventListener('message', (event) => {
+  if (
+    event.origin !== location.origin ||
+    event.data?.type !== 'session-context'
+  ) {
+    return;
+  }
+
+  studentNumber = event.data.studentNumber || '----';
+
+  el('learnerText').textContent = `학번 ${studentNumber}`;
+
+  el('teacherBar').hidden = !event.data.teacherMode;
+
+  if (!event.data.teacherMode) {
+    el('solutionPanel').hidden = true;
+  }
+});
+
+el('teacherPrev').addEventListener('click', () => {
+  if (current > 0) {
+    current--;
+    render();
+  }
+});
+
+el('teacherNext').addEventListener('click', () => {
+  if (current < problems.length - 1) {
+    current++;
+    render();
+  }
+});
+
+el('showSolution').addEventListener('click', () => {
+  const show = el('solutionPanel').hidden;
+
+  el('solutionPanel').hidden = !show;
+  el('showSolution').textContent = show ? '정답 닫기' : '정답 보기';
+});
+
+el('copySolution').addEventListener('click', async () => {
+  await navigator.clipboard.writeText(teacherSolution());
+
+  el('copySolution').textContent = '복사됨';
+
+  setTimeout(() => {
+    el('copySolution').textContent = '복사';
+  }, 1200);
+});
+
+render();

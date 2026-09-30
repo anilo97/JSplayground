@@ -1,0 +1,131 @@
+{
+  "parameters": [
+    {
+      "title": "배송 상태 안내",
+      "description": "전달받은 배송 상태를 출력하세요.",
+      "conditions": [
+        "status를 매개변수로 받는 showDelivery 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+        "\"상품 준비 중\", \"배송 중\", \"배송 완료\"를 각각 전달하여 호출하세요."
+      ],
+      "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+      "output": "배송 상태: 상품 준비 중\n배송 상태: 배송 중\n배송 상태: 배송 완료",
+      "functionName": "showDelivery",
+      "parameters": [
+        "status"
+      ],
+      "probeArgs": [
+        "확인 중"
+      ],
+      "probeOutput": "배송 상태: 확인 중"
+    },
+    {
+      "title": "할인 금액 계산",
+      "description": "전달받은 가격에서 10%를 할인한 금액을 출력하세요.",
+      "conditions": [
+        "price를 매개변수로 받는 showDiscountPrice 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+        "10000, 25000, 40000을 각각 전달하여 호출하세요."
+      ],
+      "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+      "output": "할인 적용 금액: 9000원\n할인 적용 금액: 22500원\n할인 적용 금액: 36000원",
+      "functionName": "showDiscountPrice",
+      "parameters": [
+        "price"
+      ],
+      "probeArgs": [
+        20000
+      ],
+      "probeOutput": "할인 적용 금액: 18000원"
+    },
+    {
+      "title": "행사 일정 안내",
+      "description": "행사 이름과 개최일을 출력하세요.",
+      "conditions": [
+        "eventName, date를 매개변수로 받는 showEvent 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+        "\"작품 전시회\", \"10월 15일\"을 순서대로 전달하여 호출하세요.",
+        "\"진로 특강\", \"10월 22일\"을 순서대로 전달하여 호출하세요."
+      ],
+      "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+      "output": "작품 전시회 개최일: 10월 15일\n진로 특강 개최일: 10월 22일",
+      "functionName": "showEvent",
+      "parameters": [
+        "eventName",
+        "date"
+      ],
+      "probeArgs": [
+        "학교 축제",
+        "11월 3일"
+      ],
+      "probeOutput": "학교 축제 개최일: 11월 3일"
+    },
+    {
+      "title": "주문 금액 계산",
+      "description": "상품 가격 × 수량 + 배송비를 계산하여 출력하세요.",
+      "conditions": [
+        "price, quantity, deliveryFee를 매개변수로 받는 showOrderTotal 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+        "unitPrice = 8000, orderCount = 2, shippingCost = 3000인 변수를 선언하세요. orderCount는 변경 가능하게 선언하세요.",
+        "세 변수를 순서대로 인수로 전달하여 호출하세요.",
+        "orderCount를 5로 변경하고 같은 변수들을 전달하여 다시 호출하세요."
+      ],
+      "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+      "output": "총 주문 금액: 19000원\n총 주문 금액: 43000원",
+      "functionName": "showOrderTotal",
+      "parameters": [
+        "price",
+        "quantity",
+        "deliveryFee"
+      ],
+      "probeArgs": [
+        4000,
+        3,
+        2000
+      ],
+      "probeOutput": "총 주문 금액: 14000원"
+    },
+    {
+      "title": "무료 배송 여부 확인",
+      "description": "구매 금액에 따라 배송비 안내를 출력하세요.",
+      "conditions": [
+        "amount를 매개변수로 받는 checkDeliveryFee 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+        "30000원 이상이면 \"무료 배송\", 미만이면 \"배송비 3000원\"을 출력하세요.",
+        "15000, 30000, 45000을 각각 전달하여 호출하세요."
+      ],
+      "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+      "output": "배송비 3000원\n무료 배송\n무료 배송",
+      "functionName": "checkDeliveryFee",
+      "parameters": [
+        "amount"
+      ],
+      "probeArgs": [
+        29999
+      ],
+      "probeOutput": "배송비 3000원"
+    },
+    {
+      "title": "번호가 있는 목록 출력",
+      "description": "전달받은 이름과 개수로 번호 목록을 출력하세요.",
+      "conditions": [
+        "label, count를 매개변수로 받는 showNumberedList 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 console.log()로 출력하고, 반드시 작성한 함수를 호출하세요.",
+        "for문으로 1부터 count까지 \"이름 번호\" 형식으로 출력하세요. 이름과 번호 사이에는 공백 한 칸을 넣으세요.",
+        "\"공지\", 3과 \"자료\", 2를 각각 순서대로 전달하여 호출하세요."
+      ],
+      "starter": "// 함수를 선언하세요.\n\n// 지정한 인수를 전달하여 함수를 호출하세요.",
+      "output": "공지 1\n공지 2\n공지 3\n자료 1\n자료 2",
+      "functionName": "showNumberedList",
+      "parameters": [
+        "label",
+        "count"
+      ],
+      "probeArgs": [
+        "안내",
+        4
+      ],
+      "probeOutput": "안내 1\n안내 2\n안내 3\n안내 4"
+    }
+  ]
+}
