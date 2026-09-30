@@ -20,7 +20,10 @@ const modules = [
     { id:"condition-switch", title:"switch문", path:"condition/?category=switch" },
     { id:"condition-truthy", title:"Truthy와 Falsy", path:"condition/?category=truthy" },
     { id:"condition-mixed", title:"조건문 종합", path:"condition/?category=mixed" }
-  ]}
+  ]},
+  { id: "loop", title: "반복문", children: [
+  { id: "loop-for", title: "for문", path: "loop/?category=for" }
+] }
 ];
 const TEACHER_PASSWORD="js2026";
 const menu=document.getElementById("moduleMenu"),frame=document.getElementById("practiceFrame"),teacherDialog=document.getElementById("teacherDialog"),studentDialog=document.getElementById("studentDialog");
