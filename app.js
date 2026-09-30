@@ -22,7 +22,8 @@ const modules = [
     { id:"condition-mixed", title:"조건문 종합", path:"condition/?category=mixed" }
   ]},
   { id: "loop", title: "반복문", children: [
-  { id: "loop-for", title: "for문", path: "loop/?category=for" }
+  { id: "loop-for", title: "for문", path: "loop/?category=for" },
+  { id: "loop-while", title: "while문", path: "loop/?category=while" }
 ] }
 ];
 const menu=document.getElementById("moduleMenu"),frame=document.getElementById("practiceFrame"),teacherDialog=document.getElementById("teacherDialog"),studentDialog=document.getElementById("studentDialog");
