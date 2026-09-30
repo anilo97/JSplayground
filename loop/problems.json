@@ -355,5 +355,100 @@
       "starter": "let status = \"접수\";\nlet finished = false;\n\n// 여기에 코드를 작성하세요.",
       "output": "접수\n검토\n완료"
     }
+  ],
+  "break-continue": [
+    {
+      "title": "기본 1 · 중단 지점 직전까지",
+      "description": "1부터 10까지 확인하되 번호가 6이면 반복을 종료하세요.",
+      "conditions": [
+        "제공 변수의 이름과 초기값을 유지하세요.",
+        "for문과 break를 사용하세요. 번호가 stopNumber이면 출력 전에 종료하세요.",
+        "나머지 번호는 한 줄씩 출력하고, 반복 후 \"종료\"를 한 번 출력하세요."
+      ],
+      "starter": "const end = 10;\nconst stopNumber = 6;\n\n// 여기에 코드를 작성하세요.",
+      "output": "1\n2\n3\n4\n5\n종료",
+      "requiredKeywords": [
+        "for",
+        "break"
+      ]
+    },
+    {
+      "title": "기본 2 · 특정 번호 제외",
+      "description": "1부터 8까지 중 2번과 5번을 제외하고 출력하세요.",
+      "conditions": [
+        "제공 변수의 이름과 초기값을 유지하세요.",
+        "for문에서 ||로 두 제외 번호를 검사하고 continue로 건너뛰세요.",
+        "제외되지 않은 번호만 한 줄에 하나씩 출력하세요."
+      ],
+      "starter": "const end = 8;\nconst excludedA = 2;\nconst excludedB = 5;\n\n// 여기에 코드를 작성하세요.",
+      "output": "1\n3\n4\n6\n7\n8",
+      "requiredKeywords": [
+        "for",
+        "continue"
+      ]
+    },
+    {
+      "title": "활용 1 · 합산 한도 지키기",
+      "description": "1부터 순서대로 더하되 합계가 20을 초과하기 전에 종료하세요.",
+      "conditions": [
+        "제공 변수의 이름과 초기값을 유지하세요.",
+        "for문으로 1부터 end까지 확인하세요. total에 현재 수를 더하면 limit를 초과하는 경우 break로 종료하세요.",
+        "더해도 되는 수만 total에 누적하고 lastNumber에 저장하세요. 반복 후 합계와 마지막 수를 출력하세요."
+      ],
+      "starter": "const end = 100;\nconst limit = 20;\nlet total = 0;\nlet lastNumber = 0;\n\n// 여기에 코드를 작성하세요.",
+      "output": "최종 합계: 15\n마지막으로 더한 수: 5",
+      "requiredKeywords": [
+        "for",
+        "break"
+      ]
+    },
+    {
+      "title": "활용 2 · continue 오류 수정",
+      "description": "제공 코드의 번호 증가 위치를 수정해 무한 반복을 해결하세요.",
+      "conditions": [
+        "제공 변수의 이름과 초기값을 유지하세요.",
+        "while과 continue를 유지하세요. 기존 number++를 옮겨 모든 회차에 번호가 증가하도록 수정하세요.",
+        "1부터 end까지 중 excluded만 제외하고 출력하세요. 실행 전에 증가 위치를 확인하세요."
+      ],
+      "starter": "let number = 0;\nconst end = 6;\nconst excluded = 3;\n\nwhile (number < end) {\n  if (number === excluded) {\n    continue;\n  }\n  number++;\n  console.log(number);\n}",
+      "output": "1\n2\n4\n5\n6",
+      "requiredKeywords": [
+        "while",
+        "continue"
+      ]
+    },
+    {
+      "title": "응용 1 · 조건에 맞는 수 네 개",
+      "description": "10부터 50까지 확인하여 제외 조건에 해당하지 않는 수 네 개를 출력하세요.",
+      "conditions": [
+        "제공 변수의 이름과 초기값을 유지하세요.",
+        "for문에서 2의 배수이거나 5의 배수이면 continue로 건너뛰세요.",
+        "나머지 수를 출력하고 selected를 1 증가시키세요. selected가 target에 도달하면 break로 종료하세요."
+      ],
+      "starter": "const start = 10;\nconst end = 50;\nconst target = 4;\nlet selected = 0;\n\n// 여기에 코드를 작성하세요.",
+      "output": "11\n13\n17\n19",
+      "requiredKeywords": [
+        "for",
+        "break",
+        "continue"
+      ]
+    },
+    {
+      "title": "응용 2 · 처리 용량에 맞는 작업",
+      "description": "작업 번호 1~10의 용량은 번호 × 10MB입니다. 제외 조건과 총용량 한도를 지키세요.",
+      "conditions": [
+        "제공 변수의 이름과 초기값을 유지하세요.",
+        "for문에서 현재 작업 용량을 계산하세요. 용량이 30MB의 배수이면 continue로 제외하세요.",
+        "제외되지 않은 작업을 더했을 때 총용량이 limit를 초과하면 break로 종료하세요. 이후 작업도 확인하지 않습니다.",
+        "처리한 작업만 total에 더하고 \"1번 작업 처리\" 형식으로 출력하세요. 마지막에 총용량을 출력하세요."
+      ],
+      "starter": "const taskCount = 10;\nconst limit = 150;\nlet total = 0;\n\n// 여기에 코드를 작성하세요.",
+      "output": "1번 작업 처리\n2번 작업 처리\n4번 작업 처리\n5번 작업 처리\n총 처리 용량: 120MB",
+      "requiredKeywords": [
+        "for",
+        "break",
+        "continue"
+      ]
+    }
   ]
 }
