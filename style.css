@@ -398,3 +398,15 @@ nav {
 
 /* hidden이 flex 스타일보다 우선하도록 명시 */
 [hidden] { display: none !important; }
+
+/* 작은 로고 형태의 자료 버튼 */
+.teacher-login.material-logo {
+  width: 44px; height: 44px; padding: 4px; margin: 18px 0 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 14px; background: transparent; color: #64748b;
+  box-shadow: none; cursor: pointer;
+}
+.teacher-login.material-logo:hover { background: #eef2f6; color: #334155; }
+.teacher-login.material-logo:focus-visible { outline: 2px solid #38bdf8; outline-offset: 3px; }
+#teacherForm .login-feedback:empty { display: none; }
+#teacherSolutionFile { margin-top: 16px; }
