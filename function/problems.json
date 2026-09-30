@@ -296,5 +296,224 @@
         }
       ]
     }
+  ],
+  "return": [
+    {
+      "title": "분을 초로 변환하기",
+      "description": "분을 초로 변환한 값을 반환하세요.",
+      "conditions": [
+        "minutes를 순서대로 받는 convertToSeconds 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 출력하지 말고 return으로 값을 반환하세요. 함수를 호출하고 반환값은 함수 밖에서 출력하세요.",
+        "minutes에 60을 곱한 값을 반환하세요.",
+        "3을 전달하여 호출하고 반환값을 seconds에 저장한 뒤 출력하세요."
+      ],
+      "starter": "// 결과를 반환하는 함수를 선언하세요.\n\n// 함수를 호출하고 반환값을 활용하여 출력하세요.",
+      "output": "180",
+      "functionName": "convertToSeconds",
+      "parameters": [
+        "minutes"
+      ],
+      "returnMode": true,
+      "probeCases": [
+        {
+          "args": [
+            2
+          ],
+          "value": 120
+        },
+        {
+          "args": [
+            0
+          ],
+          "value": 0
+        }
+      ],
+      "requireFor": false,
+      "forbidElse": false
+    },
+    {
+      "title": "상품 소개 문구 만들기",
+      "description": "상품 소개 문자열을 반환하세요.",
+      "conditions": [
+        "productName, price를 순서대로 받는 getProductInfo 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 출력하지 말고 return으로 값을 반환하세요. 함수를 호출하고 반환값은 함수 밖에서 출력하세요.",
+        "\"상품명: ○○ / 가격: ○○원\" 형식의 문자열을 반환하세요.",
+        "\"무선 마우스\", 25000과 \"USB 메모리\", 12000을 각각 순서대로 전달하여 호출하고 반환값을 출력하세요."
+      ],
+      "starter": "// 결과를 반환하는 함수를 선언하세요.\n\n// 함수를 호출하고 반환값을 활용하여 출력하세요.",
+      "output": "상품명: 무선 마우스 / 가격: 25000원\n상품명: USB 메모리 / 가격: 12000원",
+      "functionName": "getProductInfo",
+      "parameters": [
+        "productName",
+        "price"
+      ],
+      "returnMode": true,
+      "probeCases": [
+        {
+          "args": [
+            "노트",
+            3000
+          ],
+          "value": "상품명: 노트 / 가격: 3000원"
+        }
+      ],
+      "requireFor": false,
+      "forbidElse": false
+    },
+    {
+      "title": "적립 포인트 활용하기",
+      "description": "적립 포인트를 반환받아 기존 포인트와 합산하세요.",
+      "conditions": [
+        "amount를 순서대로 받는 calculatePoint 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 출력하지 말고 return으로 값을 반환하세요. 함수를 호출하고 반환값은 함수 밖에서 출력하세요.",
+        "구매 금액의 5%를 반환하세요.",
+        "40000을 전달하여 호출하고 반환값을 earnedPoint에 저장하세요.",
+        "기존 포인트 1200과 earnedPoint를 더해 totalPoint에 저장하세요.",
+        "\"이번 적립: ○○점\", \"총 포인트: ○○점\" 형식으로 출력하세요."
+      ],
+      "starter": "// 결과를 반환하는 함수를 선언하세요.\n\n// 함수를 호출하고 반환값을 활용하여 출력하세요.",
+      "output": "이번 적립: 2000점\n총 포인트: 3200점",
+      "functionName": "calculatePoint",
+      "parameters": [
+        "amount"
+      ],
+      "returnMode": true,
+      "probeCases": [
+        {
+          "args": [
+            20000
+          ],
+          "value": 1000
+        },
+        {
+          "args": [
+            0
+          ],
+          "value": 0
+        }
+      ],
+      "requireFor": false,
+      "forbidElse": false
+    },
+    {
+      "title": "반환값으로 이용 가능 여부 판단하기",
+      "description": "이용 가능 여부를 불리언 값으로 반환하고 함수 밖에서 판단하세요.",
+      "conditions": [
+        "age를 순서대로 받는 canUseService 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 출력하지 말고 return으로 값을 반환하세요. 함수를 호출하고 반환값은 함수 밖에서 출력하세요.",
+        "age가 14 이상인지 비교한 결과를 반환하세요.",
+        "13을 전달하여 호출하고 반환값을 isAllowed에 저장하세요.",
+        "함수 밖의 if...else문에서 isAllowed가 true이면 \"이용 가능\", false이면 \"이용 불가\"를 출력하세요.",
+        "14를 전달한 반환값에도 같은 판단을 적용하세요."
+      ],
+      "starter": "// 결과를 반환하는 함수를 선언하세요.\n\n// 함수를 호출하고 반환값을 활용하여 출력하세요.",
+      "output": "이용 불가\n이용 가능",
+      "functionName": "canUseService",
+      "parameters": [
+        "age"
+      ],
+      "returnMode": true,
+      "probeCases": [
+        {
+          "args": [
+            13
+          ],
+          "value": false
+        },
+        {
+          "args": [
+            14
+          ],
+          "value": true
+        },
+        {
+          "args": [
+            20
+          ],
+          "value": true
+        }
+      ],
+      "requireFor": false,
+      "forbidElse": false
+    },
+    {
+      "title": "점수에 따른 결과 반환하기",
+      "description": "조건에 따라 결과를 반환하고 함수 실행을 끝내세요.",
+      "conditions": [
+        "score를 순서대로 받는 getResult 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 출력하지 말고 return으로 값을 반환하세요. 함수를 호출하고 반환값은 함수 밖에서 출력하세요.",
+        "score가 80 이상이면 \"우수\", 60 이상 80 미만이면 \"통과\", 60 미만이면 \"재도전\"을 반환하세요.",
+        "80 이상인지 먼저 확인하고 해당하면 반환하세요. 이어서 60 이상인지 확인하고 해당하면 반환하세요. 마지막에서 \"재도전\"을 반환하세요.",
+        "else와 else if는 사용하지 마세요.",
+        "85, 70, 50을 각각 전달하여 호출하고 반환값을 출력하세요."
+      ],
+      "starter": "// 결과를 반환하는 함수를 선언하세요.\n\n// 함수를 호출하고 반환값을 활용하여 출력하세요.",
+      "output": "우수\n통과\n재도전",
+      "functionName": "getResult",
+      "parameters": [
+        "score"
+      ],
+      "returnMode": true,
+      "probeCases": [
+        {
+          "args": [
+            80
+          ],
+          "value": "우수"
+        },
+        {
+          "args": [
+            60
+          ],
+          "value": "통과"
+        },
+        {
+          "args": [
+            59
+          ],
+          "value": "재도전"
+        }
+      ],
+      "requireFor": false,
+      "forbidElse": true
+    },
+    {
+      "title": "번호 범위의 합 반환하기",
+      "description": "반복문으로 범위의 합을 구하고 반복이 끝난 뒤 반환하세요.",
+      "conditions": [
+        "start, end를 순서대로 받는 calculateSum 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 출력하지 말고 return으로 값을 반환하세요. 함수를 호출하고 반환값은 함수 밖에서 출력하세요.",
+        "함수 안에서 합계를 저장할 변수 total을 0으로 선언하세요.",
+        "for문으로 start부터 end까지의 정수를 모두 더하세요.",
+        "반복이 끝난 뒤 total을 반환하세요.",
+        "1, 5와 3, 7을 각각 순서대로 전달하여 호출하고 반환값을 출력하세요."
+      ],
+      "starter": "// 결과를 반환하는 함수를 선언하세요.\n\n// 함수를 호출하고 반환값을 활용하여 출력하세요.",
+      "output": "15\n25",
+      "functionName": "calculateSum",
+      "parameters": [
+        "start",
+        "end"
+      ],
+      "returnMode": true,
+      "probeCases": [
+        {
+          "args": [
+            2,
+            4
+          ],
+          "value": 9
+        },
+        {
+          "args": [
+            5,
+            5
+          ],
+          "value": 5
+        }
+      ],
+      "requireFor": true,
+      "forbidElse": false
+    }
   ]
 }
