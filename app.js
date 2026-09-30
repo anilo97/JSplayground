@@ -29,7 +29,8 @@ const modules = [
   { id: "loop-nested", title: "중첩 반복문", path: "loop/?category=nested" }
 ] }
 , { id: "function", title: "함수", children: [
-  { id: "function-parameters", title: "매개변수와 인수", path: "function/?category=parameters" }
+  { id: "function-parameters", title: "매개변수와 인수", path: "function/?category=parameters" },
+  { id: "function-default", title: "기본값 매개변수", path: "function/?category=default" }
 ] }
 ];
 const menu=document.getElementById("moduleMenu"),frame=document.getElementById("practiceFrame"),teacherDialog=document.getElementById("teacherDialog"),studentDialog=document.getElementById("studentDialog");

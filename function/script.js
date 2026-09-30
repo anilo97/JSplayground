@@ -132,6 +132,179 @@ const units = {
         "probeOutput": "안내 1\n안내 2\n안내 3\n안내 4"
       }
     ]
+  },
+  "default": {
+    "title": "기본값 매개변수",
+    "prefix": "DF",
+    "problems": [
+      {
+        "title": "선택한 화면 테마 안내",
+        "description": "전달받은 화면 테마를 안내하세요.",
+        "conditions": [
+          "theme를 순서대로 받는 showTheme 함수를 함수 선언식으로 작성하세요.",
+          "기본값 매개변수를 사용하고 함수 안에서 출력하세요. 반드시 함수를 호출하세요.",
+          "theme의 기본값을 \"라이트\"로 지정하세요.",
+          "인수 없이, \"다크\"를 전달하여, \"자동\"을 전달하여 순서대로 호출하세요."
+        ],
+        "starter": "// 기본값 매개변수를 사용하는 함수를 선언하세요.\n\n// 조건에 맞게 함수를 호출하세요.",
+        "output": "화면 테마: 라이트\n화면 테마: 다크\n화면 테마: 자동",
+        "functionName": "showTheme",
+        "parameters": [
+          "theme"
+        ],
+        "defaults": [
+          "라이트"
+        ],
+        "probeCases": [
+          {
+            "args": [],
+            "output": "화면 테마: 라이트"
+          },
+          {
+            "args": [
+              "고대비"
+            ],
+            "output": "화면 테마: 고대비"
+          }
+        ]
+      },
+      {
+        "title": "기본 배송비 적용",
+        "description": "구매 금액과 배송비를 더해 총 결제 금액을 출력하세요.",
+        "conditions": [
+          "amount, deliveryFee를 순서대로 받는 showOrderTotal 함수를 함수 선언식으로 작성하세요.",
+          "기본값 매개변수를 사용하고 함수 안에서 출력하세요. 반드시 함수를 호출하세요.",
+          "deliveryFee의 기본값을 3000으로 지정하세요.",
+          "20000만 전달하여, 20000과 1500을 전달하여, 20000과 0을 전달하여 순서대로 호출하세요."
+        ],
+        "starter": "// 기본값 매개변수를 사용하는 함수를 선언하세요.\n\n// 조건에 맞게 함수를 호출하세요.",
+        "output": "총 결제 금액: 23000원\n총 결제 금액: 21500원\n총 결제 금액: 20000원",
+        "functionName": "showOrderTotal",
+        "parameters": [
+          "amount",
+          "deliveryFee"
+        ],
+        "defaults": [
+          null,
+          3000
+        ],
+        "probeCases": [
+          {
+            "args": [
+              10000
+            ],
+            "output": "총 결제 금액: 13000원"
+          },
+          {
+            "args": [
+              10000,
+              0
+            ],
+            "output": "총 결제 금액: 10000원"
+          },
+          {
+            "args": [
+              10000,
+              500
+            ],
+            "output": "총 결제 금액: 10500원"
+          }
+        ]
+      },
+      {
+        "title": "기본값과 undefined 확인",
+        "description": "인수를 생략하거나 undefined를 전달했을 때의 작성자를 출력하세요.",
+        "conditions": [
+          "name를 순서대로 받는 showAuthor 함수를 함수 선언식으로 작성하세요.",
+          "기본값 매개변수를 사용하고 함수 안에서 출력하세요. 반드시 함수를 호출하세요.",
+          "name의 기본값을 \"익명\"으로 지정하세요.",
+          "인수 없이, undefined를 전달하여, \"김도윤\"을 전달하여 순서대로 호출하세요."
+        ],
+        "starter": "// 기본값 매개변수를 사용하는 함수를 선언하세요.\n\n// 조건에 맞게 함수를 호출하세요.",
+        "output": "작성자: 익명\n작성자: 익명\n작성자: 김도윤",
+        "functionName": "showAuthor",
+        "parameters": [
+          "name"
+        ],
+        "defaults": [
+          "익명"
+        ],
+        "probeCases": [
+          {
+            "args": [],
+            "output": "작성자: 익명"
+          },
+          {
+            "args": [
+              "__UNDEFINED__"
+            ],
+            "output": "작성자: 익명"
+          },
+          {
+            "args": [
+              ""
+            ],
+            "output": "작성자: "
+          },
+          {
+            "args": [
+              "이서준"
+            ],
+            "output": "작성자: 이서준"
+          }
+        ]
+      },
+      {
+        "title": "여러 기본값으로 예약 안내",
+        "description": "장소, 시간, 인원으로 예약 정보를 출력하세요.",
+        "conditions": [
+          "space, hours, people를 순서대로 받는 showReservation 함수를 함수 선언식으로 작성하세요.",
+          "기본값 매개변수를 사용하고 함수 안에서 출력하세요. 반드시 함수를 호출하세요.",
+          "hours의 기본값은 1, people의 기본값은 2로 지정하세요.",
+          "\"회의실\"만 전달하여 호출하세요.",
+          "\"회의실\", 3을 전달하여 호출하세요.",
+          "\"회의실\", 3, 5를 전달하여 호출하세요.",
+          "\"회의실\", undefined, 4를 전달하여 호출하세요."
+        ],
+        "starter": "// 기본값 매개변수를 사용하는 함수를 선언하세요.\n\n// 조건에 맞게 함수를 호출하세요.",
+        "output": "회의실 예약: 1시간, 2명\n회의실 예약: 3시간, 2명\n회의실 예약: 3시간, 5명\n회의실 예약: 1시간, 4명",
+        "functionName": "showReservation",
+        "parameters": [
+          "space",
+          "hours",
+          "people"
+        ],
+        "defaults": [
+          null,
+          1,
+          2
+        ],
+        "probeCases": [
+          {
+            "args": [
+              "실습실"
+            ],
+            "output": "실습실 예약: 1시간, 2명"
+          },
+          {
+            "args": [
+              "실습실",
+              "__UNDEFINED__",
+              6
+            ],
+            "output": "실습실 예약: 1시간, 6명"
+          },
+          {
+            "args": [
+              "실습실",
+              2,
+              3
+            ],
+            "output": "실습실 예약: 2시간, 3명"
+          }
+        ]
+      }
+    ]
   }
 };
 const unit = units[category] || units.parameters;
@@ -156,27 +329,42 @@ const clean = (code) =>
 
 function valid(code, item) {
   const cleaned = clean(code);
-  const declaration = new RegExp("\\bfunction\\s+" + item.functionName + "\\s*\\(\\s*" + item.parameters.join("\\s*,\\s*") + "\\s*\\)\\s*\\{");
-  if (!declaration.test(cleaned)) return Promise.resolve(false);
+  const match = cleaned.match(new RegExp("\\bfunction\\s+" + item.functionName + "\\s*\\(([^)]*)\\)\\s*\\{"));
+  if (!match) return Promise.resolve(false);
+  const declared = match[1].split(",").map(part => part.trim());
+  if (declared.length !== item.parameters.length) return Promise.resolve(false);
+  for (let i = 0; i < declared.length; i++) {
+    const parts = declared[i].split("=").map(part => part.trim());
+    if (parts[0] !== item.parameters[i]) return Promise.resolve(false);
+    const value = item.defaults?.[i];
+    if (value !== undefined && value !== null) {
+      const expected = typeof value === "string" ? [JSON.stringify(value), "'" + value + "'", "`" + value + "`"] : [String(value)];
+      if (parts.length !== 2 || !expected.includes(parts[1])) return Promise.resolve(false);
+    } else if (parts.length !== 1) return Promise.resolve(false);
+  }
   if (item.functionName === "showNumberedList" && !/\bfor\s*\(/.test(cleaned)) return Promise.resolve(false);
   return new Promise((resolve) => {
     const source = `onmessage = (event) => { const logs = []; try {
       const console = {log: (...args) => logs.push(args.map(String).join(" "))};
-      const {code, name, args} = event.data;
+      const {code, name, cases} = event.data;
       const probe = new Function("console", code + "\\n;return " + name + ";")(console);
       const output = logs.join("\\n");
-      logs.length = 0;
-      probe(...args);
-      postMessage({output, probeOutput: logs.join("\\n")});
+      const results = cases.map(test => {
+        logs.length = 0;
+        probe(...test.args.map(value => value === "__UNDEFINED__" ? undefined : value));
+        return logs.join("\\n");
+      });
+      postMessage({output, results});
     } catch(error) { postMessage({error: error.message}); } };`;
     const url = URL.createObjectURL(new Blob([source], {type: "text/javascript"}));
     const worker = new Worker(url);
     let done = false;
     const finish = (ok) => { if (done) return; done = true; clearTimeout(timer); worker.terminate(); URL.revokeObjectURL(url); resolve(ok); };
     const timer = setTimeout(() => finish(false), 1500);
-    worker.onmessage = event => finish(!event.data.error && event.data.output === item.output && event.data.probeOutput === item.probeOutput);
+    const cases = item.probeCases || [{args: item.probeArgs, output: item.probeOutput}];
+    worker.onmessage = event => finish(!event.data.error && event.data.output === item.output && event.data.results.every((output, i) => output === cases[i].output));
     worker.onerror = () => finish(false);
-    worker.postMessage({code, name: item.functionName, args: item.probeArgs});
+    worker.postMessage({code, name: item.functionName, cases});
   });
 }
 
