@@ -146,7 +146,7 @@ function render() {
     })
   );
 
-  el('starterCode').textContent = item.starter;
+  
   el('expectedOutput').textContent = item.output;
   el('codeInput').value = item.starter;
 
