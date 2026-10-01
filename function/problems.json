@@ -515,5 +515,176 @@
       "requireFor": true,
       "forbidElse": false
     }
+  ],
+  "control": [
+    {
+      "title": "홀수 번호의 합 구하기",
+      "description": "조건문과 반복문을 함수 안에서 사용하여 결과를 반환하세요.",
+      "conditions": [
+        "start, end를 순서대로 받는 calculateOddSum 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 for문과 조건문을 사용하세요. 함수 안에서는 출력하지 말고 결과를 반환하세요. 함수 밖에서 반환값을 출력하세요.",
+        "total을 0으로 선언하고 start부터 end까지 for문으로 확인하세요.",
+        "홀수만 total에 더하고 반복이 끝난 뒤 total을 반환하세요.",
+        "1, 10과 4, 12를 각각 전달하여 호출하고 반환값을 출력하세요."
+      ],
+      "starter": "// 조건문과 반복문을 사용하는 함수를 선언하세요.\n\n// 함수를 호출하고 반환값을 출력하세요.",
+      "output": "25\n32",
+      "functionName": "calculateOddSum",
+      "parameters": [
+        "start",
+        "end"
+      ],
+      "returnMode": true,
+      "requireFor": true,
+      "requiredKeywords": [
+        "if"
+      ],
+      "probeCases": [
+        {
+          "args": [
+            2,
+            6
+          ],
+          "value": 8
+        },
+        {
+          "args": [
+            2,
+            2
+          ],
+          "value": 0
+        }
+      ]
+    },
+    {
+      "title": "제외 번호를 뺀 목록 만들기",
+      "description": "조건문과 반복문을 함수 안에서 사용하여 결과를 반환하세요.",
+      "conditions": [
+        "end, excluded를 순서대로 받는 makeNumberList 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 for문과 조건문을 사용하세요. 함수 안에서는 출력하지 말고 결과를 반환하세요. 함수 밖에서 반환값을 출력하세요.",
+        "result를 빈 문자열로 선언하세요.",
+        "for문으로 1부터 end까지 확인하고 excluded와 같으면 continue로 건너뛰세요.",
+        "나머지 번호를 대괄호로 감싸 result에 이어 붙이세요. 공백은 넣지 마세요.",
+        "반복이 끝나면 result를 반환하세요.",
+        "5, 3과 4, 1을 각각 전달하여 호출하고 반환값을 출력하세요."
+      ],
+      "starter": "// 조건문과 반복문을 사용하는 함수를 선언하세요.\n\n// 함수를 호출하고 반환값을 출력하세요.",
+      "output": "[1][2][4][5]\n[2][3][4]",
+      "functionName": "makeNumberList",
+      "parameters": [
+        "end",
+        "excluded"
+      ],
+      "returnMode": true,
+      "requireFor": true,
+      "requiredKeywords": [
+        "if",
+        "continue"
+      ],
+      "probeCases": [
+        {
+          "args": [
+            3,
+            2
+          ],
+          "value": "[1][3]"
+        },
+        {
+          "args": [
+            1,
+            1
+          ],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "title": "한도를 넘기기 전에 합산 종료하기",
+      "description": "조건문과 반복문을 함수 안에서 사용하여 결과를 반환하세요.",
+      "conditions": [
+        "end, limit를 순서대로 받는 calculateLimitedSum 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 for문과 조건문을 사용하세요. 함수 안에서는 출력하지 말고 결과를 반환하세요. 함수 밖에서 반환값을 출력하세요.",
+        "total을 0으로 선언하고 for문으로 1부터 end까지 순서대로 확인하세요.",
+        "현재 수를 더하면 limit를 초과하는 경우 더하지 말고 break로 반복을 종료하세요.",
+        "반복문 다음에서 total을 반환하세요.",
+        "10, 20과 10, 10을 각각 전달하여 호출하고 반환값을 출력하세요."
+      ],
+      "starter": "// 조건문과 반복문을 사용하는 함수를 선언하세요.\n\n// 함수를 호출하고 반환값을 출력하세요.",
+      "output": "15\n10",
+      "functionName": "calculateLimitedSum",
+      "parameters": [
+        "end",
+        "limit"
+      ],
+      "returnMode": true,
+      "requireFor": true,
+      "requiredKeywords": [
+        "if",
+        "break"
+      ],
+      "probeCases": [
+        {
+          "args": [
+            5,
+            6
+          ],
+          "value": 6
+        },
+        {
+          "args": [
+            5,
+            0
+          ],
+          "value": 0
+        }
+      ]
+    },
+    {
+      "title": "조건을 만족하는 첫 번호 찾기",
+      "description": "조건문과 반복문을 함수 안에서 사용하여 결과를 반환하세요.",
+      "conditions": [
+        "start, end를 순서대로 받는 findFirstNumber 함수를 함수 선언식으로 작성하세요.",
+        "함수 안에서 for문과 조건문을 사용하세요. 함수 안에서는 출력하지 말고 결과를 반환하세요. 함수 밖에서 반환값을 출력하세요.",
+        "for문으로 start부터 end까지 확인하세요.",
+        "현재 번호가 4의 배수이면서 6의 배수이면 그 번호를 즉시 반환하세요.",
+        "발견하지 못하고 반복이 끝나면 -1을 반환하세요.",
+        "5, 30과 13, 30과 25, 35를 각각 전달하여 호출하고 반환값을 출력하세요."
+      ],
+      "starter": "// 조건문과 반복문을 사용하는 함수를 선언하세요.\n\n// 함수를 호출하고 반환값을 출력하세요.",
+      "output": "12\n24\n-1",
+      "functionName": "findFirstNumber",
+      "parameters": [
+        "start",
+        "end"
+      ],
+      "returnMode": true,
+      "requireFor": true,
+      "requiredKeywords": [
+        "if"
+      ],
+      "probeCases": [
+        {
+          "args": [
+            12,
+            12
+          ],
+          "value": 12
+        },
+        {
+          "args": [
+            26,
+            40
+          ],
+          "value": 36
+        },
+        {
+          "args": [
+            1,
+            11
+          ],
+          "value": -1
+        }
+      ]
+    }
   ]
 }

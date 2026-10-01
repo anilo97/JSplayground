@@ -31,7 +31,8 @@ const modules = [
 , { id: "function", title: "함수", children: [
   { id: "function-parameters", title: "매개변수와 인수", path: "function/?category=parameters" },
   { id: "function-default", title: "기본값 매개변수", path: "function/?category=default" },
-  { id: "function-return", title: "반환값과 return", path: "function/?category=return" }
+  { id: "function-return", title: "반환값과 return", path: "function/?category=return" },
+  { id: "function-control", title: "조건문·반복문 활용", path: "function/?category=control" }
 ] }
 ];
 const menu=document.getElementById("moduleMenu"),frame=document.getElementById("practiceFrame"),teacherDialog=document.getElementById("teacherDialog"),studentDialog=document.getElementById("studentDialog");
