@@ -703,6 +703,156 @@ const units = {
         ]
       }
     ]
+  },
+  "scope": {
+    "title": "지역변수와 전역변수",
+    "prefix": "SC",
+    "problems": [
+      {
+        "title": "지역변수로 할인 금액 계산하기",
+        "description": "지정한 위치에 변수를 선언하고 함수의 처리 결과를 출력하세요.",
+        "conditions": [
+          "calculateSalePrice 함수를 함수 선언식으로 작성하고 반드시 호출하세요.",
+          "함수 안에 discount를 선언하고 가격의 20%를 저장하세요.",
+          "함수 안에 salePrice를 선언하고 가격에서 할인 금액을 뺀 값을 저장한 뒤 반환하세요.",
+          "함수 밖에서 15000을 전달하여 호출하고 반환값을 payment에 저장한 뒤 출력하세요."
+        ],
+        "starter": "// 지정된 위치에 변수와 함수를 선언하세요.\n\n// 함수를 호출하고 조건에 맞게 출력하세요.",
+        "output": "12000",
+        "functionName": "calculateSalePrice",
+        "parameters": [
+          "price"
+        ],
+        "scopeProbe": "return [calculateSalePrice(20000), typeof discount, typeof salePrice];",
+        "scopeValue": [
+          16000,
+          "undefined",
+          "undefined"
+        ],
+        "scopeLogs": "",
+        "requireFor": false
+      },
+      {
+        "title": "두 함수에서 공통 배송비 사용하기",
+        "description": "지정한 위치에 변수를 선언하고 함수의 처리 결과를 출력하세요.",
+        "conditions": [
+          "calculatePayment 함수를 함수 선언식으로 작성하고 반드시 호출하세요.",
+          "함수 밖에 전역변수 deliveryFee를 3000으로 선언하세요.",
+          "calculatePayment는 amount와 deliveryFee를 더한 값을 반환하세요.",
+          "showDeliveryFee 함수를 선언하고 deliveryFee를 사용하여 \"배송비: ○○원\" 형식으로 출력하세요.",
+          "20000을 전달하여 calculatePayment를 호출하고 반환값을 출력한 뒤 showDeliveryFee를 호출하세요.",
+          "두 함수 안에 deliveryFee를 다시 선언하지 마세요."
+        ],
+        "starter": "// 지정된 위치에 변수와 함수를 선언하세요.\n\n// 함수를 호출하고 조건에 맞게 출력하세요.",
+        "output": "23000\n배송비: 3000원",
+        "functionName": "calculatePayment",
+        "parameters": [
+          "amount"
+        ],
+        "scopeProbe": "showDeliveryFee(); return [deliveryFee, calculatePayment(10000)];",
+        "scopeValue": [
+          3000,
+          13000
+        ],
+        "scopeLogs": "배송비: 3000원",
+        "requireFor": false
+      },
+      {
+        "title": "누적 횟수와 이번 호출의 횟수",
+        "description": "지정한 위치에 변수를 선언하고 함수의 처리 결과를 출력하세요.",
+        "conditions": [
+          "processRequests 함수를 함수 선언식으로 작성하고 반드시 호출하세요.",
+          "함수 밖에 전역변수 totalRequests를 0으로 선언하세요.",
+          "함수 안에 지역변수 processed를 0으로 선언하세요.",
+          "for문으로 count번 반복하며 processed와 totalRequests를 각각 1 증가시키세요.",
+          "반복이 끝나면 \"이번 처리: ○회 / 누적 처리: ○회\" 형식으로 출력하세요.",
+          "2, 3을 각각 전달하여 호출하세요."
+        ],
+        "starter": "// 지정된 위치에 변수와 함수를 선언하세요.\n\n// 함수를 호출하고 조건에 맞게 출력하세요.",
+        "output": "이번 처리: 2회 / 누적 처리: 2회\n이번 처리: 3회 / 누적 처리: 5회",
+        "functionName": "processRequests",
+        "parameters": [
+          "count"
+        ],
+        "scopeProbe": "processRequests(1); processRequests(2); return [totalRequests, typeof processed];",
+        "scopeValue": [
+          8,
+          "undefined"
+        ],
+        "scopeLogs": "이번 처리: 1회 / 누적 처리: 6회\n이번 처리: 2회 / 누적 처리: 8회",
+        "requireFor": true
+      },
+      {
+        "title": "지역변수 변경 후 전역변수 확인하기",
+        "description": "지정한 위치에 변수를 선언하고 함수의 처리 결과를 출력하세요.",
+        "conditions": [
+          "showTaskStatus 함수를 함수 선언식으로 작성하고 반드시 호출하세요.",
+          "함수 밖에 status를 \"대기\"로 선언하세요.",
+          "함수 안에 같은 이름의 지역변수 status를 \"진행 중\"으로 선언하고 출력하세요.",
+          "지역변수 status를 \"완료\"로 변경하고 다시 출력하세요.",
+          "함수를 호출한 다음 함수 밖에서 전역변수 status를 출력하세요."
+        ],
+        "starter": "// 지정된 위치에 변수와 함수를 선언하세요.\n\n// 함수를 호출하고 조건에 맞게 출력하세요.",
+        "output": "진행 중\n완료\n대기",
+        "functionName": "showTaskStatus",
+        "parameters": [],
+        "scopeProbe": "showTaskStatus(); return status;",
+        "scopeValue": "대기",
+        "scopeLogs": "진행 중\n완료",
+        "requireFor": false
+      },
+      {
+        "title": "조건문 안에서 계산한 결과 반환하기",
+        "description": "지정한 위치에 변수를 선언하고 함수의 처리 결과를 출력하세요.",
+        "conditions": [
+          "calculateFinalPrice 함수를 함수 선언식으로 작성하고 반드시 호출하세요.",
+          "함수 안에서 조건문보다 앞에 finalPrice를 선언하세요.",
+          "amount가 30000 이상이면 10% 할인한 금액, 그렇지 않으면 원래 금액을 finalPrice에 저장하세요.",
+          "조건문 안에서는 finalPrice를 새로 선언하지 마세요. 조건문 다음에서 finalPrice를 반환하세요.",
+          "20000, 40000을 각각 전달하여 호출하고 반환값을 출력하세요."
+        ],
+        "starter": "// 지정된 위치에 변수와 함수를 선언하세요.\n\n// 함수를 호출하고 조건에 맞게 출력하세요.",
+        "output": "20000\n36000",
+        "functionName": "calculateFinalPrice",
+        "parameters": [
+          "amount"
+        ],
+        "scopeProbe": "return [calculateFinalPrice(30000), calculateFinalPrice(10000), typeof finalPrice];",
+        "scopeValue": [
+          27000,
+          10000,
+          "undefined"
+        ],
+        "scopeLogs": "",
+        "requireFor": false
+      },
+      {
+        "title": "반복문 뒤에서 합계와 개수 사용하기",
+        "description": "지정한 위치에 변수를 선언하고 함수의 처리 결과를 출력하세요.",
+        "conditions": [
+          "showEvenSummary 함수를 함수 선언식으로 작성하고 반드시 호출하세요.",
+          "함수 안에서 반복문보다 앞에 지역변수 total과 count를 각각 0으로 선언하세요.",
+          "for문의 초기식에서 반복 변수 i를 let으로 선언하세요.",
+          "1부터 end까지 확인하여 짝수이면 total에 더하고 count를 1 증가시키세요.",
+          "반복문 뒤에서 \"짝수 합계: ○ / 개수: ○\" 형식으로 출력하세요. 반복문 뒤에서는 i를 사용하지 마세요.",
+          "6, 10을 각각 전달하여 호출하세요."
+        ],
+        "starter": "// 지정된 위치에 변수와 함수를 선언하세요.\n\n// 함수를 호출하고 조건에 맞게 출력하세요.",
+        "output": "짝수 합계: 12 / 개수: 3\n짝수 합계: 30 / 개수: 5",
+        "functionName": "showEvenSummary",
+        "parameters": [
+          "end"
+        ],
+        "scopeProbe": "showEvenSummary(4); showEvenSummary(1); return [typeof total, typeof count, typeof i];",
+        "scopeValue": [
+          "undefined",
+          "undefined",
+          "undefined"
+        ],
+        "scopeLogs": "짝수 합계: 6 / 개수: 2\n짝수 합계: 0 / 개수: 0",
+        "requireFor": true
+      }
+    ]
   }
 };
 const unit = units[category] || units.parameters;
@@ -729,7 +879,7 @@ function valid(code, item) {
   const cleaned = clean(code);
   const match = cleaned.match(new RegExp("\\bfunction\\s+" + item.functionName + "\\s*\\(([^)]*)\\)\\s*\\{"));
   if (!match) return Promise.resolve(false);
-  const declared = match[1].split(",").map(part => part.trim());
+  const declared = match[1].trim() ? match[1].split(",").map(part => part.trim()) : [];
   if (declared.length !== item.parameters.length) return Promise.resolve(false);
   for (let i = 0; i < declared.length; i++) {
     const parts = declared[i].split("=").map(part => part.trim());
@@ -748,7 +898,15 @@ function valid(code, item) {
   return new Promise((resolve) => {
     const source = `onmessage = (event) => { const logs = []; try {
       const console = {log: (...args) => logs.push(args.map(String).join(" "))};
-      const {code, name, cases, returnMode} = event.data;
+      const {code, name, cases, returnMode, scopeProbe} = event.data;
+      if (scopeProbe) {
+        const check = new Function("console", code + "\\n;return () => {" + scopeProbe + "};")(console);
+        const output = logs.join("\\n");
+        logs.length = 0;
+        const value = check();
+        postMessage({output, scopeValue: value, scopeLogs: logs.join("\\n")});
+        return;
+      }
       const probe = new Function("console", code + "\\n;return " + name + ";")(console);
       const output = logs.join("\\n");
       const results = cases.map(test => {
@@ -764,9 +922,9 @@ function valid(code, item) {
     const finish = (ok) => { if (done) return; done = true; clearTimeout(timer); worker.terminate(); URL.revokeObjectURL(url); resolve(ok); };
     const timer = setTimeout(() => finish(false), 1500);
     const cases = item.probeCases || [{args: item.probeArgs, output: item.probeOutput}];
-    worker.onmessage = event => finish(!event.data.error && event.data.output === item.output && event.data.results.every((result, i) => item.returnMode ? result.silent && result.value === cases[i].value : result === cases[i].output));
+    worker.onmessage = event => finish(!event.data.error && event.data.output === item.output && (item.scopeProbe ? JSON.stringify(event.data.scopeValue) === JSON.stringify(item.scopeValue) && event.data.scopeLogs === item.scopeLogs : event.data.results.every((result, i) => item.returnMode ? result.silent && result.value === cases[i].value : result === cases[i].output)));
     worker.onerror = () => finish(false);
-    worker.postMessage({code, name: item.functionName, cases, returnMode: !!item.returnMode});
+    worker.postMessage({code, name: item.functionName, cases, returnMode: !!item.returnMode, scopeProbe: item.scopeProbe});
   });
 }
 
