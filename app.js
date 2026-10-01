@@ -34,7 +34,8 @@ const modules = [
   { id: "function-return", title: "반환값과 return", path: "function/?category=return" },
   { id: "function-control", title: "조건문·반복문 활용", path: "function/?category=control" },
   { id: "function-scope", title: "지역변수와 전역변수", path: "function/?category=scope" },
-  { id: "function-expression", title: "함수 표현식과 호이스팅", path: "function/?category=expression" }
+  { id: "function-expression", title: "함수 표현식과 호이스팅", path: "function/?category=expression" },
+  { id: "function-arrow", title: "화살표 함수 기초", path: "function/?category=arrow" }
 ] }
 ];
 const menu=document.getElementById("moduleMenu"),frame=document.getElementById("practiceFrame"),teacherDialog=document.getElementById("teacherDialog"),studentDialog=document.getElementById("studentDialog");

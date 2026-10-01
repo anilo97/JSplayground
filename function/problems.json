@@ -951,5 +951,227 @@
         }
       ]
     }
+  ],
+  "arrow": [
+    {
+      "title": "운영 상태 안내하기",
+      "description": "매개변수가 없는 화살표 함수를 작성하세요.",
+      "conditions": [
+        "const 변수에 화살표 함수를 저장하세요. 지정한 함수를 호출하여 출력하세요.",
+        "매개변수 자리에 빈 소괄호 ()를 쓰고, 함수 본문은 중괄호로 감싸세요.",
+        "함수 안에서 \"현재 정상 운영 중입니다.\"를 출력하세요.",
+        "showStatus를 두 번 호출하세요."
+      ],
+      "starter": "// 화살표 함수를 작성하세요.\n\n// 함수를 호출하여 출력하세요.",
+      "output": "현재 정상 운영 중입니다.\n현재 정상 운영 중입니다.",
+      "functionName": "showStatus",
+      "parameters": [],
+      "arrowMode": true,
+      "probeCases": [
+        {
+          "args": [],
+          "output": "현재 정상 운영 중입니다."
+        }
+      ],
+      "arrowBlock": true
+    },
+    {
+      "title": "배송비 포함 금액 반환하기",
+      "description": "주문 금액과 배송비를 더해 반환하세요.",
+      "conditions": [
+        "const 변수에 화살표 함수를 저장하세요. 지정한 함수를 호출하여 출력하세요.",
+        "매개변수 amount, deliveryFee를 순서대로 작성하고 소괄호로 감싸세요.",
+        "함수 본문은 중괄호로 감싸고, return으로 amount + deliveryFee를 반환하세요.",
+        "18000, 3000을 전달한 반환값을 payment 변수에 저장하고 함수 밖에서 출력하세요."
+      ],
+      "starter": "// 화살표 함수를 작성하세요.\n\n// 함수를 호출하여 출력하세요.",
+      "output": "21000",
+      "functionName": "calculatePayment",
+      "parameters": [
+        "amount",
+        "deliveryFee"
+      ],
+      "arrowMode": true,
+      "probeCases": [
+        {
+          "args": [
+            10000,
+            2500
+          ],
+          "value": 12500
+        },
+        {
+          "args": [
+            0,
+            3000
+          ],
+          "value": 3000
+        }
+      ],
+      "arrowBlock": true,
+      "returnMode": true
+    },
+    {
+      "title": "할인된 가격을 짧게 반환하기",
+      "description": "표현식 하나를 반환하는 화살표 함수를 작성하세요.",
+      "conditions": [
+        "const 변수에 화살표 함수를 저장하세요. 지정한 함수를 호출하여 출력하세요.",
+        "매개변수 price, discountRate를 소괄호로 감싸세요.",
+        "price - price * discountRate를 반환하세요. 본문의 중괄호와 return은 생략하세요.",
+        "20000, 0.1과 30000, 0.2를 각각 전달하고 반환값을 함수 밖에서 출력하세요."
+      ],
+      "starter": "// 화살표 함수를 작성하세요.\n\n// 함수를 호출하여 출력하세요.",
+      "output": "18000\n24000",
+      "functionName": "calculateSalePrice",
+      "parameters": [
+        "price",
+        "discountRate"
+      ],
+      "arrowMode": true,
+      "probeCases": [
+        {
+          "args": [
+            10000,
+            0.3
+          ],
+          "value": 7000
+        },
+        {
+          "args": [
+            5000,
+            0
+          ],
+          "value": 5000
+        }
+      ],
+      "arrowBlock": false,
+      "returnMode": true
+    },
+    {
+      "title": "매개변수 소괄호 생략하기",
+      "description": "매개변수가 하나일 때 소괄호를 생략해보세요.",
+      "conditions": [
+        "const 변수에 화살표 함수를 저장하세요. 지정한 함수를 호출하여 출력하세요.",
+        "이 문제에서는 1MB를 1024KB로 계산하세요.",
+        "매개변수 megabytes의 소괄호를 생략하세요. 본문의 중괄호와 return도 생략하세요.",
+        "megabytes * 1024를 반환하세요.",
+        "2와 5를 각각 전달하고 반환값을 함수 밖에서 출력하세요."
+      ],
+      "starter": "// 화살표 함수를 작성하세요.\n\n// 함수를 호출하여 출력하세요.",
+      "output": "2048\n5120",
+      "functionName": "convertToKilobytes",
+      "parameters": [
+        "megabytes"
+      ],
+      "arrowMode": true,
+      "probeCases": [
+        {
+          "args": [
+            3
+          ],
+          "value": 3072
+        },
+        {
+          "args": [
+            0
+          ],
+          "value": 0
+        }
+      ],
+      "arrowBlock": false,
+      "arrowBare": true,
+      "returnMode": true
+    },
+    {
+      "title": "기본값 매개변수 사용하기",
+      "description": "화살표 함수에 기본값 매개변수를 적용하세요.",
+      "conditions": [
+        "const 변수에 화살표 함수를 저장하세요. 지정한 함수를 호출하여 출력하세요.",
+        "매개변수 price, quantity를 순서대로 작성하고 quantity의 기본값을 1로 지정하세요. 매개변수는 소괄호로 감싸세요.",
+        "함수 본문은 중괄호로 감싸고 return으로 price * quantity를 반환하세요.",
+        "7000만 전달한 결과와 7000, 4를 전달한 결과를 함수 밖에서 출력하세요."
+      ],
+      "starter": "// 화살표 함수를 작성하세요.\n\n// 함수를 호출하여 출력하세요.",
+      "output": "7000\n28000",
+      "functionName": "calculateOrderTotal",
+      "parameters": [
+        "price",
+        "quantity"
+      ],
+      "arrowMode": true,
+      "probeCases": [
+        {
+          "args": [
+            3000
+          ],
+          "value": 3000
+        },
+        {
+          "args": [
+            2500,
+            3
+          ],
+          "value": 7500
+        },
+        {
+          "args": [
+            4000,
+            0
+          ],
+          "value": 0
+        }
+      ],
+      "arrowBlock": true,
+      "returnMode": true,
+      "defaults": [
+        null,
+        1
+      ]
+    },
+    {
+      "title": "조건에 맞는 번호의 개수 반환하기",
+      "description": "조건문과 반복문을 화살표 함수 안에서 사용하세요.",
+      "conditions": [
+        "const 변수에 화살표 함수를 저장하세요. 지정한 함수를 호출하여 출력하세요.",
+        "매개변수 end를 소괄호로 감싸고 함수 본문은 중괄호로 감싸세요.",
+        "함수 안에서 count를 0으로 선언하세요.",
+        "for문으로 1부터 end까지 확인하고, if문으로 5의 배수를 찾아 count를 1씩 증가시키세요.",
+        "반복문이 끝난 뒤 return으로 count를 반환하세요.",
+        "12와 25를 각각 전달하고 반환값을 함수 밖에서 출력하세요."
+      ],
+      "starter": "// 화살표 함수를 작성하세요.\n\n// 함수를 호출하여 출력하세요.",
+      "output": "2\n5",
+      "functionName": "countMultiplesOfFive",
+      "parameters": [
+        "end"
+      ],
+      "arrowMode": true,
+      "probeCases": [
+        {
+          "args": [
+            4
+          ],
+          "value": 0
+        },
+        {
+          "args": [
+            5
+          ],
+          "value": 1
+        },
+        {
+          "args": [
+            30
+          ],
+          "value": 6
+        }
+      ],
+      "arrowBlock": true,
+      "returnMode": true,
+      "requireFor": true,
+      "requiredKeywords": [
+        "if"
+      ]
+    }
   ]
 }
