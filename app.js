@@ -33,7 +33,8 @@ const modules = [
   { id: "function-default", title: "기본값 매개변수", path: "function/?category=default" },
   { id: "function-return", title: "반환값과 return", path: "function/?category=return" },
   { id: "function-control", title: "조건문·반복문 활용", path: "function/?category=control" },
-  { id: "function-scope", title: "지역변수와 전역변수", path: "function/?category=scope" }
+  { id: "function-scope", title: "지역변수와 전역변수", path: "function/?category=scope" },
+  { id: "function-expression", title: "함수 표현식과 호이스팅", path: "function/?category=expression" }
 ] }
 ];
 const menu=document.getElementById("moduleMenu"),frame=document.getElementById("practiceFrame"),teacherDialog=document.getElementById("teacherDialog"),studentDialog=document.getElementById("studentDialog");
@@ -59,7 +60,7 @@ document.getElementById("teacherForm").addEventListener("submit",async e=>{
   try{
     if(file.size>2000000)throw new Error("파일이 너무 큽니다.");
     const data=JSON.parse(await file.text());
-    if(data.format!=="jsplayground-teacher-solutions"||data.version!==1||!data.units)throw new Error("올바른 파일이 아닙니다.");
+    if(data.format!=="jsplayground-teacher-solutions"||data.version!==1||!data.units)throw new Error("지원하는 정답 파일 형식이 아닙니다.");
     for(const m of allModules){const entries=data.units[m.id];if(!Array.isArray(entries)||!entries.length||entries.some(x=>!x||typeof x.title!=="string"||typeof x.solution!=="string"))throw new Error("자료가 누락되었거나 파일 형식이 잘못되었습니다.");}
     solutionBundle=data;teacherMode=true;teacherDialog.close();updateTeacherUI();
   }catch(error){feedback.textContent=error instanceof SyntaxError?"올바른 JSON 파일을 선택하세요.":error.message;}

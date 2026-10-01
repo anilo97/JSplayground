@@ -853,6 +853,129 @@ const units = {
         "requireFor": true
       }
     ]
+  },
+  "expression": {
+    "title": "함수 표현식과 호이스팅",
+    "prefix": "EX",
+    "problems": [
+      {
+        "title": "카테고리 안내 함수 표현식",
+        "description": "함수 표현식으로 작성하고 초기화 후 호출하세요.",
+        "conditions": [
+          "const 변수 showCategory에 함수를 저장하는 함수 표현식을 작성하세요.",
+          "매개변수 category를 받아 \"카테고리: ○○\" 형식으로 함수 안에서 출력하세요.",
+          "함수 표현식 아래에서 \"도서\", \"생활용품\"을 각각 전달하여 호출하세요."
+        ],
+        "starter": "// 함수 표현식을 작성하세요.\n\n// 함수를 호출하세요.",
+        "output": "카테고리: 도서\n카테고리: 생활용품",
+        "functionName": "showCategory",
+        "parameters": [
+          "category"
+        ],
+        "expressionMode": true,
+        "returnMode": false,
+        "probeCases": [
+          {
+            "args": [
+              "문구"
+            ],
+            "output": "카테고리: 문구"
+          }
+        ]
+      },
+      {
+        "title": "배송비 포함 금액 반환하기",
+        "description": "함수 표현식으로 작성하고 초기화 후 호출하세요.",
+        "conditions": [
+          "const 변수 calculatePayment에 함수를 저장하는 함수 표현식을 작성하세요.",
+          "매개변수 amount, deliveryFee를 순서대로 받고 두 값을 더한 결과를 반환하세요.",
+          "함수 표현식 아래에서 18000, 3000을 순서대로 전달하여 호출하세요.",
+          "반환값을 payment에 저장하고 함수 밖에서 출력하세요."
+        ],
+        "starter": "// 함수 표현식을 작성하세요.\n\n// 반환값을 변수에 저장하고 출력하세요.",
+        "output": "21000",
+        "functionName": "calculatePayment",
+        "parameters": [
+          "amount",
+          "deliveryFee"
+        ],
+        "expressionMode": true,
+        "returnMode": true,
+        "probeCases": [
+          {
+            "args": [
+              10000,
+              0
+            ],
+            "value": 10000
+          },
+          {
+            "args": [
+              4000,
+              2000
+            ],
+            "value": 6000
+          }
+        ]
+      },
+      {
+        "title": "함수 선언식을 함수 표현식으로 변경하기",
+        "description": "함수 표현식으로 작성하고 초기화 후 호출하세요.",
+        "conditions": [
+          "제공된 getResult 함수 선언식을 const 변수에 함수를 저장하는 함수 표현식으로 변경하세요.",
+          "score가 60 이상이면 \"통과\", 그렇지 않으면 \"재도전\"을 반환하는 처리를 유지하세요.",
+          "함수 아래의 호출문과 전달하는 값 75, 45는 유지하세요."
+        ],
+        "starter": "function getResult(score) {\n  if (score >= 60) {\n    return \"통과\";\n  } else {\n    return \"재도전\";\n  }\n}\n\nconsole.log(getResult(75));\nconsole.log(getResult(45));",
+        "output": "통과\n재도전",
+        "functionName": "getResult",
+        "parameters": [
+          "score"
+        ],
+        "expressionMode": true,
+        "returnMode": true,
+        "probeCases": [
+          {
+            "args": [
+              60
+            ],
+            "value": "통과"
+          },
+          {
+            "args": [
+              59
+            ],
+            "value": "재도전"
+          }
+        ]
+      },
+      {
+        "title": "함수 표현식의 호출 위치 수정하기",
+        "description": "함수 표현식으로 작성하고 초기화 후 호출하세요.",
+        "conditions": [
+          "제공된 코드의 호출문을 함수 표현식 아래로 옮겨 정상적으로 실행되도록 수정하세요.",
+          "const 변수 showMessage에 함수를 저장하는 함수 표현식의 형태를 유지하세요.",
+          "매개변수 message와 함수 내부의 출력 코드는 수정하지 마세요.",
+          "호출할 때 전달하는 \"페이지 준비 완료\"를 유지하세요."
+        ],
+        "starter": "showMessage(\"페이지 준비 완료\");\n\nconst showMessage = function (message) {\n  console.log(message);\n};",
+        "output": "페이지 준비 완료",
+        "functionName": "showMessage",
+        "parameters": [
+          "message"
+        ],
+        "expressionMode": true,
+        "returnMode": false,
+        "probeCases": [
+          {
+            "args": [
+              "점검 완료"
+            ],
+            "output": "점검 완료"
+          }
+        ]
+      }
+    ]
   }
 };
 const unit = units[category] || units.parameters;
@@ -877,7 +1000,8 @@ const clean = (code) =>
 
 function valid(code, item) {
   const cleaned = clean(code);
-  const match = cleaned.match(new RegExp("\\bfunction\\s+" + item.functionName + "\\s*\\(([^)]*)\\)\\s*\\{"));
+  const header = item.expressionMode ? "\\bconst\\s+" + item.functionName + "\\s*=\\s*function\\s*" : "\\bfunction\\s+" + item.functionName + "\\s*";
+  const match = cleaned.match(new RegExp(header + "\\(([^)]*)\\)\\s*\\{"));
   if (!match) return Promise.resolve(false);
   const declared = match[1].trim() ? match[1].split(",").map(part => part.trim()) : [];
   if (declared.length !== item.parameters.length) return Promise.resolve(false);
