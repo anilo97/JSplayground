@@ -59,7 +59,7 @@ document.getElementById("teacherForm").addEventListener("submit",async e=>{
   try{
     if(file.size>2000000)throw new Error("파일이 너무 큽니다.");
     const data=JSON.parse(await file.text());
-    if(data.format!=="jsplayground-teacher-solutions"||data.version!==1||!data.units)throw new Error("지원하는 정답 파일 형식이 아닙니다.");
+    if(data.format!=="jsplayground-teacher-solutions"||data.version!==1||!data.units)throw new Error("올바른 파일이 아닙니다.");
     for(const m of allModules){const entries=data.units[m.id];if(!Array.isArray(entries)||!entries.length||entries.some(x=>!x||typeof x.title!=="string"||typeof x.solution!=="string"))throw new Error("자료가 누락되었거나 파일 형식이 잘못되었습니다.");}
     solutionBundle=data;teacherMode=true;teacherDialog.close();updateTeacherUI();
   }catch(error){feedback.textContent=error instanceof SyntaxError?"올바른 JSON 파일을 선택하세요.":error.message;}
