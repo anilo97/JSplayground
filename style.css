@@ -419,3 +419,76 @@ nav {
 .teacher-login.material-logo:focus-visible { outline: 2px solid #38bdf8; outline-offset: 3px; }
 #teacherForm .login-feedback:empty { display: none; }
 #teacherSolutionFile { margin-top: 16px; }
+
+
+/* style.css 맨 아래에 추가: 메뉴와 문제 화면 스크롤 분리 */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+.layout {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  grid-template-rows: minmax(0, 1fr);
+}
+.sidebar {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+.sidebar > .brand,
+.sidebar > .student-badge,
+.sidebar > .teacher-login,
+.sidebar > .teacher-status,
+.sidebar > .sidebar-note {
+  flex-shrink: 0;
+}
+.sidebar nav {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #64748b transparent;
+}
+.content {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+#practiceFrame {
+  flex: 1 1 0;
+  min-height: 0;
+  height: 100%;
+}
+@media (max-width: 760px) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar {
+    height: auto;
+    flex: 0 0 auto;
+    flex-direction: row;
+  }
+  .sidebar nav {
+    flex: 1 1 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .content {
+    flex: 1 1 0;
+    height: auto;
+  }
+  .mobile-header {
+    flex: 0 0 54px;
+  }
+  #practiceFrame {
+    height: auto;
+  }
+}
