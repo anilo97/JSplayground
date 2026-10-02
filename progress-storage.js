@@ -25,10 +25,26 @@
   let busy = false;
   let sessionGeneration = 0;
   let storageFailed = false;
+  let savedSuccessfully = false;
   const notice = document.createElement('p');
   notice.setAttribute('role', 'status');
-  notice.style.cssText = 'margin:8px 0;color:#64748b;font-size:13px;';
-  editor.closest('section').appendChild(notice);
+  notice.style.cssText = 'margin:8px 0 12px;color:#64748b;font-size:13px;line-height:1.6;';
+  const statusLine = document.createElement('span');
+  statusLine.style.cssText = 'display:flex;align-items:center;gap:6px;font-weight:600;';
+  const statusDot = document.createElement('span');
+  statusDot.setAttribute('aria-hidden', 'true');
+  statusDot.style.cssText = 'width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#94a3b8;';
+  const statusText = document.createElement('span');
+  const helpText = document.createElement('span');
+  helpText.style.cssText = 'display:block;margin-top:2px;font-weight:400;';
+  statusLine.appendChild(statusDot);
+  statusLine.appendChild(statusText);
+  notice.appendChild(statusLine);
+  notice.appendChild(helpText);
+  const editorSection = editor.closest('section');
+  const editorTitle = editorSection.querySelector('.editor-title');
+  if (editorTitle) editorTitle.after(notice);
+  else editorSection.insertBefore(notice, editorSection.firstChild);
 
   const navigation = document.createElement('div');
   navigation.style.cssText = 'display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0;';
@@ -43,16 +59,21 @@
   });
   const solvedLabel = document.createElement('span');
   navigation.appendChild(solvedLabel);
-  notice.before(navigation);
+  editorSection.appendChild(navigation);
 
   function freshState() {
     return {version:1, drafts:{}, solved:Array(count).fill(false), current:0, completion:null};
   }
   function eligible() { return key && state && !teacherMode; }
   function updateNotice() {
-    notice.textContent = storageFailed ? '이 브라우저에서는 저장할 수 없습니다. 창을 닫기 전에 코드를 복사해 주세요.' :
+    statusText.textContent = storageFailed ? '저장할 수 없음' :
+      teacherMode ? '교사용 모드' : savedSuccessfully ? '자동 저장됨' :
+      key ? '자동 저장 대기' : '학번 확인 대기';
+    statusDot.style.background = storageFailed ? '#dc2626' :
+      teacherMode || !savedSuccessfully ? '#94a3b8' : '#16a34a';
+    helpText.textContent = storageFailed ? '창을 닫기 전에 작성 코드를 복사해 주세요.' :
       teacherMode ? '교사용 탐색은 학생의 풀이 기록에 저장되지 않습니다.' :
-      key ? '자동 저장 · 같은 브라우저에서 이어서 풀 수 있습니다.' : '학번 확인 후 자동 저장됩니다.';
+      '같은 컴퓨터·브라우저에서 다시 접속하면 이어서 풀 수 있습니다.';
     navigation.hidden = teacherMode || !key;
     previousButton.disabled = busy || current <= 0;
     nextButton.disabled = busy || !state || !state.solved[current];
@@ -61,7 +82,7 @@
   }
   function writeState() {
     if (!eligible()) return;
-    try { localStorage.setItem(key, JSON.stringify(state)); storageFailed = false; }
+    try { localStorage.setItem(key, JSON.stringify(state)); storageFailed = false; savedSuccessfully = true; }
     catch (_) { storageFailed = true; }
     updateNotice();
   }
@@ -228,6 +249,8 @@
     submitButton.disabled = false;
     teacherMode = nextTeacherMode;
     key = nextKey;
+    savedSuccessfully = false;
+    storageFailed = false;
     displayed = null;
     loadState();
     current = teacherMode ? 0 : state.current;
