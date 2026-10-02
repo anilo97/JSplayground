@@ -1,0 +1,3 @@
+@import url("../variable/style.css");
+:root { --navy:#334155; --yellow:#38bdf8; }
+.number { background:#e8f5fc; }.output{border-left-color:var(--navy)}.teacher-bar{border-color:#7dd3fc;background:#f0f9ff}.teacher-bar strong{color:var(--navy)}
