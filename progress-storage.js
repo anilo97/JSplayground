@@ -12,6 +12,7 @@
   const originalSubmit = submit;
   const uiStyle = document.createElement('style');
   uiStyle.textContent = '\n/* Compact lesson header and consistent editor controls */\nheader { min-height:64px; padding:10px clamp(18px,3vw,36px); gap:16px; }\nheader > div { display:flex; align-items:center; gap:12px; min-width:0; }\nheader h1 { margin:0; font-size:1.18rem; line-height:1.35; }\nheader .eyebrow { font-size:.63rem; letter-spacing:.08em; white-space:nowrap; }\nheader > p { margin:0; flex-shrink:0; font-size:.85rem; white-space:nowrap; }\nheader .learner { margin-right:12px; padding-right:12px; font-size:.82rem; }\n.progress { height:3px; }\nmain { width:min(1180px,calc(100% - 36px)); margin:18px auto; gap:18px; }\n.problem-card { padding:22px; }\n.problem-card h2 { font-size:1.28rem; margin:12px 0; }\n.conditions { margin-top:18px; padding-top:16px; }\n.teacher-bar { margin:12px auto 0; padding:8px 12px; }\n.editor-title { height:46px; padding:0 16px; }\n.editor-title h3 { font-size:.92rem; }\n.editor-title button { font-size:.8rem; }\n.answer-card .save-notice { margin:0!important; padding:9px 16px!important; display:flex; flex-wrap:wrap; align-items:center; gap:3px 10px; border-bottom:1px solid var(--line,#dbe2ec); background:#f8fafc; font-family:inherit; font-size:12px!important; line-height:1.5!important; }\n.save-notice .save-status { font-size:12px; white-space:nowrap; }\n.save-notice .save-help { margin-top:0!important; font-size:11px; color:#64748b; }\n.answer-card .practice-navigation { margin:0!important; padding:10px 16px; gap:8px!important; border-top:1px solid var(--line,#dbe2ec); background:#fff; }\n.practice-navigation button { padding:7px 11px!important; font:inherit; font-size:12px; font-weight:600; line-height:1.4; transition:background .15s; }\n.practice-navigation button:hover:not(:disabled) { background:#f1f5f9!important; border-color:#94a3b8!important; }\n.practice-navigation button:disabled { opacity:.4; cursor:not-allowed!important; }\n.practice-navigation .solved-label { margin-left:auto; color:#64748b; font-size:12px; white-space:nowrap; }\n.actions { min-height:60px; padding:10px 16px; }\n.actions > button { padding:10px 16px; font-size:.85rem; white-space:nowrap; }\n.actions p { font-size:.82rem; }\n@media(max-width:820px) { main { margin:14px auto; gap:14px; } }\n@media(max-width:560px) {\n header { min-height:60px; padding:10px 16px; gap:8px; }\n header > div { display:block; }\n header .eyebrow { display:none; }\n header h1 { font-size:1rem; }\n header > p { font-size:.75rem; }\n header .learner { margin-right:6px; padding-right:6px; font-size:.72rem; }\n main { width:calc(100% - 24px); }\n .problem-card { padding:18px; }\n .answer-card .save-notice { padding:8px 14px!important; }\n .save-notice .save-help { flex-basis:100%; }\n}\n';
+  uiStyle.textContent += '\n.answer-card { overflow:visible; }\n.answer-card .editor-title { position:sticky; top:0; z-index:10; min-height:48px; height:auto; padding:7px 14px; gap:16px; background:#fff; border-radius:12px 12px 0 0; box-shadow:0 2px 5px rgba(23,32,51,.04); }\n.editor-heading-group { display:flex; align-items:center; gap:14px; min-width:0; }\n.editor-heading-group h3 { white-space:nowrap; }\n.editor-title #resetButton { padding:6px 8px; min-height:32px; font-size:12px; white-space:nowrap; color:#64748b; border-radius:5px; }\n.editor-title #resetButton:hover { background:#f1f5f9; }\n.editor-title #resetButton:focus-visible, .practice-navigation button:focus-visible { outline:2px solid #38bdf8; outline-offset:2px; }\n.answer-card .editor-title .practice-navigation { flex:0 0 auto; margin:0!important; padding:0!important; border:0; background:transparent; flex-wrap:nowrap!important; gap:6px!important; }\n.editor-title .practice-navigation button { min-height:34px; border:1px solid #cbd5e1!important; border-radius:6px; }\n.nav-short { display:none; }\n.answer-card .actions { border-radius:0 0 12px 12px; }\n@media(max-width:560px) {\n .answer-card .editor-title { padding:7px 10px; gap:12px; }\n .editor-heading-group { gap:8px; }\n .editor-heading-group h3 { font-size:13px; }\n .editor-title #resetButton { padding:6px 4px; font-size:11px; }\n .nav-long { display:none; }\n .nav-short { display:inline; }\n .editor-title .practice-navigation button { padding:7px 9px!important; }\n}\n';
   document.head.appendChild(uiStyle);
   const count = problems.length;
   const categoryKey = new URLSearchParams(location.search).get('category') || 'default';
@@ -58,7 +59,8 @@
   const previousButton = document.createElement('button');
   const nextButton = document.createElement('button');
   previousButton.type = nextButton.type = 'button';
-  previousButton.textContent = '이전 문제';
+  previousButton.innerHTML = '‹ <span class="nav-long">이전 문제</span><span class="nav-short">이전</span>';
+  previousButton.setAttribute('aria-label', '이전 문제');
   nextButton.textContent = '다음 문제';
   [previousButton, nextButton].forEach(button => {
     button.style.cssText = 'padding:8px 12px;border:1px solid #cbd5e1;border-radius:6px;background:white;color:#17223b;cursor:pointer;';
@@ -67,7 +69,18 @@
   const solvedLabel = document.createElement('span');
   solvedLabel.className = 'solved-label';
   // 진행 표시는 상단만 사용합니다. 해결 개수는 내부 기록으로만 유지합니다.
-  editorSection.appendChild(navigation);
+  if (editorTitle) {
+    const headingGroup = document.createElement('div');
+    headingGroup.className = 'editor-heading-group';
+    const heading = editorTitle.querySelector('h3');
+    const reset = document.getElementById('resetButton');
+    if (heading) headingGroup.appendChild(heading);
+    reset.textContent = '↺ 초기화';
+    reset.setAttribute('aria-label', '현재 문제의 작성 코드 초기화');
+    headingGroup.appendChild(reset);
+    editorTitle.appendChild(headingGroup);
+    editorTitle.appendChild(navigation);
+  } else { editorSection.insertBefore(navigation, editorSection.firstChild); }
 
   function freshState() {
     return {version:1, drafts:{}, solved:Array(count).fill(false), current:0, completion:null};
@@ -85,7 +98,9 @@
     navigation.hidden = teacherMode || !key;
     previousButton.disabled = busy || current <= 0;
     nextButton.disabled = busy || !state || !state.solved[current];
-    nextButton.textContent = current === count - 1 ? '완료 화면 보기' : '다음 문제';
+    const isLast = current === count - 1;
+    nextButton.innerHTML = isLast ? '<span class="nav-long">완료 화면</span><span class="nav-short">완료</span> ›' : '<span class="nav-long">다음 문제</span><span class="nav-short">다음</span> ›';
+    nextButton.setAttribute('aria-label', isLast ? '완료 화면 보기' : '다음 문제');
     solvedLabel.textContent = state ? `해결 ${state.solved.filter(Boolean).length} / ${count}` : '';
   }
   function writeState() {
