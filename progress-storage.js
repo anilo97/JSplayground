@@ -10,6 +10,9 @@
   const originalRender = render;
   const originalComplete = complete;
   const originalSubmit = submit;
+  const uiStyle = document.createElement('style');
+  uiStyle.textContent = '\n/* Compact lesson header and consistent editor controls */\nheader { min-height:64px; padding:10px clamp(18px,3vw,36px); gap:16px; }\nheader > div { display:flex; align-items:center; gap:12px; min-width:0; }\nheader h1 { margin:0; font-size:1.18rem; line-height:1.35; }\nheader .eyebrow { font-size:.63rem; letter-spacing:.08em; white-space:nowrap; }\nheader > p { margin:0; flex-shrink:0; font-size:.85rem; white-space:nowrap; }\nheader .learner { margin-right:12px; padding-right:12px; font-size:.82rem; }\n.progress { height:3px; }\nmain { width:min(1180px,calc(100% - 36px)); margin:18px auto; gap:18px; }\n.problem-card { padding:22px; }\n.problem-card h2 { font-size:1.28rem; margin:12px 0; }\n.conditions { margin-top:18px; padding-top:16px; }\n.teacher-bar { margin:12px auto 0; padding:8px 12px; }\n.editor-title { height:46px; padding:0 16px; }\n.editor-title h3 { font-size:.92rem; }\n.editor-title button { font-size:.8rem; }\n.answer-card .save-notice { margin:0!important; padding:9px 16px!important; display:flex; flex-wrap:wrap; align-items:center; gap:3px 10px; border-bottom:1px solid var(--line,#dbe2ec); background:#f8fafc; font-family:inherit; font-size:12px!important; line-height:1.5!important; }\n.save-notice .save-status { font-size:12px; white-space:nowrap; }\n.save-notice .save-help { margin-top:0!important; font-size:11px; color:#64748b; }\n.answer-card .practice-navigation { margin:0!important; padding:10px 16px; gap:8px!important; border-top:1px solid var(--line,#dbe2ec); background:#fff; }\n.practice-navigation button { padding:7px 11px!important; font:inherit; font-size:12px; font-weight:600; line-height:1.4; transition:background .15s; }\n.practice-navigation button:hover:not(:disabled) { background:#f1f5f9!important; border-color:#94a3b8!important; }\n.practice-navigation button:disabled { opacity:.4; cursor:not-allowed!important; }\n.practice-navigation .solved-label { margin-left:auto; color:#64748b; font-size:12px; white-space:nowrap; }\n.actions { min-height:60px; padding:10px 16px; }\n.actions > button { padding:10px 16px; font-size:.85rem; white-space:nowrap; }\n.actions p { font-size:.82rem; }\n@media(max-width:820px) { main { margin:14px auto; gap:14px; } }\n@media(max-width:560px) {\n header { min-height:60px; padding:10px 16px; gap:8px; }\n header > div { display:block; }\n header .eyebrow { display:none; }\n header h1 { font-size:1rem; }\n header > p { font-size:.75rem; }\n header .learner { margin-right:6px; padding-right:6px; font-size:.72rem; }\n main { width:calc(100% - 24px); }\n .problem-card { padding:18px; }\n .answer-card .save-notice { padding:8px 14px!important; }\n .save-notice .save-help { flex-basis:100%; }\n}\n';
+  document.head.appendChild(uiStyle);
   const count = problems.length;
   const categoryKey = new URLSearchParams(location.search).get('category') || 'default';
   const moduleKey = location.pathname.replace(/\/index\.html$/, '/').replace(/\/$/, '') + ':' + categoryKey;
@@ -27,15 +30,18 @@
   let storageFailed = false;
   let savedSuccessfully = false;
   const notice = document.createElement('p');
+  notice.className = 'save-notice';
   notice.setAttribute('role', 'status');
   notice.style.cssText = 'margin:8px 0 12px;color:#64748b;font-size:13px;line-height:1.6;';
   const statusLine = document.createElement('span');
+  statusLine.className = 'save-status';
   statusLine.style.cssText = 'display:flex;align-items:center;gap:6px;font-weight:600;';
   const statusDot = document.createElement('span');
   statusDot.setAttribute('aria-hidden', 'true');
   statusDot.style.cssText = 'width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#94a3b8;';
   const statusText = document.createElement('span');
   const helpText = document.createElement('span');
+  helpText.className = 'save-help';
   helpText.style.cssText = 'display:block;margin-top:2px;font-weight:400;';
   statusLine.appendChild(statusDot);
   statusLine.appendChild(statusText);
@@ -47,6 +53,7 @@
   else editorSection.insertBefore(notice, editorSection.firstChild);
 
   const navigation = document.createElement('div');
+  navigation.className = 'practice-navigation';
   navigation.style.cssText = 'display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0;';
   const previousButton = document.createElement('button');
   const nextButton = document.createElement('button');
@@ -58,7 +65,8 @@
     navigation.appendChild(button);
   });
   const solvedLabel = document.createElement('span');
-  navigation.appendChild(solvedLabel);
+  solvedLabel.className = 'solved-label';
+  // 진행 표시는 상단만 사용합니다. 해결 개수는 내부 기록으로만 유지합니다.
   editorSection.appendChild(navigation);
 
   function freshState() {
