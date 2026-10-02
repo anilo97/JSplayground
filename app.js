@@ -37,6 +37,42 @@ const modules = [
   { id: "function-expression", title: "함수 표현식과 호이스팅", path: "function/?category=expression" },
   { id: "function-arrow", title: "화살표 함수 기초", path: "function/?category=arrow" }
 ] }
+, {
+  "id": "array",
+  "title": "배열과 객체",
+  "children": [
+    {
+      "id": "array-basic",
+      "title": "배열의 기본",
+      "path": "array/?category=basic"
+    },
+    {
+      "id": "array-edit",
+      "title": "배열 추가·삭제와 for 반복",
+      "path": "array/?category=edit"
+    },
+    {
+      "id": "array-object",
+      "title": "객체와 배열 안의 객체",
+      "path": "array/?category=object"
+    },
+    {
+      "id": "array-callback",
+      "title": "콜백 함수와 forEach()",
+      "path": "array/?category=callback"
+    },
+    {
+      "id": "array-transform",
+      "title": "map()·filter() 기초",
+      "path": "array/?category=transform"
+    },
+    {
+      "id": "array-destructuring",
+      "title": "구조 분해 할당",
+      "path": "array/?category=destructuring"
+    }
+  ]
+}
 ];
 const menu=document.getElementById("moduleMenu"),frame=document.getElementById("practiceFrame"),teacherDialog=document.getElementById("teacherDialog"),studentDialog=document.getElementById("studentDialog");
 let solutionBundle=null;
