@@ -28,6 +28,13 @@ const modules = [
   { id: "loop-break-continue", title: "break · continue", path: "loop/?category=break-continue" },
   { id: "loop-nested", title: "중첩 반복문", path: "loop/?category=nested" }
 ] }
+, { id: "loopbasic", title: "반복문 Basic", number: "05-2", children: [
+  {"id": "loopbasic-for", "title": "for문", "path": "loop-basic/?category=for"},
+  {"id": "loopbasic-while", "title": "while문", "path": "loop-basic/?category=while"},
+  {"id": "loopbasic-do-while", "title": "do...while문", "path": "loop-basic/?category=do-while"},
+  {"id": "loopbasic-break-continue", "title": "break · continue", "path": "loop-basic/?category=break-continue"},
+  {"id": "loopbasic-nested", "title": "중첩 반복문", "path": "loop-basic/?category=nested"}
+] }
 , { id: "function", title: "함수", children: [
   { id: "function-parameters", title: "매개변수와 인수", path: "function/?category=parameters" },
   { id: "function-default", title: "기본값 매개변수", path: "function/?category=default" },
@@ -82,8 +89,8 @@ function sendSessionContext(){const target=location.origin==="null"?"*":location
 function updateTeacherUI(){document.getElementById("teacherLoginButton").hidden=teacherMode;document.getElementById("teacherStatus").hidden=!teacherMode;sendSessionContext();}
 function openModule(module){activeModule=module;frame.src=module.path;frame.title=`${module.title} 문제 풀이`;document.querySelectorAll(".menu-button,.submenu-button").forEach(b=>b.classList.toggle("active",b.dataset.id===module.id));const parentId=module.id.split("-")[0];const parent=document.querySelector(`[data-target="submenu-${parentId}"]`);if(parent){parent.classList.add("open","active");document.getElementById(`submenu-${parentId}`).hidden=false;}history.replaceState(null,"",`#${module.id}`);}
 modules.forEach((module,index)=>{
-  if(!module.children){const b=document.createElement("button");b.type="button";b.className="menu-button";b.dataset.id=module.id;b.innerHTML=`<span class="menu-number">${String(index+1).padStart(2,"0")}</span><span>${module.title}</span>`;b.addEventListener("click",()=>openModule(module));menu.appendChild(b);return;}
-  const wrap=document.createElement("div"),b=document.createElement("button"),sub=document.createElement("div");sub.id=`submenu-${module.id}`;sub.className="submenu";sub.hidden=true;b.type="button";b.className="menu-button parent-menu";b.dataset.target=sub.id;b.innerHTML=`<span class="menu-number">${String(index+1).padStart(2,"0")}</span><span>${module.title}</span><span class="chevron">⌄</span>`;b.addEventListener("click",()=>{sub.hidden=!sub.hidden;b.classList.toggle("open",!sub.hidden);});module.children.forEach((child,i)=>{const c=document.createElement("button");c.type="button";c.className="submenu-button";c.dataset.id=child.id;c.innerHTML=`<span>${i+1}</span>${child.title}`;c.addEventListener("click",()=>openModule(child));sub.appendChild(c);});wrap.append(b,sub);menu.appendChild(wrap);
+  if(!module.children){const b=document.createElement("button");b.type="button";b.className="menu-button";b.dataset.id=module.id;b.innerHTML=`<span class="menu-number">${module.number || String(index+1-(index>5?1:0)).padStart(2,"0")}</span><span>${module.title}</span>`;b.addEventListener("click",()=>openModule(module));menu.appendChild(b);return;}
+  const wrap=document.createElement("div"),b=document.createElement("button"),sub=document.createElement("div");sub.id=`submenu-${module.id}`;sub.className="submenu";sub.hidden=true;b.type="button";b.className="menu-button parent-menu";b.dataset.target=sub.id;b.innerHTML=`<span class="menu-number">${module.number || String(index+1-(index>5?1:0)).padStart(2,"0")}</span><span>${module.title}</span><span class="chevron">⌄</span>`;b.addEventListener("click",()=>{sub.hidden=!sub.hidden;b.classList.toggle("open",!sub.hidden);});module.children.forEach((child,i)=>{const c=document.createElement("button");c.type="button";c.className="submenu-button";c.dataset.id=child.id;c.innerHTML=`<span>${i+1}</span>${child.title}`;c.addEventListener("click",()=>openModule(child));sub.appendChild(c);});wrap.append(b,sub);menu.appendChild(wrap);
 });
 const requested=location.hash.slice(1),initialModule=allModules.find(m=>m.id===requested)||modules[0];frame.addEventListener("load",sendSessionContext);
 function beginSession(){document.getElementById("studentNumberText").textContent=studentNumber;document.getElementById("studentBadge").hidden=false;openModule(activeModule||initialModule);}
@@ -98,8 +105,11 @@ document.getElementById("teacherForm").addEventListener("submit",async e=>{
     if(file.size>2000000)throw new Error("파일이 너무 큽니다.");
     const data=JSON.parse(await file.text());
     if(data.format!=="jsplayground-teacher-solutions"||data.version!==1||!data.units)throw new Error("지원하는 정답 파일 형식이 아닙니다.");
-    for(const m of allModules){const entries=data.units[m.id];if(!Array.isArray(entries)||!entries.length||entries.some(x=>!x||typeof x.title!=="string"||typeof x.solution!=="string"))throw new Error("자료가 누락되었거나 파일 형식이 잘못되었습니다.");}
-    solutionBundle=data;teacherMode=true;teacherDialog.close();updateTeacherUI();
+    const basicOnly=Object.keys(data.units).length>0 && Object.keys(data.units).every(id=>id.startsWith("loopbasic-"));
+    const required=allModules.filter(m=>basicOnly?m.id.startsWith("loopbasic-"):!m.id.startsWith("loopbasic-"));
+    for(const m of required){const entries=data.units[m.id];if(!Array.isArray(entries)||!entries.length||entries.some(x=>!x||typeof x.title!=="string"||typeof x.solution!=="string"))throw new Error("자료가 누락되었거나 파일 형식이 잘못되었습니다.");}
+    for(const [id,entries] of Object.entries(data.units)){if(!Array.isArray(entries)||!entries.length||entries.some(x=>!x||typeof x.title!=="string"||typeof x.solution!=="string"))throw new Error("정답 자료 형식이 잘못되었습니다.");}
+    solutionBundle={...data,units:{...(solutionBundle?.units||{}),...data.units}};teacherMode=true;teacherDialog.close();updateTeacherUI();
   }catch(error){feedback.textContent=error instanceof SyntaxError?"올바른 JSON 파일을 선택하세요.":error.message;}
 });
 document.getElementById("teacherLogoutButton").addEventListener("click",()=>{teacherMode=false;solutionBundle=null;sessionStorage.removeItem("teacherMode");updateTeacherUI();});
