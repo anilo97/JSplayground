@@ -1,0 +1,5 @@
+.sidebar > .problem-bank-menu {flex-shrink:0;border-bottom:1px solid #ffffff22;padding:0 0 10px;margin-bottom:8px;}
+.problem-bank-menu .menu-button {width:100%;}
+.problem-bank-menu .chevron {margin-left:auto;}
+.problem-bank-menu .submenu-button {width:100%;}
+@media(max-width:760px){.sidebar > .problem-bank-menu {margin:0 8px 0 0;padding:0 8px 0 0;border-bottom:0;border-right:1px solid #ffffff22;} .problem-bank-menu .menu-button{white-space:nowrap;} .problem-bank-menu .submenu{top:56px;}}
