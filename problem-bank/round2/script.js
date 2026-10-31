@@ -796,34 +796,24 @@ render();
   updateNotice();
 })();
 
-// 완료 확인 이미지만 복사/저장합니다. 다른 단원에는 영향을 주지 않습니다.
+// 완료 확인 영역 아래의 버튼 하나로 폴더 선택과 이미지 저장을 처리합니다.
 (() => {
   'use strict';
   const panel = document.getElementById('completion');
-  const bar = document.createElement('div');
-  bar.className = 'bank-export-controls';
-  const select = document.createElement('button');
-  select.type = 'button'; select.textContent = '완료 이미지 저장 폴더 선택';
-  const status = document.createElement('p');
-  status.setAttribute('role', 'status');
-  status.textContent = '10문제를 모두 완료한 뒤 폴더를 선택하면 완료 이미지가 바로 저장됩니다.';
-  bar.append(select, status);
-  bar.hidden = current !== problems.length - 1;
-  panel.before(bar);
   const actions = document.createElement('div');
   actions.className = 'bank-export-actions';
-  const copy = document.createElement('button'), save = document.createElement('button');
-  copy.type = save.type = 'button';
-  copy.textContent = '완료 이미지 복사'; save.textContent = '완료 이미지 저장';
-  actions.append(copy, save);
+  const save = document.createElement('button');
+  save.type = 'button'; save.textContent = '완료 이미지 저장';
+  const status = document.createElement('p');
+  status.setAttribute('role', 'status');
+  actions.append(save, status);
   panel.querySelector('.completion-content').append(actions);
   const style = document.createElement('style');
-  style.textContent = '.bank-export-controls[hidden]{display:none!important}.bank-export-controls{width:min(1180px,calc(100% - 36px));margin:12px auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.bank-export-controls button{padding:8px 12px;border:1px solid #cbd5e1;border-radius:7px;background:white;color:#334155;font:inherit;font-size:12px;cursor:pointer}.bank-export-controls p{margin:0;color:#64748b;font-size:12px}.bank-export-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}.bank-export-actions button{font-size:13px}';
+  style.textContent = '.bank-export-actions{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:16px}.bank-export-actions button{font-size:13px}.bank-export-actions p{margin:0;color:#64748b;font-size:12px;overflow-wrap:anywhere}';
   document.head.appendChild(style);
-  let folder = null, lastSaved = '', exporting = false, pending = false;
+  let folder = null;
   const field = id => document.getElementById(id).textContent.trim();
   const isReady = () => !panel.hidden && /^\d{4}$/.test(field('completeStudent')) && field('completionCode');
-  function signature() {return [field('completeStudent'),field('completionCode'),field('completedAt')].join('|');}
   function filename() {return `JSplayground_2회차_${field('completeStudent')}_${field('completionCode')}.png`;}
   async function makeImage() {
     if (!isReady()) throw new Error('전체 문제를 완료한 뒤 사용할 수 있습니다.');
@@ -854,33 +844,28 @@ render();
     try { await stream.write(blob); await stream.close(); }
     catch(error) { try {await stream.abort();} catch(_) {} throw error; }
   }
-  async function autoSave() {
-    if (exporting || !folder || !isReady()) return;
-    const key = signature(); if (key === lastSaved) return;
-    exporting = true;
-    try {const blob=await makeImage(); if(!isReady()||key!==signature())return; await writeFolder(blob);lastSaved=key;status.textContent=`선택한 폴더에 저장했습니다: ${filename()}`;}
-    catch(_) {status.textContent='폴더에 저장하지 못했습니다. 폴더를 다시 선택하거나 완료 이미지 저장을 눌러 주세요.';}
-    finally {exporting=false;}
-  }
-  select.hidden = typeof window.showDirectoryPicker !== 'function';
-  if(select.hidden)status.textContent='완료 후 이미지 복사 또는 저장 버튼을 사용하세요. 이 브라우저는 폴더 선택 저장을 지원하지 않습니다.';
-  select.addEventListener('click',async()=>{
-    try {folder=await window.showDirectoryPicker({id:'jsplayground-completion',mode:'readwrite',startIn:'pictures'});lastSaved='';status.textContent=`저장 폴더: ${folder.name}. 전체 문제 완료 시 자동 저장됩니다. 새로고침하면 폴더를 다시 선택하세요.`;await autoSave();}
-    catch(error) {if(error.name!=='AbortError')status.textContent='폴더를 선택할 수 없습니다. 완료 후 이미지 저장 버튼을 사용하세요.';}
-  });
+
   save.addEventListener('click',async()=>{
-    save.disabled=true;
-    try {const blob=await makeImage();if(folder){await writeFolder(blob);lastSaved=signature();status.textContent=`선택한 폴더에 저장했습니다: ${filename()}`;}else{const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download=filename();document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);status.textContent='PNG 다운로드를 요청했습니다. 브라우저의 다운로드 위치를 확인하세요.';}}
-    catch(error){status.textContent=error.message||'이미지를 저장하지 못했습니다.';}finally{save.disabled=false;}
+    if(!isReady())return;
+    save.disabled=true;status.textContent='';
+    try {
+      // 폴더 선택은 버튼 클릭 직후 실행합니다.
+      if(typeof window.showDirectoryPicker==='function') {
+        folder=await window.showDirectoryPicker({id:'jsplayground-completion',mode:'readwrite',startIn:'pictures'});
+        const blob=await makeImage();
+        await writeFolder(blob);
+        status.textContent=`선택한 폴더에 저장했습니다: ${filename()}`;
+      } else {
+        const blob=await makeImage();
+        const url=URL.createObjectURL(blob),link=document.createElement('a');
+        link.href=url;link.download=filename();document.body.appendChild(link);link.click();link.remove();
+        setTimeout(()=>URL.revokeObjectURL(url),30000);
+        status.textContent='PNG 다운로드를 요청했습니다. 브라우저의 다운로드 위치를 확인하세요.';
+      }
+    } catch(error) {
+      status.textContent=error.name==='AbortError'?'저장을 취소했습니다.':error.name==='NotAllowedError'?'선택한 폴더에 저장할 권한이 없습니다. 다시 눌러 폴더를 선택해 주세요.':'이미지를 저장하지 못했습니다. 다시 시도해 주세요.';
+    } finally {save.disabled=false;}
   });
-  copy.addEventListener('click',async()=>{
-    copy.disabled=true;
-    try {if(!navigator.clipboard?.write||typeof ClipboardItem==='undefined')throw new Error('이미지 복사를 지원하지 않습니다. 이미지 저장 버튼을 사용하세요.');await navigator.clipboard.write([new ClipboardItem({'image/png':makeImage()})]);status.textContent='완료 이미지를 복사했습니다. 제출할 곳에 Ctrl+V로 붙여넣으세요.';}
-    catch(error){status.textContent=error.name==='NotAllowedError'?'복사 권한을 허용하거나 이미지 저장 버튼을 사용하세요.':error.message;}finally{copy.disabled=false;}
-  });
-  const observer=new MutationObserver(()=>{bar.hidden=current!==problems.length-1;if(panel.hidden)lastSaved='';if(pending)return;pending=true;queueMicrotask(()=>{pending=false;autoSave();});});
-  observer.observe(panel,{attributes:true,attributeFilter:['hidden'],childList:true,subtree:true,characterData:true});
-  observer.observe(document.getElementById('problemNumber'),{childList:true,subtree:true,characterData:true});
   // 단독 페이지 접속 시에도 기존에 입력한 학번을 사용합니다.
   if (window.parent === window) {
     const number=sessionStorage.getItem('studentNumber');
