@@ -92,6 +92,18 @@ modules.forEach((module,index)=>{
   if(!module.children){const b=document.createElement("button");b.type="button";b.className="menu-button";b.dataset.id=module.id;b.innerHTML=`<span class="menu-number">${module.number || String(index+1-(index>5?1:0)).padStart(2,"0")}</span><span>${module.title}</span>`;b.addEventListener("click",()=>openModule(module));menu.appendChild(b);return;}
   const wrap=document.createElement("div"),b=document.createElement("button"),sub=document.createElement("div");sub.id=`submenu-${module.id}`;sub.className="submenu";sub.hidden=true;b.type="button";b.className="menu-button parent-menu";b.dataset.target=sub.id;b.innerHTML=`<span class="menu-number">${module.number || String(index+1-(index>5?1:0)).padStart(2,"0")}</span><span>${module.title}</span><span class="chevron">⌄</span>`;b.addEventListener("click",()=>{sub.hidden=!sub.hidden;b.classList.toggle("open",!sub.hidden);});module.children.forEach((child,i)=>{const c=document.createElement("button");c.type="button";c.className="submenu-button";c.dataset.id=child.id;c.innerHTML=`<span>${i+1}</span>${child.title}`;c.addEventListener("click",()=>openModule(child));sub.appendChild(c);});wrap.append(b,sub);menu.appendChild(wrap);
 });
+// 문제은행은 기존 학습 단원 번호와 별도로 관리합니다.
+const bankRound1 = {id:"bank-round1", title:"문제은행 1회차", path:"problem-bank/?category=round1"};
+allModules.push(bankRound1);
+const bankArea=document.getElementById("problemBankMenu");
+const bankParent=document.createElement("button"), bankSub=document.createElement("div"), bankChild=document.createElement("button");
+bankParent.type="button";bankParent.className="menu-button parent-menu";bankParent.dataset.target="submenu-bank";
+bankParent.innerHTML='<span>문제은행</span><span class="chevron">⌄</span>';bankParent.setAttribute("aria-expanded","false");
+bankSub.id="submenu-bank";bankSub.className="submenu";bankSub.hidden=true;
+bankChild.type="button";bankChild.className="submenu-button";bankChild.dataset.id=bankRound1.id;bankChild.textContent="1회차";
+bankParent.addEventListener("click",()=>{bankSub.hidden=!bankSub.hidden;bankParent.classList.toggle("open",!bankSub.hidden);bankParent.setAttribute("aria-expanded",String(!bankSub.hidden));});
+bankChild.addEventListener("click",()=>{openModule(bankRound1);bankParent.setAttribute("aria-expanded","true");});
+bankSub.appendChild(bankChild);bankArea.append(bankParent,bankSub);
 const requested=location.hash.slice(1),initialModule=allModules.find(m=>m.id===requested)||modules[0];frame.addEventListener("load",sendSessionContext);
 function beginSession(){document.getElementById("studentNumberText").textContent=studentNumber;document.getElementById("studentBadge").hidden=false;openModule(activeModule||initialModule);}
 document.getElementById("studentForm").addEventListener("submit",e=>{e.preventDefault();const value=document.getElementById("studentNumber").value.trim();if(!/^\d{4}$/.test(value)){document.getElementById("studentFeedback").textContent="학번을 숫자 4자리로 입력하세요.";return;}studentNumber=value;sessionStorage.setItem("studentNumber",value);studentDialog.close();beginSession();});
@@ -106,7 +118,8 @@ document.getElementById("teacherForm").addEventListener("submit",async e=>{
     const data=JSON.parse(await file.text());
     if(data.format!=="jsplayground-teacher-solutions"||data.version!==1||!data.units)throw new Error("지원하는 정답 파일 형식이 아닙니다.");
     const basicOnly=Object.keys(data.units).length>0 && Object.keys(data.units).every(id=>id.startsWith("loopbasic-"));
-    const required=allModules.filter(m=>basicOnly?m.id.startsWith("loopbasic-"):!m.id.startsWith("loopbasic-"));
+    const bankOnly=Object.keys(data.units).length>0 && Object.keys(data.units).every(id=>id.startsWith("bank-"));
+    const required=allModules.filter(m=>bankOnly?m.id.startsWith("bank-"):!m.id.startsWith("bank-") && (basicOnly?m.id.startsWith("loopbasic-"):!m.id.startsWith("loopbasic-")));
     for(const m of required){const entries=data.units[m.id];if(!Array.isArray(entries)||!entries.length||entries.some(x=>!x||typeof x.title!=="string"||typeof x.solution!=="string"))throw new Error("자료가 누락되었거나 파일 형식이 잘못되었습니다.");}
     for(const [id,entries] of Object.entries(data.units)){if(!Array.isArray(entries)||!entries.length||entries.some(x=>!x||typeof x.title!=="string"||typeof x.solution!=="string"))throw new Error("정답 자료 형식이 잘못되었습니다.");}
     solutionBundle={...data,units:{...(solutionBundle?.units||{}),...data.units}};teacherMode=true;teacherDialog.close();updateTeacherUI();
