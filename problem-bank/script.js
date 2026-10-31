@@ -437,6 +437,8 @@ render();
    각 단원 index.html에서 기존 script.js 다음에 불러옵니다. */
 (() => {
   'use strict';
+  if (window.__bankStorageInstalled) return;
+  window.__bankStorageInstalled = true;
   if (typeof problems === 'undefined' || typeof render !== 'function' ||
       typeof complete !== 'function' || typeof submit !== 'function') return;
 
@@ -447,6 +449,7 @@ render();
   const uiStyle = document.createElement('style');
   uiStyle.textContent = '\n/* Compact lesson header and consistent editor controls */\nheader { min-height:64px; padding:10px clamp(18px,3vw,36px); gap:16px; }\nheader > div { display:flex; align-items:center; gap:12px; min-width:0; }\nheader h1 { margin:0; font-size:1.18rem; line-height:1.35; }\nheader .eyebrow { font-size:.63rem; letter-spacing:.08em; white-space:nowrap; }\nheader > p { margin:0; flex-shrink:0; font-size:.85rem; white-space:nowrap; }\nheader .learner { margin-right:12px; padding-right:12px; font-size:.82rem; }\n.progress { height:3px; }\nmain { width:min(1180px,calc(100% - 36px)); margin:18px auto; gap:18px; }\n.problem-card { padding:22px; }\n.problem-card h2 { font-size:1.28rem; margin:12px 0; }\n.conditions { margin-top:18px; padding-top:16px; }\n.teacher-bar { margin:12px auto 0; padding:8px 12px; }\n.editor-title { height:46px; padding:0 16px; }\n.editor-title h3 { font-size:.92rem; }\n.editor-title button { font-size:.8rem; }\n.answer-card .save-notice { margin:0!important; padding:9px 16px!important; display:flex; flex-wrap:wrap; align-items:center; gap:3px 10px; border-bottom:1px solid var(--line,#dbe2ec); background:#f8fafc; font-family:inherit; font-size:12px!important; line-height:1.5!important; }\n.save-notice .save-status { font-size:12px; white-space:nowrap; }\n.save-notice .save-help { margin-top:0!important; font-size:11px; color:#64748b; }\n.answer-card .practice-navigation { margin:0!important; padding:10px 16px; gap:8px!important; border-top:1px solid var(--line,#dbe2ec); background:#fff; }\n.practice-navigation button { padding:7px 11px!important; font:inherit; font-size:12px; font-weight:600; line-height:1.4; transition:background .15s; }\n.practice-navigation button:hover:not(:disabled) { background:#f1f5f9!important; border-color:#94a3b8!important; }\n.practice-navigation button:disabled { opacity:.4; cursor:not-allowed!important; }\n.practice-navigation .solved-label { margin-left:auto; color:#64748b; font-size:12px; white-space:nowrap; }\n.actions { min-height:60px; padding:10px 16px; }\n.actions > button { padding:10px 16px; font-size:.85rem; white-space:nowrap; }\n.actions p { font-size:.82rem; }\n@media(max-width:820px) { main { margin:14px auto; gap:14px; } }\n@media(max-width:560px) {\n header { min-height:60px; padding:10px 16px; gap:8px; }\n header > div { display:block; }\n header .eyebrow { display:none; }\n header h1 { font-size:1rem; }\n header > p { font-size:.75rem; }\n header .learner { margin-right:6px; padding-right:6px; font-size:.72rem; }\n main { width:calc(100% - 24px); }\n .problem-card { padding:18px; }\n .answer-card .save-notice { padding:8px 14px!important; }\n .save-notice .save-help { flex-basis:100%; }\n}\n';
   uiStyle.textContent += '\n.answer-card { overflow:visible; }\n.answer-card .editor-title { position:sticky; top:0; z-index:10; min-height:48px; height:auto; padding:7px 14px; gap:16px; background:#fff; border-radius:12px 12px 0 0; box-shadow:0 2px 5px rgba(23,32,51,.04); }\n.editor-heading-group { display:flex; align-items:center; gap:14px; min-width:0; }\n.editor-heading-group h3 { white-space:nowrap; }\n.editor-title #resetButton { padding:6px 8px; min-height:32px; font-size:12px; white-space:nowrap; color:#64748b; border-radius:5px; }\n.editor-title #resetButton:hover { background:#f1f5f9; }\n.editor-title #resetButton:focus-visible, .practice-navigation button:focus-visible { outline:2px solid #38bdf8; outline-offset:2px; }\n.answer-card .editor-title .practice-navigation { flex:0 0 auto; margin:0!important; padding:0!important; border:0; background:transparent; flex-wrap:nowrap!important; gap:6px!important; }\n.editor-title .practice-navigation button { min-height:34px; border:1px solid #cbd5e1!important; border-radius:6px; }\n.nav-short { display:none; }\n.answer-card .actions { border-radius:0 0 12px 12px; }\n@media(max-width:560px) {\n .answer-card .editor-title { padding:7px 10px; gap:12px; }\n .editor-heading-group { gap:8px; }\n .editor-heading-group h3 { font-size:13px; }\n .editor-title #resetButton { padding:6px 4px; font-size:11px; }\n .nav-long { display:none; }\n .nav-short { display:inline; }\n .editor-title .practice-navigation button { padding:7px 9px!important; }\n}\n';
+  uiStyle.textContent += '\n.practice-navigation[hidden] { display:none!important; }\n';
   document.head.appendChild(uiStyle);
   const count = problems.length;
   const categoryKey = new URLSearchParams(location.search).get('category') || 'default';
@@ -521,16 +524,16 @@ render();
   function freshState() {
     return {version:1, drafts:{}, checkedDrafts:{}, solved:Array(count).fill(false), current:0, completion:null};
   }
-  function eligible() { return key && state && !teacherMode; }
+  function eligible() { return key && state; }
   function allSolved() { return Boolean(state && state.solved.every(Boolean)); }
   function updateNotice() {
     statusText.textContent = storageFailed ? '저장할 수 없음' :
-      teacherMode ? '교사용 모드' : savedSuccessfully ? '자동 저장됨' :
+      savedSuccessfully ? (teacherMode ? '교사용 답안 자동 저장됨' : '자동 저장됨') :
       key ? '자동 저장 대기' : '학번 확인 대기';
     statusDot.style.background = storageFailed ? '#dc2626' :
-      teacherMode || !savedSuccessfully ? '#94a3b8' : '#16a34a';
+      !savedSuccessfully ? '#94a3b8' : '#16a34a';
     helpText.textContent = storageFailed ? '창을 닫기 전에 작성 코드를 복사해 주세요.' :
-      teacherMode ? '교사용 탐색은 학생의 풀이 기록에 저장되지 않습니다.' :
+      teacherMode ? '이 브라우저에 교사용 답안과 진행 위치를 저장합니다.' :
       '같은 컴퓨터·브라우저에서 다시 접속하면 이어서 풀 수 있습니다.';
     navigation.hidden = teacherMode || !key;
     previousButton.disabled = busy || current <= 0;
@@ -580,7 +583,7 @@ render();
         const firstUnsolved = state.solved.indexOf(false);
         const unlocked = firstUnsolved === -1 ? count - 1 : firstUnsolved;
         // 예전 완료 기록의 current=count도 마지막 문제의 실제 배열 번호로 복원합니다.
-        state.current = Number.isInteger(saved.current) ? Math.max(0,Math.min(saved.current,unlocked)) : unlocked;
+        state.current = Number.isInteger(saved.current) ? Math.max(0,Math.min(saved.current,teacherMode ? count - 1 : unlocked)) : unlocked;
         if (allSolved() && saved.completion &&
             typeof saved.completion.code === 'string' && saved.completion.code &&
             typeof saved.completion.at === 'string' && Number.isFinite(Date.parse(saved.completion.at))) {
@@ -602,7 +605,7 @@ render();
   }
   function showCompletion() {
     const panel = document.getElementById('completion');
-    const show = current === count - 1 && (teacherMode ? teacherCompleted : eligible() && allSolved());
+    const show = current === count - 1 && (eligible() && allSolved());
     panel.hidden = !show;
     document.getElementById('practice').hidden = false;
     if (!show) return;
@@ -694,7 +697,7 @@ render();
       teacherCompleted = teacherMode;
       busy = false;
       submitButton.disabled = false;
-      message(teacherMode || allSolved() ? '정답입니다! 이 소단원의 모든 문제를 해결했습니다.' :
+      message(allSolved() ? '정답입니다! 이 소단원의 모든 문제를 해결했습니다.' :
         '정답입니다! 앞쪽의 미해결 문제도 정답 확인을 눌러 주세요.', true);
       complete();
       return;
@@ -764,8 +767,8 @@ render();
     if (event.source !== parent || event.origin !== location.origin || event.data?.type !== 'session-context') return;
     const number = String(event.data.studentNumber || '');
     if (!/^\d{4}$/.test(number)) return;
-    const nextKey = `jsplayground:progress:v1:${number}:${moduleKey}:${hash.toString(16)}`;
     const nextTeacherMode = Boolean(event.data.teacherMode);
+    const nextKey = `jsplayground:progress:v1:${nextTeacherMode ? "teacher:" : ""}${number}:${moduleKey}:${hash.toString(16)}`;
     if (key === nextKey && teacherMode === nextTeacherMode) return;
     captureDraft();
     sessionGeneration++;
@@ -778,7 +781,7 @@ render();
     storageFailed = false;
     displayed = null;
     loadState();
-    current = teacherMode ? 0 : state.current;
+    current = state.current;
     // 재접속은 마지막 위치 복원만 수행하며, 초기화나 대화상자를 실행하지 않습니다.
     render();
     updateNotice();
@@ -796,9 +799,10 @@ render();
   select.type = 'button'; select.textContent = '완료 이미지 저장 폴더 선택';
   const status = document.createElement('p');
   status.setAttribute('role', 'status');
-  status.textContent = '폴더를 선택하면 이 페이지에서 전체 문제 완료 시 확인 이미지가 저장됩니다.';
+  status.textContent = '10문제를 모두 완료한 뒤 폴더를 선택하면 완료 이미지가 바로 저장됩니다.';
   bar.append(select, status);
-  document.getElementById('practice').before(bar);
+  bar.hidden = current !== problems.length - 1;
+  panel.before(bar);
   const actions = document.createElement('div');
   actions.className = 'bank-export-actions';
   const copy = document.createElement('button'), save = document.createElement('button');
@@ -807,7 +811,7 @@ render();
   actions.append(copy, save);
   panel.querySelector('.completion-content').append(actions);
   const style = document.createElement('style');
-  style.textContent = '.bank-export-controls{width:min(1180px,calc(100% - 36px));margin:12px auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.bank-export-controls button{padding:8px 12px;border:1px solid #cbd5e1;border-radius:7px;background:white;color:#334155;font:inherit;font-size:12px;cursor:pointer}.bank-export-controls p{margin:0;color:#64748b;font-size:12px}.bank-export-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}.bank-export-actions button{font-size:13px}';
+  style.textContent = '.bank-export-controls[hidden]{display:none!important}.bank-export-controls{width:min(1180px,calc(100% - 36px));margin:12px auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.bank-export-controls button{padding:8px 12px;border:1px solid #cbd5e1;border-radius:7px;background:white;color:#334155;font:inherit;font-size:12px;cursor:pointer}.bank-export-controls p{margin:0;color:#64748b;font-size:12px}.bank-export-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}.bank-export-actions button{font-size:13px}';
   document.head.appendChild(style);
   let folder = null, lastSaved = '', exporting = false, pending = false;
   const field = id => document.getElementById(id).textContent.trim();
@@ -867,8 +871,9 @@ render();
     try {if(!navigator.clipboard?.write||typeof ClipboardItem==='undefined')throw new Error('이미지 복사를 지원하지 않습니다. 이미지 저장 버튼을 사용하세요.');await navigator.clipboard.write([new ClipboardItem({'image/png':makeImage()})]);status.textContent='완료 이미지를 복사했습니다. 제출할 곳에 Ctrl+V로 붙여넣으세요.';}
     catch(error){status.textContent=error.name==='NotAllowedError'?'복사 권한을 허용하거나 이미지 저장 버튼을 사용하세요.':error.message;}finally{copy.disabled=false;}
   });
-  const observer=new MutationObserver(()=>{if(panel.hidden)lastSaved='';if(pending)return;pending=true;queueMicrotask(()=>{pending=false;autoSave();});});
+  const observer=new MutationObserver(()=>{bar.hidden=current!==problems.length-1;if(panel.hidden)lastSaved='';if(pending)return;pending=true;queueMicrotask(()=>{pending=false;autoSave();});});
   observer.observe(panel,{attributes:true,attributeFilter:['hidden'],childList:true,subtree:true,characterData:true});
+  observer.observe(document.getElementById('problemNumber'),{childList:true,subtree:true,characterData:true});
   // 단독 페이지 접속 시에도 기존에 입력한 학번을 사용합니다.
   if (window.parent === window) {
     const number=sessionStorage.getItem('studentNumber');
