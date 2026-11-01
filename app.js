@@ -122,6 +122,12 @@ const bankChild4=document.createElement("button");
 bankChild4.type="button";bankChild4.className="submenu-button";bankChild4.dataset.id=bankRound4.id;bankChild4.textContent="4회차";
 bankChild4.addEventListener("click",()=>{openModule(bankRound4);bankParent.setAttribute("aria-expanded","true");});
 bankSub.appendChild(bankChild4);
+const bankRound5 = {id:"bank-round5", title:"문제은행 5회차", path:"problem-bank/round5/?category=round5"};
+allModules.push(bankRound5);
+const bankChild5=document.createElement("button");
+bankChild5.type="button";bankChild5.className="submenu-button";bankChild5.dataset.id=bankRound5.id;bankChild5.textContent="5회차";
+bankChild5.addEventListener("click",()=>{openModule(bankRound5);bankParent.setAttribute("aria-expanded","true");});
+bankSub.appendChild(bankChild5);
 const requested=location.hash.slice(1),initialModule=allModules.find(m=>m.id===requested)||modules[0];frame.addEventListener("load",sendSessionContext);
 function beginSession(){document.getElementById("studentNumberText").textContent=studentNumber;document.getElementById("studentBadge").hidden=false;openModule(activeModule||initialModule);}
 document.getElementById("studentForm").addEventListener("submit",e=>{e.preventDefault();const value=document.getElementById("studentNumber").value.trim();if(!/^\d{4}$/.test(value)){document.getElementById("studentFeedback").textContent="학번을 숫자 4자리로 입력하세요.";return;}studentNumber=value;sessionStorage.setItem("studentNumber",value);studentDialog.close();beginSession();});
