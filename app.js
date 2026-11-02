@@ -104,7 +104,7 @@ bankChild.type="button";bankChild.className="submenu-button";bankChild.dataset.i
 bankParent.addEventListener("click",()=>{bankSub.hidden=!bankSub.hidden;bankParent.classList.toggle("open",!bankSub.hidden);bankParent.setAttribute("aria-expanded",String(!bankSub.hidden));});
 bankChild.addEventListener("click",()=>{openModule(bankRound1);bankParent.setAttribute("aria-expanded","true");});
 bankSub.appendChild(bankChild);
-// bankArea.append(bankParent,bankSub);
+bankArea.append(bankParent,bankSub);
 const bankRound2 = {id:"bank-round2", title:"문제은행 2회차", path:"problem-bank/round2/?category=round2"};
 allModules.push(bankRound2);
 const bankChild2=document.createElement("button");
